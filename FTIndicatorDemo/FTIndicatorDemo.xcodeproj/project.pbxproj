@@ -1,0 +1,494 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A70F5081D47220400CE3ABC /* FTIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A70F4FA1D47220400CE3ABC /* FTIndicator.m */; };
+		5A70F50C1D47220400CE3ABC /* ft_failure.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A70F5051D47220400CE3ABC /* ft_failure.png */; };
+		5A70F50D1D47220400CE3ABC /* ft_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A70F5061D47220400CE3ABC /* ft_info.png */; };
+		5A70F50E1D47220400CE3ABC /* ft_success.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A70F5071D47220400CE3ABC /* ft_success.png */; };
+		5A70F5111D4728BA00CE3ABC /* FTProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A70F5101D4728BA00CE3ABC /* FTProgressIndicator.m */; };
+		5A70F5141D47290D00CE3ABC /* FTToastIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A70F5131D47290D00CE3ABC /* FTToastIndicator.m */; };
+		5A70F5171D47294B00CE3ABC /* FTNotificationIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A70F5161D47294B00CE3ABC /* FTNotificationIndicator.m */; };
+		5AFBAE2F1D406D5B00ADB70B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBAE2E1D406D5B00ADB70B /* main.m */; };
+		5AFBAE321D406D5B00ADB70B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBAE311D406D5B00ADB70B /* AppDelegate.m */; };
+		5AFBAE351D406D5B00ADB70B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBAE341D406D5B00ADB70B /* ViewController.m */; };
+		5AFBAE381D406D5B00ADB70B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AFBAE361D406D5B00ADB70B /* Main.storyboard */; };
+		5AFBAE3A1D406D5B00ADB70B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AFBAE391D406D5B00ADB70B /* Assets.xcassets */; };
+		5AFBAE3D1D406D5B00ADB70B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AFBAE3B1D406D5B00ADB70B /* LaunchScreen.storyboard */; };
+		5AFBAE481D406D5C00ADB70B /* FTIndicatorDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBAE471D406D5C00ADB70B /* FTIndicatorDemoUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5AFBAE441D406D5C00ADB70B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AFBAE221D406D5B00ADB70B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AFBAE291D406D5B00ADB70B;
+			remoteInfo = FTIndicatorDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5A70F4F91D47220400CE3ABC /* FTIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTIndicator.h; sourceTree = "<group>"; };
+		5A70F4FA1D47220400CE3ABC /* FTIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTIndicator.m; sourceTree = "<group>"; };
+		5A70F5051D47220400CE3ABC /* ft_failure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ft_failure.png; sourceTree = "<group>"; };
+		5A70F5061D47220400CE3ABC /* ft_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ft_info.png; sourceTree = "<group>"; };
+		5A70F5071D47220400CE3ABC /* ft_success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ft_success.png; sourceTree = "<group>"; };
+		5A70F50F1D4728BA00CE3ABC /* FTProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTProgressIndicator.h; sourceTree = "<group>"; };
+		5A70F5101D4728BA00CE3ABC /* FTProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTProgressIndicator.m; sourceTree = "<group>"; };
+		5A70F5121D47290D00CE3ABC /* FTToastIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTToastIndicator.h; sourceTree = "<group>"; };
+		5A70F5131D47290D00CE3ABC /* FTToastIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTToastIndicator.m; sourceTree = "<group>"; };
+		5A70F5151D47294B00CE3ABC /* FTNotificationIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTNotificationIndicator.h; sourceTree = "<group>"; };
+		5A70F5161D47294B00CE3ABC /* FTNotificationIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTNotificationIndicator.m; sourceTree = "<group>"; };
+		5AFBAE2A1D406D5B00ADB70B /* FTIndicatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FTIndicatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AFBAE2E1D406D5B00ADB70B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5AFBAE301D406D5B00ADB70B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5AFBAE311D406D5B00ADB70B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5AFBAE331D406D5B00ADB70B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		5AFBAE341D406D5B00ADB70B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5AFBAE371D406D5B00ADB70B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5AFBAE391D406D5B00ADB70B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5AFBAE3C1D406D5B00ADB70B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5AFBAE3E1D406D5B00ADB70B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AFBAE431D406D5C00ADB70B /* FTIndicatorDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FTIndicatorDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AFBAE471D406D5C00ADB70B /* FTIndicatorDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTIndicatorDemoUITests.m; sourceTree = "<group>"; };
+		5AFBAE491D406D5C00ADB70B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5AFBAE271D406D5B00ADB70B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AFBAE401D406D5C00ADB70B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5A70F4F81D47220400CE3ABC /* FTIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				5A70F4F91D47220400CE3ABC /* FTIndicator.h */,
+				5A70F4FA1D47220400CE3ABC /* FTIndicator.m */,
+				5A70F4FB1D47220400CE3ABC /* FTNotificationIndicatorView */,
+				5A70F4FE1D47220400CE3ABC /* FTProgressIndicatorView */,
+				5A70F5011D47220400CE3ABC /* FTToastIndicatorView */,
+				5A70F5041D47220400CE3ABC /* ImageAsserts */,
+			);
+			name = FTIndicator;
+			path = ../../FTIndicator;
+			sourceTree = "<group>";
+		};
+		5A70F4FB1D47220400CE3ABC /* FTNotificationIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				5A70F5151D47294B00CE3ABC /* FTNotificationIndicator.h */,
+				5A70F5161D47294B00CE3ABC /* FTNotificationIndicator.m */,
+			);
+			path = FTNotificationIndicatorView;
+			sourceTree = "<group>";
+		};
+		5A70F4FE1D47220400CE3ABC /* FTProgressIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				5A70F50F1D4728BA00CE3ABC /* FTProgressIndicator.h */,
+				5A70F5101D4728BA00CE3ABC /* FTProgressIndicator.m */,
+			);
+			path = FTProgressIndicatorView;
+			sourceTree = "<group>";
+		};
+		5A70F5011D47220400CE3ABC /* FTToastIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				5A70F5121D47290D00CE3ABC /* FTToastIndicator.h */,
+				5A70F5131D47290D00CE3ABC /* FTToastIndicator.m */,
+			);
+			path = FTToastIndicatorView;
+			sourceTree = "<group>";
+		};
+		5A70F5041D47220400CE3ABC /* ImageAsserts */ = {
+			isa = PBXGroup;
+			children = (
+				5A70F5051D47220400CE3ABC /* ft_failure.png */,
+				5A70F5061D47220400CE3ABC /* ft_info.png */,
+				5A70F5071D47220400CE3ABC /* ft_success.png */,
+			);
+			path = ImageAsserts;
+			sourceTree = "<group>";
+		};
+		5AFBAE211D406D5B00ADB70B = {
+			isa = PBXGroup;
+			children = (
+				5AFBAE2C1D406D5B00ADB70B /* FTIndicatorDemo */,
+				5AFBAE461D406D5C00ADB70B /* FTIndicatorDemoUITests */,
+				5AFBAE2B1D406D5B00ADB70B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5AFBAE2B1D406D5B00ADB70B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5AFBAE2A1D406D5B00ADB70B /* FTIndicatorDemo.app */,
+				5AFBAE431D406D5C00ADB70B /* FTIndicatorDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5AFBAE2C1D406D5B00ADB70B /* FTIndicatorDemo */ = {
+			isa = PBXGroup;
+			children = (
+				5AFBAE301D406D5B00ADB70B /* AppDelegate.h */,
+				5AFBAE311D406D5B00ADB70B /* AppDelegate.m */,
+				5AFBAE331D406D5B00ADB70B /* ViewController.h */,
+				5AFBAE341D406D5B00ADB70B /* ViewController.m */,
+				5A70F4F81D47220400CE3ABC /* FTIndicator */,
+				5AFBAE361D406D5B00ADB70B /* Main.storyboard */,
+				5AFBAE391D406D5B00ADB70B /* Assets.xcassets */,
+				5AFBAE3B1D406D5B00ADB70B /* LaunchScreen.storyboard */,
+				5AFBAE3E1D406D5B00ADB70B /* Info.plist */,
+				5AFBAE2D1D406D5B00ADB70B /* Supporting Files */,
+			);
+			path = FTIndicatorDemo;
+			sourceTree = "<group>";
+		};
+		5AFBAE2D1D406D5B00ADB70B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5AFBAE2E1D406D5B00ADB70B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5AFBAE461D406D5C00ADB70B /* FTIndicatorDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5AFBAE471D406D5C00ADB70B /* FTIndicatorDemoUITests.m */,
+				5AFBAE491D406D5C00ADB70B /* Info.plist */,
+			);
+			path = FTIndicatorDemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5AFBAE291D406D5B00ADB70B /* FTIndicatorDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AFBAE4C1D406D5C00ADB70B /* Build configuration list for PBXNativeTarget "FTIndicatorDemo" */;
+			buildPhases = (
+				5AFBAE261D406D5B00ADB70B /* Sources */,
+				5AFBAE271D406D5B00ADB70B /* Frameworks */,
+				5AFBAE281D406D5B00ADB70B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FTIndicatorDemo;
+			productName = FTIndicatorDemo;
+			productReference = 5AFBAE2A1D406D5B00ADB70B /* FTIndicatorDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5AFBAE421D406D5C00ADB70B /* FTIndicatorDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AFBAE4F1D406D5C00ADB70B /* Build configuration list for PBXNativeTarget "FTIndicatorDemoUITests" */;
+			buildPhases = (
+				5AFBAE3F1D406D5C00ADB70B /* Sources */,
+				5AFBAE401D406D5C00ADB70B /* Frameworks */,
+				5AFBAE411D406D5C00ADB70B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AFBAE451D406D5C00ADB70B /* PBXTargetDependency */,
+			);
+			name = FTIndicatorDemoUITests;
+			productName = FTIndicatorDemoUITests;
+			productReference = 5AFBAE431D406D5C00ADB70B /* FTIndicatorDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5AFBAE221D406D5B00ADB70B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = liufengting;
+				TargetAttributes = {
+					5AFBAE291D406D5B00ADB70B = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					5AFBAE421D406D5C00ADB70B = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 5AFBAE291D406D5B00ADB70B;
+					};
+				};
+			};
+			buildConfigurationList = 5AFBAE251D406D5B00ADB70B /* Build configuration list for PBXProject "FTIndicatorDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5AFBAE211D406D5B00ADB70B;
+			productRefGroup = 5AFBAE2B1D406D5B00ADB70B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5AFBAE291D406D5B00ADB70B /* FTIndicatorDemo */,
+				5AFBAE421D406D5C00ADB70B /* FTIndicatorDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5AFBAE281D406D5B00ADB70B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A70F50D1D47220400CE3ABC /* ft_info.png in Resources */,
+				5A70F50E1D47220400CE3ABC /* ft_success.png in Resources */,
+				5AFBAE3D1D406D5B00ADB70B /* LaunchScreen.storyboard in Resources */,
+				5AFBAE3A1D406D5B00ADB70B /* Assets.xcassets in Resources */,
+				5A70F50C1D47220400CE3ABC /* ft_failure.png in Resources */,
+				5AFBAE381D406D5B00ADB70B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AFBAE411D406D5C00ADB70B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5AFBAE261D406D5B00ADB70B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AFBAE351D406D5B00ADB70B /* ViewController.m in Sources */,
+				5AFBAE321D406D5B00ADB70B /* AppDelegate.m in Sources */,
+				5A70F5171D47294B00CE3ABC /* FTNotificationIndicator.m in Sources */,
+				5AFBAE2F1D406D5B00ADB70B /* main.m in Sources */,
+				5A70F5111D4728BA00CE3ABC /* FTProgressIndicator.m in Sources */,
+				5A70F5081D47220400CE3ABC /* FTIndicator.m in Sources */,
+				5A70F5141D47290D00CE3ABC /* FTToastIndicator.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AFBAE3F1D406D5C00ADB70B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AFBAE481D406D5C00ADB70B /* FTIndicatorDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5AFBAE451D406D5C00ADB70B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AFBAE291D406D5B00ADB70B /* FTIndicatorDemo */;
+			targetProxy = 5AFBAE441D406D5C00ADB70B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5AFBAE361D406D5B00ADB70B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AFBAE371D406D5B00ADB70B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5AFBAE3B1D406D5B00ADB70B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AFBAE3C1D406D5B00ADB70B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5AFBAE4A1D406D5C00ADB70B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5AFBAE4B1D406D5C00ADB70B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5AFBAE4D1D406D5C00ADB70B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FTIndicatorDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.FTIndicatorDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5AFBAE4E1D406D5C00ADB70B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FTIndicatorDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.FTIndicatorDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5AFBAE501D406D5C00ADB70B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FTIndicatorDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.FTIndicatorDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FTIndicatorDemo;
+			};
+			name = Debug;
+		};
+		5AFBAE511D406D5C00ADB70B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FTIndicatorDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.FTIndicatorDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FTIndicatorDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5AFBAE251D406D5B00ADB70B /* Build configuration list for PBXProject "FTIndicatorDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AFBAE4A1D406D5C00ADB70B /* Debug */,
+				5AFBAE4B1D406D5C00ADB70B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AFBAE4C1D406D5C00ADB70B /* Build configuration list for PBXNativeTarget "FTIndicatorDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AFBAE4D1D406D5C00ADB70B /* Debug */,
+				5AFBAE4E1D406D5C00ADB70B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AFBAE4F1D406D5C00ADB70B /* Build configuration list for PBXNativeTarget "FTIndicatorDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AFBAE501D406D5C00ADB70B /* Debug */,
+				5AFBAE511D406D5C00ADB70B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5AFBAE221D406D5B00ADB70B /* Project object */;
+}
