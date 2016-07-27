@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, FTToastIndicatorStyle) {
+    FTToastIndicatorStyleLight,
+    FTToastIndicatorStyleExtraLight,
+    FTToastIndicatorStyleDark
+};
+
 @interface FTToastIndicator : NSObject
+
++(void)setToastIndicatorStyle:(FTToastIndicatorStyle)style;
+
++(void)showToastMessage:(NSString *)toastMessage;
+
 
 @end
 
@@ -22,7 +33,8 @@
 
 @interface FTToastIndicatorView : UIVisualEffectView
 
--(void)showToastMessage:(NSString *)toastMessage;
+-(void )showToastMessage:(NSString *)toastMessage;
+
 -(CGSize )getFrameForToastViewWithMessage:(NSString *)toastMessage;
 
 @end

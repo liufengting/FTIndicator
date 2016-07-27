@@ -8,13 +8,101 @@
 
 #import "FTProgressIndicator.h"
 
+#define kFTScreenWidth    [UIScreen mainScreen].bounds.size.width
+#define kFTScreenHeight   [UIScreen mainScreen].bounds.size.height
+
+@interface FTProgressIndicator ()
+
+@property (nonatomic, strong)FTProgressIndicatorView *progressView;
+
+
+@end
+
 @implementation FTProgressIndicator
+
++(FTProgressIndicator *)sharedInstance
+{
+    static FTProgressIndicator *shared;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shared = [[FTProgressIndicator alloc] init];
+    });
+    return shared;
+}
+
++(void)showProgressWithImage:(UIImage *)image message:(NSString *)progressMessage
+{
+    [[self sharedInstance] showProgressWithImage:image message:progressMessage];
+}
+
+
+
+-(FTProgressIndicatorView *)progressView
+{
+    if (!_progressView) {
+        _progressView = [[FTProgressIndicatorView alloc] initWithFrame:CGRectZero];
+    }
+    return _progressView;
+}
+
+
+-(void)showProgressWithImage:(UIImage *)image message:(NSString *)progressMessage
+{
+    self.progressView.alpha = 1;
+    self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
+    
+    CGSize progressSize = [self.progressView getFrameForProgressViewWithMessage:progressMessage];
+    
+    [self.progressView setFrame:CGRectMake((kFTScreenWidth - progressSize.width)/2, (kFTScreenHeight - progressSize.height)/2, progressSize.width, progressSize.height)];
+    [self.progressView showProgressWithImage:image message:progressMessage];
+    
+    [[[UIApplication sharedApplication] keyWindow] addSubview:self.progressView];
+    
+    self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
+    
+    
+    [UIView animateWithDuration:0.2
+                          delay:0
+         usingSpringWithDamping:0.6
+          initialSpringVelocity:0.5
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         
+                         self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
+                         
+                     } completion:^(BOOL finished) {
+                         if(finished){
+                             [self prepareForDismissingProgressViewWithMessage:progressMessage];
+                         }
+                     }];
+    
+}
+-(void)prepareForDismissingProgressViewWithMessage:(NSString *)progressMessage
+{
+    CGFloat it = progressMessage.length * 0.08;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(it * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.2
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             
+                             self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
+                             self.progressView.alpha = 0;
+                             
+                         } completion:^(BOOL finished) {
+                             if(finished){
+                                 
+                             }
+                         }];
+    });
+}
+
+
 
 @end
 
 
-#define kFTScreenWidth    [UIScreen mainScreen].bounds.size.width
-#define kFTScreenHeight   [UIScreen mainScreen].bounds.size.height
 
 @interface FTProgressIndicatorView ()
 

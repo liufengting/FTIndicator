@@ -83,9 +83,9 @@
 			children = (
 				5A70F4F91D47220400CE3ABC /* FTIndicator.h */,
 				5A70F4FA1D47220400CE3ABC /* FTIndicator.m */,
-				5A70F4FB1D47220400CE3ABC /* FTNotificationIndicatorView */,
-				5A70F4FE1D47220400CE3ABC /* FTProgressIndicatorView */,
 				5A70F5011D47220400CE3ABC /* FTToastIndicatorView */,
+				5A70F4FE1D47220400CE3ABC /* FTProgressIndicatorView */,
+				5A70F4FB1D47220400CE3ABC /* FTNotificationIndicatorView */,
 				5A70F5041D47220400CE3ABC /* ImageAsserts */,
 			);
 			name = FTIndicator;

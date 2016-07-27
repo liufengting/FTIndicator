@@ -8,12 +8,98 @@
 
 #import "FTNotificationIndicator.h"
 
-@implementation FTNotificationIndicator
+#define kFTScreenWidth    [UIScreen mainScreen].bounds.size.width
+#define kFTScreenHeight   [UIScreen mainScreen].bounds.size.height
+
+
+@interface FTNotificationIndicator ()
+
+@property (nonatomic, strong)FTNotificationIndicatorView *notificationView;
 
 @end
 
-#define kFTScreenWidth    [UIScreen mainScreen].bounds.size.width
-#define kFTScreenHeight   [UIScreen mainScreen].bounds.size.height
+@implementation FTNotificationIndicator
+
+
++(FTNotificationIndicator *)sharedInstance
+{
+    static FTNotificationIndicator *shared;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shared = [[FTNotificationIndicator alloc] init];
+    });
+    return shared;
+}
+
++(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message
+{
+    [[self sharedInstance] showNotificationWithImage:image title:title message:message];
+}
+
+
+
+-(FTNotificationIndicatorView *)notificationView
+{
+    if (!_notificationView) {
+        _notificationView = [[FTNotificationIndicatorView alloc] initWithFrame:CGRectZero];
+    }
+    return _notificationView;
+}
+
+
+-(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message
+{
+    
+    CGSize notificationSize = [self.notificationView getFrameForNotificationViewWithImage:image message:message];
+    
+    [self.notificationView setFrame:CGRectMake(0,-(notificationSize.height),kFTScreenWidth,notificationSize.height)];
+    
+    [self.notificationView showWithImage:image title:title message:message];
+    
+    [[[UIApplication sharedApplication] keyWindow] addSubview:self.notificationView];
+    
+    
+    
+    [UIView animateWithDuration:0.2
+                          delay:0
+         usingSpringWithDamping:0.6
+          initialSpringVelocity:0.5
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         
+                         [self.notificationView setFrame:CGRectMake(0,0,kFTScreenWidth,self.notificationView.frame.size.height)];
+                         
+                     } completion:^(BOOL finished) {
+                         if(finished){
+                             [self prepareForDismissingNotificationViewWithMessage:message];
+                         }
+                     }];
+    
+}
+-(void)prepareForDismissingNotificationViewWithMessage:(NSString *)toastMessage
+{
+    CGFloat it = toastMessage.length * 0.08;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(it * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.2
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             
+                             [self.notificationView setFrame:CGRectMake(0,-(self.notificationView.frame.size.height),kFTScreenWidth,(self.notificationView.frame.size.height))];
+                             
+                         } completion:^(BOOL finished) {
+                             if(finished){
+                                 
+                             }
+                         }];
+    });
+}
+
+
+
+@end
+
 
 @interface FTNotificationIndicatorView ()
 
@@ -111,15 +197,11 @@
 -(CGSize )getFrameForNotificationMessageLabelWithImage:(UIImage *)image message:(NSString *)notificationMessage
 {
     CGFloat textWidth = image ? (kFTScreenWidth - kFTNotificationMargin_X*3 - kFTNotificationImageSize) : (kFTScreenWidth - kFTNotificationMargin_X*2);
-    
     CGRect textSize = [notificationMessage boundingRectWithSize:CGSizeMake(textWidth, MAXFLOAT)
                                                         options:(NSStringDrawingUsesFontLeading | NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin)
                                                      attributes:@{NSFontAttributeName : self.perferedMessageFont}
                                                         context:nil];
     CGSize size = CGSizeMake(textSize.size.width, MIN(textSize.size.height ,kFTNotificationMaxHeight - kFTNotificationTitleHeight - kFTNotificationStatusBarHeight - kFTNotificationMargin_Y));
-    
-    NSLog(@"%f",kFTNotificationMaxHeight - kFTNotificationMargin_Y - kFTNotificationTitleHeight - kFTNotificationStatusBarHeight);
-    
     return size;
 }
 
@@ -127,9 +209,6 @@
 {
     CGSize textSize = [self getFrameForNotificationMessageLabelWithImage:image message:notificationMessage];
     CGSize size = CGSizeMake(kFTScreenWidth, MIN(textSize.height + kFTNotificationMargin_Y + kFTNotificationTitleHeight + kFTNotificationStatusBarHeight,kFTNotificationMaxHeight));
-    
-    NSLog(@"%f",size.height);
-    
     return size;
 }
 

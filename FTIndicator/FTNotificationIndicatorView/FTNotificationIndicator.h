@@ -10,6 +10,12 @@
 
 @interface FTNotificationIndicator : NSObject
 
+
+
++(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message;
+
+
+
 @end
 
 #define kFTNotificationMaxHeight            (200.f)

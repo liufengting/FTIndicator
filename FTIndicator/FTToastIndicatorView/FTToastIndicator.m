@@ -8,12 +8,103 @@
 
 #import "FTToastIndicator.h"
 
-@implementation FTToastIndicator
+#define kFTScreenWidth    [UIScreen mainScreen].bounds.size.width
+#define kFTScreenHeight   [UIScreen mainScreen].bounds.size.height
+
+
+@interface FTToastIndicator ()
+
+@property (nonatomic, assign)UIBlurEffectStyle *style;
+@property (nonatomic, strong)FTToastIndicatorView *toastView;
 
 @end
 
-#define kFTScreenWidth    [UIScreen mainScreen].bounds.size.width
-#define kFTScreenHeight   [UIScreen mainScreen].bounds.size.height
+@implementation FTToastIndicator
+
++(FTToastIndicator *)sharedInstance
+{
+    static FTToastIndicator *shared;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shared = [[FTToastIndicator alloc] init];
+    });
+    return shared;
+}
+
++(void)setToastIndicatorStyle:(FTToastIndicatorStyle)style
+{
+    
+}
+
++(void)showToastMessage:(NSString *)toastMessage
+{
+    [[self sharedInstance] showToastMessage:toastMessage];
+}
+
+
+
+-(FTToastIndicatorView *)toastView
+{
+    if (!_toastView) {
+        _toastView = [[FTToastIndicatorView alloc] initWithFrame:CGRectZero];
+    }
+    return _toastView;
+}
+
+-(void)showToastMessage:(NSString *)toastMessage
+{
+    self.toastView.alpha = 1;
+    self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
+    
+    CGSize toastSize = [self.toastView getFrameForToastViewWithMessage:toastMessage];
+    
+    [self.toastView setFrame:CGRectMake((kFTScreenWidth - toastSize.width)/2, kFTScreenHeight - kFTToastToBottom - toastSize.height, toastSize.width, toastSize.height)];
+    [self.toastView showToastMessage:toastMessage];
+    
+    [[[UIApplication sharedApplication] keyWindow] addSubview:self.toastView];
+    
+    self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
+    
+    
+    [UIView animateWithDuration:0.2
+                          delay:0
+         usingSpringWithDamping:0.6
+          initialSpringVelocity:0.5
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         
+                         self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
+                         
+                     } completion:^(BOOL finished) {
+                         if(finished){
+                             [self prepareForDismissingToastViewWithMessage:toastMessage];
+                         }
+                     }];
+    
+}
+-(void)prepareForDismissingToastViewWithMessage:(NSString *)toastMessage
+{
+    CGFloat it = toastMessage.length * 0.08;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(it * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.2
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             
+                             self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
+                             self.toastView.alpha = 0;
+                             
+                         } completion:^(BOOL finished) {
+                             if(finished){
+                                 
+                             }
+                         }];
+    });
+}
+
+@end
+
 
 @interface FTToastIndicatorView ()
 

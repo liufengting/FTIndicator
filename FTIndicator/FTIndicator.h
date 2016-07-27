@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FTToastIndicator.h"
+#import "FTProgressIndicator.h"
+#import "FTNotificationIndicator.h"
 
 @interface FTIndicator : NSObject
-
 
 +(void)showToastMessage:(NSString *)toastMessage;
 

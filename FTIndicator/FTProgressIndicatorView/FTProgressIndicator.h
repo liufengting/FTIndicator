@@ -10,6 +10,9 @@
 
 @interface FTProgressIndicator : NSObject
 
+
++(void)showProgressWithImage:(UIImage *)image message:(NSString *)progressMessage;
+
 @end
 
 #define kFTProgressMaxWidth             (kFTScreenWidth*0.6)
