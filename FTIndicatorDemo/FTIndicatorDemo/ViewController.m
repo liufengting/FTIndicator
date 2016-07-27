@@ -9,7 +9,16 @@
 #import "ViewController.h"
 #import "FTIndicator.h"
 
+#import "FTToastIndicator.h"
+#import "FTProgressIndicator.h"
+#import "FTNotificationIndicator.h"
+
+#import <DKNightVersion.h>
+
+
 @interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet UISwitch *switcher;
 
 @end
 
@@ -27,6 +36,15 @@
 }
 
 
+- (IBAction)switchChanged:(UISwitch *)sender
+{
+    if (sender.isOn) {
+        [[DKNightVersionManager sharedManager] dawnComing];
+    }else{
+        [[DKNightVersionManager sharedManager] nightFalling];
+    }
+    
+}
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -36,7 +54,19 @@
     
     switch (indexPath.section) {
         case 0:
-            [FTIndicator showToastMessage:@"Here is a toast message."];
+            switch (indexPath.row) {
+                case 0:
+                    [FTToastIndicator showToastMessage:@"Here is a toast message 0."];
+                    break;
+                case 1:
+                    [FTToastIndicator showToastMessage:@"Here is a toast message 1." withStyle:UIBlurEffectStyleExtraLight];
+                    break;
+                case 2:
+                    [FTToastIndicator showToastMessage:@"Here is a toast message 2." withStyle:UIBlurEffectStyleDark];
+                    break;
+                default:
+                    break;
+            }
             break;
         case 1:
             [FTIndicator showNotificationWithImage:[UIImage imageNamed:@"ft_info"]
@@ -46,6 +76,8 @@
         case 2:
             [FTIndicator showProgressWithImage:[UIImage imageNamed:@"ft_info"]
                                        message:@"Here is a progress title. This means nothing at all."];
+
+            
             break;
         default:
             break;

@@ -8,18 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, FTToastIndicatorStyle) {
-    FTToastIndicatorStyleLight,
-    FTToastIndicatorStyleExtraLight,
-    FTToastIndicatorStyleDark
-};
-
 @interface FTToastIndicator : NSObject
 
-+(void)setToastIndicatorStyle:(FTToastIndicatorStyle)style;
++(void)setToastIndicatorStyleToDefaultStyle;
+
++(void)setToastIndicatorStyle:(UIBlurEffectStyle)style;
 
 +(void)showToastMessage:(NSString *)toastMessage;
 
++(void)showToastMessage:(NSString *)toastMessage withStyle:(UIBlurEffectStyle)style;
 
 @end
 
@@ -30,10 +27,14 @@ typedef NS_ENUM(NSUInteger, FTToastIndicatorStyle) {
 #define kFTToastMargin_Y            (10.f)
 #define kFTToastToBottom            (20.f)
 #define kFTToastCornerRadius        (8.f)
+#define kFTToastDefaultFont         [UIFont systemFontOfSize:15]
+#define kFTToastDefaultTextColor    [UIColor blackColor]
+#define kFTToastDefaultTextColor_ForDarkStyle   [UIColor whiteColor]
+
 
 @interface FTToastIndicatorView : UIVisualEffectView
 
--(void )showToastMessage:(NSString *)toastMessage;
+-(void)showToastMessage:(NSString *)toastMessage withStyle:(UIBlurEffectStyle)style;
 
 -(CGSize )getFrameForToastViewWithMessage:(NSString *)toastMessage;
 

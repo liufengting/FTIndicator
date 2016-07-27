@@ -15,6 +15,9 @@
 @interface FTNotificationIndicator ()
 
 @property (nonatomic, strong)FTNotificationIndicatorView *notificationView;
+@property (nonatomic, assign)UIBlurEffectStyle indicatorStyle;
+@property (nonatomic, strong)NSString *notificationMessage;
+@property (nonatomic, strong)NSTimer *dismissTimer;
 
 @end
 
@@ -36,8 +39,6 @@
     [[self sharedInstance] showNotificationWithImage:image title:title message:message];
 }
 
-
-
 -(FTNotificationIndicatorView *)notificationView
 {
     if (!_notificationView) {
@@ -49,6 +50,8 @@
 
 -(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message
 {
+    self.notificationMessage = message;
+    
     
     CGSize notificationSize = [self.notificationView getFrameForNotificationViewWithImage:image message:message];
     
@@ -58,22 +61,8 @@
     
     [[[UIApplication sharedApplication] keyWindow] addSubview:self.notificationView];
     
+    [self startShowingNotificationView];
     
-    
-    [UIView animateWithDuration:0.2
-                          delay:0
-         usingSpringWithDamping:0.6
-          initialSpringVelocity:0.5
-                        options:UIViewAnimationOptionCurveEaseIn
-                     animations:^{
-                         
-                         [self.notificationView setFrame:CGRectMake(0,0,kFTScreenWidth,self.notificationView.frame.size.height)];
-                         
-                     } completion:^(BOOL finished) {
-                         if(finished){
-                             [self prepareForDismissingNotificationViewWithMessage:message];
-                         }
-                     }];
     
 }
 -(void)prepareForDismissingNotificationViewWithMessage:(NSString *)toastMessage
@@ -94,6 +83,55 @@
                              }
                          }];
     });
+}
+
+-(void)startDismissTimer
+{
+    if (_dismissTimer) {
+        [_dismissTimer invalidate];
+        _dismissTimer = nil;
+    }
+    CGFloat timeInterval = self.notificationMessage.length * 0.08;
+    
+    _dismissTimer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
+                                                     target:self
+                                                   selector:@selector(dismissingNotificationtView)
+                                                   userInfo:nil
+                                                    repeats:NO];
+}
+
+-(void)startShowingNotificationView
+{
+    [UIView animateWithDuration:0.2
+                          delay:0
+         usingSpringWithDamping:0.6
+          initialSpringVelocity:0.5
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         
+                         [self.notificationView setFrame:CGRectMake(0,0,kFTScreenWidth,self.notificationView.frame.size.height)];
+                         
+                     } completion:^(BOOL finished) {
+                         if (finished) {
+                             [self startDismissTimer];
+                         }
+                     }];
+}
+
+-(void)dismissingNotificationtView
+{
+    [UIView animateWithDuration:0.2
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         
+                         [self.notificationView setFrame:CGRectMake(0,-(self.notificationView.frame.size.height),kFTScreenWidth,(self.notificationView.frame.size.height))];
+                         
+                     } completion:^(BOOL finished) {
+                         if(finished){
+                             
+                         }
+                     }];
 }
 
 

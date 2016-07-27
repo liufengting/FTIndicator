@@ -1,0 +1,12 @@
+platform :ios, ‘8.0’
+
+target 'FTIndicatorDemo' do
+
+pod 'DKNightVersion'
+
+  target 'FTIndicatorDemoUITests' do
+    inherit! :search_paths
+
+  end
+
+end
