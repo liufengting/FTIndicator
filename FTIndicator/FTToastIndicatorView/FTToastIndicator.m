@@ -45,12 +45,9 @@
 
 +(void)showToastMessage:(NSString *)toastMessage
 {
-    [[self sharedInstance] showToastMessage:toastMessage withStyle:UIBlurEffectStyleLight];
+    [[self sharedInstance] showToastMessage:toastMessage];
 }
-+(void)showToastMessage:(NSString *)toastMessage withStyle:(UIBlurEffectStyle)style
-{
-    [[self sharedInstance] showToastMessage:toastMessage withStyle:style];
-}
+
 
 
 
@@ -65,10 +62,9 @@
 }
 
 
--(void)showToastMessage:(NSString *)toastMessage withStyle:(UIBlurEffectStyle)style
+-(void)showToastMessage:(NSString *)toastMessage
 {
     self.toastMessage = toastMessage;
-    self.indicatorStyle = style;
     self.toastView.alpha = 1;
     self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
     
@@ -90,7 +86,7 @@
         [_dismissTimer invalidate];
         _dismissTimer = nil;
     }
-    CGFloat timeInterval = self.toastMessage.length * 0.08;
+    CGFloat timeInterval = self.toastMessage.length * 0.04 + 0.5;
 
     _dismissTimer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
                                                      target:self
@@ -101,7 +97,7 @@
 
 -(void)startShowingToastView
 {
-    [UIView animateWithDuration:0.2
+    [UIView animateWithDuration:kFTToastDefaultAnimationDuration
                           delay:0
          usingSpringWithDamping:0.6
           initialSpringVelocity:0.5
@@ -119,7 +115,7 @@
 
 -(void)dismissingToastView
 {
-    [UIView animateWithDuration:0.2
+    [UIView animateWithDuration:kFTToastDefaultAnimationDuration
                           delay:0
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{

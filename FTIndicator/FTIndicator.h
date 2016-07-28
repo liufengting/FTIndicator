@@ -13,9 +13,34 @@
 
 @interface FTIndicator : NSObject
 
+
+/**
+ *  set Style
+ */
++(void)setIndicatorStyleToDefaultStyle;
+
++(void)setIndicatorStyle:(UIBlurEffectStyle)style;
+
+/**
+ *  FTToastIndicator
+ */
 +(void)showToastMessage:(NSString *)toastMessage;
 
-+(void)showProgressWithImage:(UIImage *)image message:(NSString *)progressMessage;
+/**
+ *  FTProgressIndicator
+ */
++(void)showProgressWithmessage:(NSString *)message;
+
++(void)showInfoWithMessage:(NSString *)message;
+
++(void)showSuccessWithMessage:(NSString *)message;
+
++(void)showErrorWithMessage:(NSString *)message;
+
+/**
+ *  FTNotificationIndicator
+ */
++(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message;
 
 +(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message;
 

@@ -34,30 +34,64 @@
     return shared;
 }
 
++(void)setNotificationIndicatorStyleToDefaultStyle
+{
+    [self sharedInstance].indicatorStyle = UIBlurEffectStyleLight;
+
+}
++(void)setNotificationIndicatorStyle:(UIBlurEffectStyle)style
+{
+    [self sharedInstance].indicatorStyle = style;
+}
++(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message
+{
+    [[self sharedInstance] showNotificationWithImage:nil title:title message:message];
+}
 +(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message
 {
     [[self sharedInstance] showNotificationWithImage:image title:title message:message];
 }
 
+
 -(FTNotificationIndicatorView *)notificationView
 {
     if (!_notificationView) {
         _notificationView = [[FTNotificationIndicatorView alloc] initWithFrame:CGRectZero];
+        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanGuestureRecognized:)];
+        [_notificationView addGestureRecognizer:pan];
     }
     return _notificationView;
 }
 
+-(void)onPanGuestureRecognized:(UIPanGestureRecognizer *)sender
+{
+    CGPoint translation = [sender translationInView:[[UIApplication sharedApplication] keyWindow]];
+    switch (sender.state) {
+        case UIGestureRecognizerStateBegan: case UIGestureRecognizerStateChanged:
+            if (translation.y < 0) {
+                [self.notificationView setFrame:CGRectMake(0,translation.y,kFTScreenWidth,self.notificationView.frame.size.height)];
+            }
+            break;
+        case UIGestureRecognizerStateEnded:
+            [self stopDismissTimer];
+            [self dismissingNotificationtView];
+            break;
+        default:
+            break;
+    }
+
+    
+}
 
 -(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message
 {
     self.notificationMessage = message;
     
-    
     CGSize notificationSize = [self.notificationView getFrameForNotificationViewWithImage:image message:message];
     
     [self.notificationView setFrame:CGRectMake(0,-(notificationSize.height),kFTScreenWidth,notificationSize.height)];
     
-    [self.notificationView showWithImage:image title:title message:message];
+    [self.notificationView showWithImage:image title:title message:message style:self.indicatorStyle];
     
     [[[UIApplication sharedApplication] keyWindow] addSubview:self.notificationView];
     
@@ -65,33 +99,11 @@
     
     
 }
--(void)prepareForDismissingNotificationViewWithMessage:(NSString *)toastMessage
-{
-    CGFloat it = toastMessage.length * 0.08;
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(it * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:0.2
-                              delay:0
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             
-                             [self.notificationView setFrame:CGRectMake(0,-(self.notificationView.frame.size.height),kFTScreenWidth,(self.notificationView.frame.size.height))];
-                             
-                         } completion:^(BOOL finished) {
-                             if(finished){
-                                 
-                             }
-                         }];
-    });
-}
 
 -(void)startDismissTimer
 {
-    if (_dismissTimer) {
-        [_dismissTimer invalidate];
-        _dismissTimer = nil;
-    }
-    CGFloat timeInterval = self.notificationMessage.length * 0.08;
+    [self stopDismissTimer];
+    CGFloat timeInterval = self.notificationMessage.length * 0.04 + 0.5;
     
     _dismissTimer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
                                                      target:self
@@ -99,13 +111,20 @@
                                                    userInfo:nil
                                                     repeats:NO];
 }
+-(void)stopDismissTimer
+{
+    if (_dismissTimer) {
+        [_dismissTimer invalidate];
+        _dismissTimer = nil;
+    }
+}
 
 -(void)startShowingNotificationView
 {
-    [UIView animateWithDuration:0.2
+    [UIView animateWithDuration:kFTNotificationDefaultAnimationDuration
                           delay:0
          usingSpringWithDamping:0.6
-          initialSpringVelocity:0.5
+          initialSpringVelocity:0.8
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          
@@ -120,7 +139,7 @@
 
 -(void)dismissingNotificationtView
 {
-    [UIView animateWithDuration:0.2
+    [UIView animateWithDuration:kFTNotificationDefaultAnimationDuration
                           delay:0
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
@@ -129,7 +148,7 @@
                          
                      } completion:^(BOOL finished) {
                          if(finished){
-                             
+                             [self.notificationView removeFromSuperview];
                          }
                      }];
 }
@@ -147,8 +166,6 @@
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *messageLabel;
 
-@property (strong, nonatomic) UIFont *perferedMessageFont;
-
 @end
 
 @implementation FTNotificationIndicatorView
@@ -157,7 +174,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+        self.effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     }
     return self;
 }
@@ -169,7 +186,6 @@
         _iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kFTNotificationMargin_X, kFTNotificationStatusBarHeight + kFTNotificationMargin_Y, kFTNotificationImageSize, kFTNotificationImageSize)];
         _iconImageView.contentMode = UIViewContentModeScaleAspectFit;
         _iconImageView.backgroundColor = [UIColor clearColor];
-        _iconImageView.image = [UIImage imageNamed:@"ft_info"];
         [self.contentView addSubview:_iconImageView];
     }
     return _iconImageView;
@@ -179,8 +195,8 @@
 {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kFTNotificationMargin_X*2 + kFTNotificationImageSize, kFTNotificationStatusBarHeight, kFTScreenWidth - kFTNotificationMargin_X*2 - kFTNotificationImageSize,  kFTNotificationTitleHeight)];
-        _titleLabel.font = [UIFont boldSystemFontOfSize:15];
-        _titleLabel.textColor = [UIColor whiteColor];
+        _titleLabel.font = kFTNotificationDefaultTitleFont;
+        _titleLabel.textColor = kFTNotificationDefaultTextColor;
         [self.contentView addSubview:_titleLabel];
     }
     return _titleLabel;
@@ -190,33 +206,39 @@
 {
     if (!_messageLabel) {
         _messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(kFTNotificationMargin_X*2 + kFTNotificationImageSize, kFTNotificationStatusBarHeight+kFTNotificationTitleHeight, kFTScreenWidth - kFTNotificationMargin_X*2 - kFTNotificationImageSize, 40)];
-        _messageLabel.textColor = [UIColor whiteColor];
-        _messageLabel.font = self.perferedMessageFont;
+        _messageLabel.textColor = kFTNotificationDefaultTextColor;
+        _messageLabel.font = kFTNotificationDefaultMessageFont;
         _messageLabel.numberOfLines = 0;
         [self.contentView addSubview:_messageLabel];
     }
     return _messageLabel;
 }
-
--(UIFont *)perferedMessageFont
+-(UIColor *)getTextColorWithStyle:(UIBlurEffectStyle)style
 {
-    if (!_perferedMessageFont) {
-        _perferedMessageFont = [UIFont systemFontOfSize:13];
+    switch (style) {
+        case UIBlurEffectStyleDark:
+            return kFTNotificationDefaultTextColor_ForDarkStyle;
+            break;
+        default:
+            return kFTNotificationDefaultTextColor;
+            break;
     }
-    return _perferedMessageFont;
 }
 
 
-
--(void)showWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message
+-(void)showWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message style:(UIBlurEffectStyle)style
 {
+    self.effect = [UIBlurEffect effectWithStyle:style];
+
     if (image) {
         self.iconImageView.image = image;
     }
     self.iconImageView.hidden = !(image);
     self.titleLabel.text = title;
     self.messageLabel.text = message;
-    
+    self.titleLabel.textColor = [self getTextColorWithStyle:style];
+    self.messageLabel.textColor = [self getTextColorWithStyle:style];
+
     
     CGSize messageSize = [self getFrameForNotificationMessageLabelWithImage:self.iconImageView.image message:message];
     
@@ -226,6 +248,7 @@
     
     self.titleLabel.frame = CGRectMake(text_X, kFTNotificationStatusBarHeight, kFTScreenWidth - kFTNotificationMargin_X - text_X,  kFTNotificationTitleHeight);
     self.messageLabel.frame = CGRectMake(text_X, kFTNotificationStatusBarHeight+kFTNotificationTitleHeight, kFTScreenWidth - kFTNotificationMargin_X - text_X, messageSize.height);
+    
     
     NSLog(@"%@",NSStringFromCGRect(self.messageLabel.frame));
     
@@ -237,7 +260,7 @@
     CGFloat textWidth = image ? (kFTScreenWidth - kFTNotificationMargin_X*3 - kFTNotificationImageSize) : (kFTScreenWidth - kFTNotificationMargin_X*2);
     CGRect textSize = [notificationMessage boundingRectWithSize:CGSizeMake(textWidth, MAXFLOAT)
                                                         options:(NSStringDrawingUsesFontLeading | NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin)
-                                                     attributes:@{NSFontAttributeName : self.perferedMessageFont}
+                                                     attributes:@{NSFontAttributeName : kFTNotificationDefaultMessageFont}
                                                         context:nil];
     CGSize size = CGSizeMake(textSize.size.width, MIN(textSize.size.height ,kFTNotificationMaxHeight - kFTNotificationTitleHeight - kFTNotificationStatusBarHeight - kFTNotificationMargin_Y));
     return size;

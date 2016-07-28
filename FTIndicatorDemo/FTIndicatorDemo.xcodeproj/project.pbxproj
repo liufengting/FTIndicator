@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		400BF96D3D6DEA2C185859CF /* libPods-FTIndicatorDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D743F9FE3B306B96DFA5AE49 /* libPods-FTIndicatorDemoUITests.a */; };
+		5A45FAF31D4A549200CD08FF /* ft_failure.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A45FAED1D4A549200CD08FF /* ft_failure.png */; };
+		5A45FAF41D4A549200CD08FF /* ft_failure_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A45FAEE1D4A549200CD08FF /* ft_failure_dark.png */; };
+		5A45FAF51D4A549200CD08FF /* ft_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A45FAEF1D4A549200CD08FF /* ft_info.png */; };
+		5A45FAF61D4A549200CD08FF /* ft_info_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A45FAF01D4A549200CD08FF /* ft_info_dark.png */; };
+		5A45FAF71D4A549200CD08FF /* ft_success.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A45FAF11D4A549200CD08FF /* ft_success.png */; };
+		5A45FAF81D4A549200CD08FF /* ft_success_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A45FAF21D4A549200CD08FF /* ft_success_dark.png */; };
 		5A70F5081D47220400CE3ABC /* FTIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A70F4FA1D47220400CE3ABC /* FTIndicator.m */; };
-		5A70F50C1D47220400CE3ABC /* ft_failure.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A70F5051D47220400CE3ABC /* ft_failure.png */; };
-		5A70F50D1D47220400CE3ABC /* ft_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A70F5061D47220400CE3ABC /* ft_info.png */; };
-		5A70F50E1D47220400CE3ABC /* ft_success.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A70F5071D47220400CE3ABC /* ft_success.png */; };
 		5A70F5111D4728BA00CE3ABC /* FTProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A70F5101D4728BA00CE3ABC /* FTProgressIndicator.m */; };
 		5A70F5141D47290D00CE3ABC /* FTToastIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A70F5131D47290D00CE3ABC /* FTToastIndicator.m */; };
 		5A70F5171D47294B00CE3ABC /* FTNotificationIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A70F5161D47294B00CE3ABC /* FTNotificationIndicator.m */; };
@@ -37,11 +40,14 @@
 
 /* Begin PBXFileReference section */
 		1714622D858E32D3ADC828F8 /* Pods-FTIndicatorDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FTIndicatorDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FTIndicatorDemoUITests/Pods-FTIndicatorDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5A45FAED1D4A549200CD08FF /* ft_failure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ft_failure.png; sourceTree = "<group>"; };
+		5A45FAEE1D4A549200CD08FF /* ft_failure_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ft_failure_dark.png; sourceTree = "<group>"; };
+		5A45FAEF1D4A549200CD08FF /* ft_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ft_info.png; sourceTree = "<group>"; };
+		5A45FAF01D4A549200CD08FF /* ft_info_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ft_info_dark.png; sourceTree = "<group>"; };
+		5A45FAF11D4A549200CD08FF /* ft_success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ft_success.png; sourceTree = "<group>"; };
+		5A45FAF21D4A549200CD08FF /* ft_success_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ft_success_dark.png; sourceTree = "<group>"; };
 		5A70F4F91D47220400CE3ABC /* FTIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTIndicator.h; sourceTree = "<group>"; };
 		5A70F4FA1D47220400CE3ABC /* FTIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTIndicator.m; sourceTree = "<group>"; };
-		5A70F5051D47220400CE3ABC /* ft_failure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ft_failure.png; sourceTree = "<group>"; };
-		5A70F5061D47220400CE3ABC /* ft_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ft_info.png; sourceTree = "<group>"; };
-		5A70F5071D47220400CE3ABC /* ft_success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ft_success.png; sourceTree = "<group>"; };
 		5A70F50F1D4728BA00CE3ABC /* FTProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTProgressIndicator.h; sourceTree = "<group>"; };
 		5A70F5101D4728BA00CE3ABC /* FTProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTProgressIndicator.m; sourceTree = "<group>"; };
 		5A70F5121D47290D00CE3ABC /* FTToastIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTToastIndicator.h; sourceTree = "<group>"; };
@@ -99,6 +105,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5A45FAEC1D4A549200CD08FF /* ImageAsserts */ = {
+			isa = PBXGroup;
+			children = (
+				5A45FAED1D4A549200CD08FF /* ft_failure.png */,
+				5A45FAEE1D4A549200CD08FF /* ft_failure_dark.png */,
+				5A45FAEF1D4A549200CD08FF /* ft_info.png */,
+				5A45FAF01D4A549200CD08FF /* ft_info_dark.png */,
+				5A45FAF11D4A549200CD08FF /* ft_success.png */,
+				5A45FAF21D4A549200CD08FF /* ft_success_dark.png */,
+			);
+			path = ImageAsserts;
+			sourceTree = "<group>";
+		};
 		5A70F4F81D47220400CE3ABC /* FTIndicator */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,7 +126,6 @@
 				5A70F5011D47220400CE3ABC /* FTToastIndicatorView */,
 				5A70F4FE1D47220400CE3ABC /* FTProgressIndicatorView */,
 				5A70F4FB1D47220400CE3ABC /* FTNotificationIndicatorView */,
-				5A70F5041D47220400CE3ABC /* ImageAsserts */,
 			);
 			name = FTIndicator;
 			path = ../../FTIndicator;
@@ -125,6 +143,7 @@
 		5A70F4FE1D47220400CE3ABC /* FTProgressIndicatorView */ = {
 			isa = PBXGroup;
 			children = (
+				5A45FAEC1D4A549200CD08FF /* ImageAsserts */,
 				5A70F50F1D4728BA00CE3ABC /* FTProgressIndicator.h */,
 				5A70F5101D4728BA00CE3ABC /* FTProgressIndicator.m */,
 			);
@@ -138,16 +157,6 @@
 				5A70F5131D47290D00CE3ABC /* FTToastIndicator.m */,
 			);
 			path = FTToastIndicatorView;
-			sourceTree = "<group>";
-		};
-		5A70F5041D47220400CE3ABC /* ImageAsserts */ = {
-			isa = PBXGroup;
-			children = (
-				5A70F5051D47220400CE3ABC /* ft_failure.png */,
-				5A70F5061D47220400CE3ABC /* ft_info.png */,
-				5A70F5071D47220400CE3ABC /* ft_success.png */,
-			);
-			path = ImageAsserts;
 			sourceTree = "<group>";
 		};
 		5AFBAE211D406D5B00ADB70B = {
@@ -298,12 +307,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A70F50D1D47220400CE3ABC /* ft_info.png in Resources */,
-				5A70F50E1D47220400CE3ABC /* ft_success.png in Resources */,
 				5AFBAE3D1D406D5B00ADB70B /* LaunchScreen.storyboard in Resources */,
 				5AFBAE3A1D406D5B00ADB70B /* Assets.xcassets in Resources */,
-				5A70F50C1D47220400CE3ABC /* ft_failure.png in Resources */,
+				5A45FAF81D4A549200CD08FF /* ft_success_dark.png in Resources */,
+				5A45FAF41D4A549200CD08FF /* ft_failure_dark.png in Resources */,
+				5A45FAF71D4A549200CD08FF /* ft_success.png in Resources */,
+				5A45FAF31D4A549200CD08FF /* ft_failure.png in Resources */,
 				5AFBAE381D406D5B00ADB70B /* Main.storyboard in Resources */,
+				5A45FAF51D4A549200CD08FF /* ft_info.png in Resources */,
+				5A45FAF61D4A549200CD08FF /* ft_info_dark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,11 @@
 @interface FTProgressIndicator ()
 
 @property (nonatomic, strong)FTProgressIndicatorView *progressView;
-
+@property (nonatomic, assign)UIBlurEffectStyle indicatorStyle;
+@property (nonatomic, strong)NSString *progressMessage;
+@property (nonatomic, strong)NSTimer *dismissTimer;
+@property (nonatomic, assign)FTProgressIndicatorMessageType  messageType;
+@property (nonatomic, assign)BOOL isDuringAnimation;
 
 @end
 
@@ -30,9 +34,29 @@
     return shared;
 }
 
-+(void)showProgressWithImage:(UIImage *)image message:(NSString *)progressMessage
++(void)setProgressIndicatorStyleToDefaultStyle
 {
-    [[self sharedInstance] showProgressWithImage:image message:progressMessage];
+    [self sharedInstance].indicatorStyle = UIBlurEffectStyleLight;
+}
++(void)setProgressIndicatorStyle:(UIBlurEffectStyle)style
+{
+    [self sharedInstance].indicatorStyle = style;
+}
++(void)showProgressWithmessage:(NSString *)message
+{
+    [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeProgress message:message];
+}
++(void)showInfoWithMessage:(NSString *)message
+{
+    [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeInfo message:message];
+}
++(void)showSuccessWithMessage:(NSString *)message
+{
+    [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeSuccess message:message];
+}
++(void)showErrorWithMessage:(NSString *)message
+{
+    [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeError message:message];
 }
 
 
@@ -46,22 +70,56 @@
 }
 
 
--(void)showProgressWithImage:(UIImage *)image message:(NSString *)progressMessage
+-(void)showProgressWithType:(FTProgressIndicatorMessageType )type message:(NSString *)message
 {
-    self.progressView.alpha = 1;
-    self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
+    self.messageType = type;
+    self.progressMessage = message;
     
-    CGSize progressSize = [self.progressView getFrameForProgressViewWithMessage:progressMessage];
+    self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
+
+    CGSize progressSize = [self.progressView getFrameForProgressViewWithMessage:message];
     
     [self.progressView setFrame:CGRectMake((kFTScreenWidth - progressSize.width)/2, (kFTScreenHeight - progressSize.height)/2, progressSize.width, progressSize.height)];
-    [self.progressView showProgressWithImage:image message:progressMessage];
-    
+
+    [self.progressView showProgressWithType:type message:message style:self.indicatorStyle];
+
     [[[UIApplication sharedApplication] keyWindow] addSubview:self.progressView];
     
+    if (self.isDuringAnimation) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kFTProgressDefaultAnimationDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self startShowingProgressView];
+        });
+    }else{
+        [self startShowingProgressView];
+    }
+    
+}
+
+
+-(void)startDismissTimer
+{
+    if (self.messageType != FTProgressIndicatorMessageTypeProgress) {
+        if (_dismissTimer) {
+            [_dismissTimer invalidate];
+            _dismissTimer = nil;
+        }
+        CGFloat timeInterval = self.progressMessage.length * 0.04 + 0.5;
+        
+        _dismissTimer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
+                                                         target:self
+                                                       selector:@selector(dismissingProgressView)
+                                                       userInfo:nil
+                                                        repeats:NO];
+    }
+
+
+}
+
+-(void)startShowingProgressView
+{
     self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
-    
-    
-    [UIView animateWithDuration:0.2
+    self.isDuringAnimation = YES;
+    [UIView animateWithDuration:kFTProgressDefaultAnimationDuration
                           delay:0
          usingSpringWithDamping:0.6
           initialSpringVelocity:0.5
@@ -71,31 +129,29 @@
                          self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
                          
                      } completion:^(BOOL finished) {
-                         if(finished){
-                             [self prepareForDismissingProgressViewWithMessage:progressMessage];
+                         if (finished) {
+                             self.isDuringAnimation = NO;
+                             [self startDismissTimer];
                          }
                      }];
-    
 }
--(void)prepareForDismissingProgressViewWithMessage:(NSString *)progressMessage
+
+-(void)dismissingProgressView
 {
-    CGFloat it = progressMessage.length * 0.08;
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(it * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:0.2
-                              delay:0
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             
-                             self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
-                             self.progressView.alpha = 0;
-                             
-                         } completion:^(BOOL finished) {
-                             if(finished){
-                                 
-                             }
-                         }];
-    });
+    self.isDuringAnimation = YES;
+    [UIView animateWithDuration:kFTProgressDefaultAnimationDuration
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         
+                         self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
+                         
+                     } completion:^(BOOL finished) {
+                         if(finished){
+                             self.isDuringAnimation = NO;
+                             [self.progressView removeFromSuperview];
+                         }
+                     }];
 }
 
 
@@ -108,9 +164,8 @@
 
 @property (strong, nonatomic) NSString *message;
 @property (strong, nonatomic) UIImageView *iconImageView;
+@property (strong, nonatomic) UIActivityIndicatorView *activatyView;
 @property (strong, nonatomic) UILabel *messageLabel;
-
-@property (strong, nonatomic) UIFont *perferedFont;
 
 @end
 
@@ -145,28 +200,85 @@
 {
     if (!_messageLabel) {
         _messageLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        _messageLabel.textColor = [UIColor whiteColor];
-        _messageLabel.font = self.perferedFont;
+        _messageLabel.textColor = kFTProgressDefaultTextColor;
+        _messageLabel.font = kFTProgressDefaultFont;
         _messageLabel.textAlignment = NSTextAlignmentCenter;
         _messageLabel.numberOfLines = 0;
         [self.contentView addSubview:_messageLabel];
     }
     return _messageLabel;
 }
-
--(UIFont *)perferedFont
+-(UIActivityIndicatorView *)activatyView
 {
-    if (!_perferedFont) {
-        _perferedFont = [UIFont systemFontOfSize:15];
+    if (!_activatyView) {
+        _activatyView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        _activatyView.color = kFTProgressDefaultTextColor;
+        [_activatyView setHidesWhenStopped:YES];
+        [self.contentView addSubview:_activatyView];
     }
-    return _perferedFont;
+    return _activatyView;
 }
 
--(void)showProgressWithImage:(UIImage *)image message:(NSString *)message
+-(UIColor *)getTextColorWithStyle:(UIBlurEffectStyle)style
 {
-    self.iconImageView.image = image ? image : [UIImage imageNamed:@"ft_info"];
+    switch (style) {
+        case UIBlurEffectStyleDark:
+            return kFTProgressDefaultTextColor_ForDarkStyle;
+            break;
+        default:
+            return kFTProgressDefaultTextColor;
+            break;
+    }
+}
+-(UIImage *)getImageWithStyle:(UIBlurEffectStyle)style messageType:(FTProgressIndicatorMessageType )type
+{
+    UIImage *image;
+    switch (type) {
+        case FTProgressIndicatorMessageTypeInfo:
+            if (style == UIBlurEffectStyleDark) {
+                image = [UIImage imageNamed:@"ft_info"];
+            }else{
+                image = [UIImage imageNamed:@"ft_info_dark"];
+            }
+            break;
+        case FTProgressIndicatorMessageTypeSuccess:
+            if (style == UIBlurEffectStyleDark) {
+                image = [UIImage imageNamed:@"ft_success"];
+            }else{
+                image = [UIImage imageNamed:@"ft_success_dark"];
+            }
+            break;
+        case FTProgressIndicatorMessageTypeError:
+            if (style == UIBlurEffectStyleDark) {
+                image = [UIImage imageNamed:@"ft_failure"];
+            }else{
+                image = [UIImage imageNamed:@"ft_failure_dark"];
+            }
+            break;
+        default:
+            break;
+    }
+    return image;
+}
+
+
+-(void)showProgressWithType:(FTProgressIndicatorMessageType )type message:(NSString *)message style:(UIBlurEffectStyle)style
+{
+    self.effect = [UIBlurEffect effectWithStyle:style];
+    
+    if (type == FTProgressIndicatorMessageTypeProgress) {
+        self.iconImageView.hidden = YES;
+        [self.activatyView startAnimating];
+    }else{
+        self.iconImageView.hidden = NO;
+        [self.activatyView stopAnimating];
+    }
     
     self.messageLabel.text = message;
+    self.messageLabel.textColor = [self getTextColorWithStyle:style];
+    self.activatyView.color = [self getTextColorWithStyle:style];
+    self.iconImageView.image = [self getImageWithStyle:style messageType:type];
+
     
     CGSize messageSize = [self getFrameForProgressMessageLabelWithMessage:message];
     CGSize viewSize = [self getFrameForProgressViewWithMessage:message];
@@ -174,16 +286,19 @@
     CGRect rect = CGRectMake((viewSize.width - messageSize.width)/2, kFTProgressMargin_Y + kFTProgressImageSize + kFTProgressImageToLabel, messageSize.width, messageSize.height);
     
     self.iconImageView.frame = CGRectMake((viewSize.width - kFTProgressImageSize)/2, kFTProgressMargin_Y, kFTProgressImageSize,  kFTProgressImageSize);
+    self.activatyView.frame = CGRectMake((viewSize.width - kFTProgressImageSize)/2, kFTProgressMargin_Y, kFTProgressImageSize,  kFTProgressImageSize);
+
     self.messageLabel.frame = rect;
     
 }
+
 
 
 -(CGSize )getFrameForProgressMessageLabelWithMessage:(NSString *)progressMessage
 {
     CGRect textSize = [progressMessage boundingRectWithSize:CGSizeMake(kFTProgressMaxWidth - kFTProgressMargin_X*2, MAXFLOAT)
                                                     options:(NSStringDrawingUsesFontLeading | NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin)
-                                                 attributes:@{NSFontAttributeName : self.perferedFont}
+                                                 attributes:@{NSFontAttributeName : kFTProgressDefaultFont}
                                                     context:nil];
     CGSize size = CGSizeMake(textSize.size.width, MIN(textSize.size.height ,kFTProgressMaxWidth - kFTProgressMargin_Y*2 - kFTProgressImageToLabel - kFTProgressImageSize));
     return size;
