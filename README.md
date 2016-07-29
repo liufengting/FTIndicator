@@ -13,9 +13,9 @@ A light wight UI package contains local notification, progress HUD, toast, with 
 
 | Style	| Light	| Dark	|
 |:-------------|:-------------:|:-------------:|
-| notification | <img src="/Screenshots/notification_light.png" width="320"/> | <img src="/Screenshots/notification_dark.png" width="320"/> |
-| progress | <img src="/Screenshots/progress_light.png" width="320"/> | <img src="/Screenshots/progress_dark.png" width="320"/> |
-| toast | <img src="/Screenshots/toast_light.png" width="320"/> | <img src="/Screenshots/toast_dark.png" width="320"/> |
+| notification | <img src="/ScreenShots/notification_light.png" width="320"/> | <img src="/ScreenShots/notification_dark.png" width="320"/> |
+| progress | <img src="/ScreenShots/progress_light.png" width="320"/> | <img src="/ScreenShots/progress_dark.png" width="320"/> |
+| toast | <img src="/ScreenShots/toast_light.png" width="320"/> | <img src="/ScreenShots/toast_dark.png" width="320"/> |
 
 
 # I will finish this README very soon.
