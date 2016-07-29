@@ -90,7 +90,7 @@
     [[[UIApplication sharedApplication] keyWindow] addSubview:self.progressView];
     
     if (self.isDuringAnimation) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kFTProgressDefaultAnimationDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kFTProgressDefaultAnimationDuration * 2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self startShowingProgressView];
         });
     }else{

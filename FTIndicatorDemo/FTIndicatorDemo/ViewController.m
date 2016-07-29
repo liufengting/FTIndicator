@@ -30,11 +30,17 @@
     
     
     self.navigationController.navigationBar.translucent = NO;
-    [self.navigationController.navigationBar setBarTintColor:[UIColor redColor]];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:19]}];
-    
+    self.navigationController.navigationBar.dk_barTintColorPicker = DKColorPickerWithRGB(0xffffff, 0x343434, 0xfafafa);
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:19]}];
     
     [FTIndicator setIndicatorStyle:UIBlurEffectStyleDark];
+    
+    
+    self.tableView.dk_backgroundColorPicker = DKColorPickerWithRGB(0xffffff, 0x343434, 0xfafafa);
+
+//    cell.dk_backgroundColorPicker = DKColorPickerWithRGB(0xffffff, 0x343434, 0xfafafa);
+
+    
     
 }
 
@@ -42,15 +48,14 @@
 - (IBAction)switchChanged:(UISwitch *)sender
 {
     if (sender.isOn) {
-        //        [[DKNightVersionManager sharedManager] dawnComing];
-        [FTIndicator setIndicatorStyle:UIBlurEffectStyleDark];
-        [FTIndicator showInfoWithMessage:@"Night Version on."];
-    }else{
-        //        [[DKNightVersionManager sharedManager] nightFalling];
+        [[DKNightVersionManager sharedManager] dawnComing];
         [FTIndicator setIndicatorStyle:UIBlurEffectStyleLight];
         [FTIndicator showInfoWithMessage:@"Daylight Version on."];
+    }else{
+        [[DKNightVersionManager sharedManager] nightFalling];
+        [FTIndicator setIndicatorStyle:UIBlurEffectStyleDark];
+        [FTIndicator showInfoWithMessage:@"Night Version on."];
     }
-    
 }
 
 

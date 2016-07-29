@@ -14,6 +14,7 @@
 		5A45FAF61D4A549200CD08FF /* ft_info_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A45FAF01D4A549200CD08FF /* ft_info_dark.png */; };
 		5A45FAF71D4A549200CD08FF /* ft_success.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A45FAF11D4A549200CD08FF /* ft_success.png */; };
 		5A45FAF81D4A549200CD08FF /* ft_success_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A45FAF21D4A549200CD08FF /* ft_success_dark.png */; };
+		5A582B851D4B558C00CCE573 /* DKColorTable.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A582B841D4B558C00CCE573 /* DKColorTable.txt */; };
 		5A70F5081D47220400CE3ABC /* FTIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A70F4FA1D47220400CE3ABC /* FTIndicator.m */; };
 		5A70F5111D4728BA00CE3ABC /* FTProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A70F5101D4728BA00CE3ABC /* FTProgressIndicator.m */; };
 		5A70F5141D47290D00CE3ABC /* FTToastIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A70F5131D47290D00CE3ABC /* FTToastIndicator.m */; };
@@ -46,6 +47,7 @@
 		5A45FAF01D4A549200CD08FF /* ft_info_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ft_info_dark.png; sourceTree = "<group>"; };
 		5A45FAF11D4A549200CD08FF /* ft_success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ft_success.png; sourceTree = "<group>"; };
 		5A45FAF21D4A549200CD08FF /* ft_success_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ft_success_dark.png; sourceTree = "<group>"; };
+		5A582B841D4B558C00CCE573 /* DKColorTable.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DKColorTable.txt; sourceTree = "<group>"; };
 		5A70F4F91D47220400CE3ABC /* FTIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTIndicator.h; sourceTree = "<group>"; };
 		5A70F4FA1D47220400CE3ABC /* FTIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTIndicator.m; sourceTree = "<group>"; };
 		5A70F50F1D4728BA00CE3ABC /* FTProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTProgressIndicator.h; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		5AFBAE2D1D406D5B00ADB70B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5A582B841D4B558C00CCE573 /* DKColorTable.txt */,
 				5AFBAE2E1D406D5B00ADB70B /* main.m */,
 			);
 			name = "Supporting Files";
@@ -315,6 +318,7 @@
 				5A45FAF31D4A549200CD08FF /* ft_failure.png in Resources */,
 				5AFBAE381D406D5B00ADB70B /* Main.storyboard in Resources */,
 				5A45FAF51D4A549200CD08FF /* ft_info.png in Resources */,
+				5A582B851D4B558C00CCE573 /* DKColorTable.txt in Resources */,
 				5A45FAF61D4A549200CD08FF /* ft_info_dark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
