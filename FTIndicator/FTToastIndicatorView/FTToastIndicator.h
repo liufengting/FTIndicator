@@ -20,11 +20,21 @@
 #define kFTToastDefaultTextColor_ForDarkStyle   [UIColor whiteColor]
 
 @interface FTToastIndicator : NSObject
-
+/**
+ *  setIndicatorStyleToDefaultStyle
+ */
 +(void)setToastIndicatorStyleToDefaultStyle;
-
+/**
+ *  setIndicatorStyle
+ *
+ *  @param style UIBlurEffectStyle style
+ */
 +(void)setToastIndicatorStyle:(UIBlurEffectStyle)style;
-
+/**
+ *  showToastMessage
+ *
+ *  @param toastMessage NSString toastMessage
+ */
 +(void)showToastMessage:(NSString *)toastMessage;
 
 @end

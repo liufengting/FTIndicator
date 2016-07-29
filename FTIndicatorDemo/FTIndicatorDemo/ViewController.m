@@ -63,14 +63,13 @@
         case 0:
             switch (indexPath.row) {
                 case 0:
-                    [FTIndicator showNotificationWithImage:nil
-                                                     title:@"Here is a notification title."
-                                                   message:@"Here is a notification message. Try to swipe it up"];
-                    break;
-                case 1:
                     [FTIndicator showNotificationWithImage:[UIImage imageNamed:@"ft_info"]
                                                      title:@"Here is a notification title."
                                                    message:@"Here is a notification message. This means nothing at all. Here is a notification message. This means nothing at all."];
+                    break;
+                case 1:
+                    [FTIndicator showNotificationWithTitle:@"Here is a notification title."
+                                                   message:@"Here is a notification message. Try to swipe it up"];
                     break;
                 default:
                     break;
