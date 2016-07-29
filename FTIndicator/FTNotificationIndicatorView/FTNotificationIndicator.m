@@ -11,6 +11,7 @@
 #define kFTScreenWidth    [UIScreen mainScreen].bounds.size.width
 #define kFTScreenHeight   [UIScreen mainScreen].bounds.size.height
 
+#pragma mark - FTNotificationIndicator
 
 @interface FTNotificationIndicator ()
 
@@ -23,6 +24,7 @@
 
 @implementation FTNotificationIndicator
 
+#pragma mark - class methods
 
 +(FTNotificationIndicator *)sharedInstance
 {
@@ -52,6 +54,7 @@
     [[self sharedInstance] showNotificationWithImage:image title:title message:message];
 }
 
+#pragma mark - instance methods
 
 -(FTNotificationIndicatorView *)notificationView
 {
@@ -157,6 +160,7 @@
 
 @end
 
+#pragma mark - FTNotificationIndicatorView
 
 @interface FTNotificationIndicatorView ()
 
@@ -180,6 +184,7 @@
 }
 
 #pragma mark - getters
+
 -(UIImageView *)iconImageView
 {
     if (!_iconImageView) {
@@ -225,6 +230,7 @@
     }
 }
 
+#pragma mark - main methods
 
 -(void)showWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message style:(UIBlurEffectStyle)style
 {
@@ -254,6 +260,7 @@
     
 }
 
+#pragma mark - getFrameForNotificationMessageLabelWithImage
 
 -(CGSize )getFrameForNotificationMessageLabelWithImage:(UIImage *)image message:(NSString *)notificationMessage
 {
@@ -266,16 +273,13 @@
     return size;
 }
 
+#pragma mark - getFrameForNotificationViewWithImage
+
 -(CGSize )getFrameForNotificationViewWithImage:(UIImage *)image message:(NSString *)notificationMessage
 {
     CGSize textSize = [self getFrameForNotificationMessageLabelWithImage:image message:notificationMessage];
     CGSize size = CGSizeMake(kFTScreenWidth, MIN(textSize.height + kFTNotificationMargin_Y + kFTNotificationTitleHeight + kFTNotificationStatusBarHeight,kFTNotificationMaxHeight));
     return size;
 }
-
-
-
-
-
 
 @end

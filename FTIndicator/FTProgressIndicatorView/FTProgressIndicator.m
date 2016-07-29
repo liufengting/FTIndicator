@@ -11,6 +11,8 @@
 #define kFTScreenWidth    [UIScreen mainScreen].bounds.size.width
 #define kFTScreenHeight   [UIScreen mainScreen].bounds.size.height
 
+#pragma mark - FTProgressIndicator
+
 @interface FTProgressIndicator ()
 
 @property (nonatomic, strong)FTProgressIndicatorView *progressView;
@@ -23,6 +25,8 @@
 @end
 
 @implementation FTProgressIndicator
+
+#pragma mark - class methods
 
 +(FTProgressIndicator *)sharedInstance
 {
@@ -59,7 +63,7 @@
     [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeError message:message];
 }
 
-
+#pragma mark - instance methods
 
 -(FTProgressIndicatorView *)progressView
 {
@@ -158,7 +162,7 @@
 
 @end
 
-
+#pragma mark - FTProgressIndicatorView
 
 @interface FTProgressIndicatorView ()
 
@@ -184,7 +188,6 @@
 
 #pragma mark - getters
 
-#pragma mark - getters
 -(UIImageView *)iconImageView
 {
     if (!_iconImageView) {
@@ -261,6 +264,7 @@
     return image;
 }
 
+#pragma mark - main methods
 
 -(void)showProgressWithType:(FTProgressIndicatorMessageType )type message:(NSString *)message style:(UIBlurEffectStyle)style
 {
@@ -292,7 +296,7 @@
     
 }
 
-
+#pragma mark - getFrameForProgressMessageLabelWithMessage
 
 -(CGSize )getFrameForProgressMessageLabelWithMessage:(NSString *)progressMessage
 {
@@ -303,6 +307,8 @@
     CGSize size = CGSizeMake(textSize.size.width, MIN(textSize.size.height ,kFTProgressMaxWidth - kFTProgressMargin_Y*2 - kFTProgressImageToLabel - kFTProgressImageSize));
     return size;
 }
+
+#pragma mark - getFrameForProgressViewWithMessage
 
 -(CGSize )getFrameForProgressViewWithMessage:(NSString *)progressMessage
 {

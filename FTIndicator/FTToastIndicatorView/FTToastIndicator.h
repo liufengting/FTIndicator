@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#pragma mark - Defines
+
 #define kFTToastMaxWidth            (kFTScreenWidth*0.7)
 #define kFTToastMaxHeight           (100.f)
 #define kFTToastMargin_X            (20.f)
@@ -18,6 +20,11 @@
 #define kFTToastDefaultFont         [UIFont systemFontOfSize:15]
 #define kFTToastDefaultTextColor    [UIColor blackColor]
 #define kFTToastDefaultTextColor_ForDarkStyle   [UIColor whiteColor]
+
+#pragma mark - FTToastIndicator
+/**
+ *  FTToastIndicator
+ */
 
 @interface FTToastIndicator : NSObject
 /**
@@ -39,10 +46,25 @@
 
 @end
 
+#pragma mark - FTToastIndicatorView
+/**
+ *  FTToastIndicatorView
+ */
 @interface FTToastIndicatorView : UIVisualEffectView
-
+/**
+ *  showToastMessage
+ *
+ *  @param toastMessage toastMessage
+ *  @param style        style
+ */
 -(void)showToastMessage:(NSString *)toastMessage withStyle:(UIBlurEffectStyle)style;
-
+/**
+ *  getFrameForToastViewWithMessage
+ *
+ *  @param toastMessage toastMessage
+ *
+ *  @return CGSize
+ */
 -(CGSize )getFrameForToastViewWithMessage:(NSString *)toastMessage;
 
 @end

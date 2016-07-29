@@ -11,6 +11,7 @@
 #define kFTScreenWidth    [UIScreen mainScreen].bounds.size.width
 #define kFTScreenHeight   [UIScreen mainScreen].bounds.size.height
 
+#pragma mark - FTToastIndicator
 
 @interface FTToastIndicator ()
 
@@ -22,6 +23,8 @@
 @end
 
 @implementation FTToastIndicator
+
+#pragma mark - class methods
 
 +(FTToastIndicator *)sharedInstance
 {
@@ -48,10 +51,7 @@
     [[self sharedInstance] showToastMessage:toastMessage];
 }
 
-
-
-
-
+#pragma mark - instance methods
 
 -(FTToastIndicatorView *)toastView
 {
@@ -131,6 +131,7 @@
 
 @end
 
+#pragma mark - FTToastIndicatorView
 
 @interface FTToastIndicatorView ()
 
@@ -179,6 +180,7 @@
     }
 }
 
+#pragma mark - main methods
 
 -(void)showToastMessage:(NSString *)toastMessage withStyle:(UIBlurEffectStyle)style
 {
@@ -194,6 +196,8 @@
     self.messageLabel.frame = rect;
 }
 
+#pragma mark - getFrameForToastLabelWithMessage
+
 -(CGSize )getFrameForToastLabelWithMessage:(NSString *)toastMessage
 {
     CGRect textSize = [toastMessage boundingRectWithSize:CGSizeMake(kFTToastMaxWidth - kFTToastMargin_X*2, MAXFLOAT)
@@ -203,6 +207,8 @@
     CGSize size = CGSizeMake(textSize.size.width, MIN(textSize.size.height ,kFTToastMaxHeight - kFTToastMargin_Y*2));
     return size;
 }
+
+#pragma mark - getFrameForToastViewWithMessage
 
 -(CGSize )getFrameForToastViewWithMessage:(NSString *)toastMessage
 {
