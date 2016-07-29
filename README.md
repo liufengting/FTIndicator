@@ -20,5 +20,3 @@ A light wight UI package contains local notification, progress HUD, toast, with 
 
 # I will finish this README very soon.
 
-jpg
-
