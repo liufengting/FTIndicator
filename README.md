@@ -24,14 +24,14 @@ A light wight UI package contains local notification, progress HUD, toast, with 
  
  Also, `FTNotificationIndicator`, `FTProgressIndicator` and `FTToastIndicator` are able to work separately. Use them all your will.
 
- -----------
+ ---
  
 * FTIndicator
 	* FTNotificationIndicator
 	* FTProgressIndicator
 	* FTToastIndicator
 
- -----------
+---
  
 
 # Installation
