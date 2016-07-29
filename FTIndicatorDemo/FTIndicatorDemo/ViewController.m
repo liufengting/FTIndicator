@@ -26,8 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-
+    
+    
     
     self.navigationController.navigationBar.translucent = NO;
     [self.navigationController.navigationBar setBarTintColor:[UIColor redColor]];
@@ -35,20 +35,20 @@
     
     
     [FTIndicator setIndicatorStyle:UIBlurEffectStyleDark];
-
+    
 }
 
 
 - (IBAction)switchChanged:(UISwitch *)sender
 {
     if (sender.isOn) {
-//        [[DKNightVersionManager sharedManager] dawnComing];
+        //        [[DKNightVersionManager sharedManager] dawnComing];
         [FTIndicator setIndicatorStyle:UIBlurEffectStyleDark];
-        [FTProgressIndicator showInfoWithMessage:@"Night Version on."];
+        [FTIndicator showInfoWithMessage:@"Night Version on."];
     }else{
-//        [[DKNightVersionManager sharedManager] nightFalling];
+        //        [[DKNightVersionManager sharedManager] nightFalling];
         [FTIndicator setIndicatorStyle:UIBlurEffectStyleLight];
-        [FTProgressIndicator showInfoWithMessage:@"Daylight Version on."];
+        [FTIndicator showInfoWithMessage:@"Daylight Version on."];
     }
     
 }
@@ -63,14 +63,14 @@
         case 0:
             switch (indexPath.row) {
                 case 0:
-                    [FTNotificationIndicator showNotificationWithImage:nil
-                                                                 title:@"Here is a notification title."
-                                                               message:@"Here is a notification message. Try to swipe it up"];
+                    [FTIndicator showNotificationWithImage:nil
+                                                     title:@"Here is a notification title."
+                                                   message:@"Here is a notification message. Try to swipe it up"];
                     break;
                 case 1:
-                    [FTNotificationIndicator showNotificationWithImage:[UIImage imageNamed:@"ft_info"]
-                                                                 title:@"Here is a notification title."
-                                                               message:@"Here is a notification message. This means nothing at all. Here is a notification message. This means nothing at all."];
+                    [FTIndicator showNotificationWithImage:[UIImage imageNamed:@"ft_info"]
+                                                     title:@"Here is a notification title."
+                                                   message:@"Here is a notification message. This means nothing at all. Here is a notification message. This means nothing at all."];
                     break;
                 default:
                     break;
@@ -79,23 +79,23 @@
         case 1:
             switch (indexPath.row) {
                 case 0:
-                    [FTProgressIndicator showProgressWithmessage:@"Here is a progress title. This means nothing at all."];
+                    [FTIndicator showProgressWithmessage:@"Here is a progress title. This means nothing at all."];
                     break;
                 case 1:
-                    [FTProgressIndicator showSuccessWithMessage:@"Here is a progress title. This means nothing at all."];
+                    [FTIndicator showSuccessWithMessage:@"Here is a progress title. This means nothing at all."];
                     break;
                 case 2:
-                    [FTProgressIndicator showInfoWithMessage:@"Here is a progress title. This means nothing at all."];
+                    [FTIndicator showInfoWithMessage:@"Here is a progress title. This means nothing at all."];
                     break;
                 case 3:
-                    [FTProgressIndicator showErrorWithMessage:@"Here is a progress title. This means nothing at all."];
+                    [FTIndicator showErrorWithMessage:@"Here is a progress title. This means nothing at all."];
                     break;
                 default:
                     break;
             }
             break;
         case 2:
-            [FTToastIndicator showToastMessage:@"Here is a toast message 0."];
+            [FTIndicator showToastMessage:@"Here is a toast message 0."];
             break;
         default:
             break;
