@@ -32,6 +32,9 @@
     self.navigationController.navigationBar.translucent = NO;
     [self.navigationController.navigationBar setBarTintColor:[UIColor redColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:19]}];
+    
+    
+    [FTIndicator setIndicatorStyle:UIBlurEffectStyleDark];
 
 }
 
@@ -39,9 +42,13 @@
 - (IBAction)switchChanged:(UISwitch *)sender
 {
     if (sender.isOn) {
-        [[DKNightVersionManager sharedManager] dawnComing];
+//        [[DKNightVersionManager sharedManager] dawnComing];
+        [FTIndicator setIndicatorStyle:UIBlurEffectStyleDark];
+        [FTProgressIndicator showInfoWithMessage:@"Night Version on."];
     }else{
-        [[DKNightVersionManager sharedManager] nightFalling];
+//        [[DKNightVersionManager sharedManager] nightFalling];
+        [FTIndicator setIndicatorStyle:UIBlurEffectStyleLight];
+        [FTProgressIndicator showInfoWithMessage:@"Daylight Version on."];
     }
     
 }
