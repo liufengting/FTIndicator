@@ -11,8 +11,11 @@
 #import "FTProgressIndicator.h"
 #import "FTNotificationIndicator.h"
 
+#pragma mark - FTIndicator
+/**
+ *  FTIndicator
+ */
 @interface FTIndicator : NSObject
-
 
 /**
  *  set Style
@@ -34,6 +37,7 @@
  *  FTToastIndicator
  */
 #pragma mark - FTToastIndicator
+
 /**
  *  showToastMessage
  *
