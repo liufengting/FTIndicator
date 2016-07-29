@@ -13,7 +13,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source       = { :git => "https://github.com/liufengting/FTIndicator.git", :tag => "#{s.version}" }
   s.source_files  = "FTNotificationIndicator", "FTIndicator/FTNotificationIndicatorView/*.{h,m}"
-  s.resources    = "FTIndicator/FTNotificationIndicatorView/*.{png}"
   s.requires_arc = true
 
 end
