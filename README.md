@@ -18,5 +18,78 @@ A light wight UI package contains local notification, progress HUD, toast, with 
 | toast | <img src="/ScreenShots/toast_light.jpg" width="320"/> | <img src="/ScreenShots/toast_dark.jpg" width="320"/> |
 
 
-# I will finish this README very soon.
+# 3 IN 1
+
+ If you want use all three of the indicators, use `FTIndicator` .
+ 
+ Also, `FTNotificationIndicator`, `FTProgressIndicator` and `FTToastIndicator` are able to work separately. Use them all your will.
+
+ -----------
+ 
+* FTIndicator
+	* FTNotificationIndicator
+	* FTProgressIndicator
+	* FTToastIndicator
+
+ -----------
+ 
+
+# Installation
+
+## Manually
+
+* clone this repo.
+* Simply drop the '/FTIndicator' folder into your project.
+* import 'FTIndicator.h'
+* Enjoy！ 
+
+## Cocoapods
+
+`FTIndicator` is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
+
+### Use all three of them 
+
+* FTIndicator, 3 in 1 
+
+```ruby
+pod "FTIndicator"
+```
+
+### Use separately
+
+* FTNotificationIndicator
+
+```ruby
+pod "FTNotificationIndicator"
+```
+
+* FTProgressIndicator
+
+```ruby
+pod "FTProgressIndicator"
+```
+
+* FTToastIndicator
+
+```ruby
+pod "FTToastIndicator"
+```
+
+# Useage
+
+## TO BE ADDED
+
+
+# TODO
+
+## TO BE ADDED
+
+
+# License
+
+`FTIndicator` is available under the MIT license. See the LICENSE file for more info.
+`FTNotificationIndicator` is available under the MIT license. See the LICENSE file for more info.
+`FTProgressIndicator` is available under the MIT license. See the LICENSE file for more info.
+`FTToastIndicator` is available under the MIT license. See the LICENSE file for more info.
+
 
