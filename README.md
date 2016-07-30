@@ -96,12 +96,12 @@ pod "FTToastIndicator"
 
 // show with image
 [FTIndicator showNotificationWithImage:[UIImage imageNamed:@"maps_icon"]
-                                                     title:@"Here is a notification title."
-                                                   message:@"Here is a notification message."]; 
+								   title:@"Here is a notification title."
+                               message:@"Here is a notification message."]; 
 
 // show without image
 [FTIndicator showNotificationWithTitle:@"Here is a notification title."
-								message:@"Here is a notification message. Try to swipe it up or tap at 'Dismiss Notification' cell"]; 
+								message:@"Here is a notification message."]; 
 								
 // dismiss manually
 [FTIndicator dismissNotification];
@@ -148,12 +148,12 @@ pod "FTToastIndicator"
 
 // show with image
 [FTNotificationIndicator showNotificationWithImage:[UIImage imageNamed:@"maps_icon"]
-                                                     title:@"Here is a notification title."
-                                                   message:@"Here is a notification message."]; 
+                                             title:@"Here is a notification title."
+                                           message:@"Here is a notification message."]; 
 
 // show without image
 [FTNotificationIndicator showNotificationWithTitle:@"Here is a notification title."
-								message:@"Here is a notification message. Try to swipe it up or tap at 'Dismiss Notification' cell"]; 
+										     message:@"Here is a notification message."]; 
 								
 // dismiss manually
 [FTNotificationIndicator dismiss];
