@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "FTToastIndicator"
-  s.version      = "0.0.5"
+  s.version      = "1.0.0"
   s.summary      = "A lightwight toast, with blur effect, elegant API and themes Support."
   s.description  = <<-DESC
           A lightwight toast, with blur effect, elegant API and themes Support. Inspried by Android toasts.
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "http://twitter.com/liufengting"
   s.platform     = :ios
   s.source       = { :git => "https://github.com/liufengting/FTIndicator.git", :tag => "#{s.version}" }
-  s.source_files  = "FTToastIndicator", "FTIndicator/FTToastIndicatorView/**/*.{h,m}"
+  s.source_files  = "FTToastIndicator", "FTIndicator/FTToastIndicator/**/*.{h,m}"
   s.requires_arc = true
 
 end

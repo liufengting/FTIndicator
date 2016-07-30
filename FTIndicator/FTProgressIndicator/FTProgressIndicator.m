@@ -103,7 +103,7 @@
     self.isCurrentlyOnScreen = NO;
 
     if (self.isDuringAnimation) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kFTProgressDefaultAnimationDuration * 1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kFTProgressDefaultAnimationDuration * 2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self adjustIndicatorFrame];
         });
     }else{
@@ -139,22 +139,21 @@
 }
 -(void)onKeyboardWillChangeFrame:(NSNotification *)notification
 {
-    if (self.isCurrentlyOnScreen) {
-        NSDictionary *userInfo = [notification userInfo];
-        CGRect keyboardRect = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-        NSTimeInterval animationDuration;
-        [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
-        CGRect originRect = self.progressView.frame;
-        CGFloat y = (MIN(kFTScreenHeight, keyboardRect.origin.y) - originRect.size.height)/2;
-        [UIView animateWithDuration:animationDuration
-                              delay:0
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             [self.progressView setFrame:CGRectMake(originRect.origin.x, y, originRect.size.width, originRect.size.height)];
-                         }completion:^(BOOL finished) {
-                             
-                         }];
-    }
+    
+    NSDictionary *userInfo = [notification userInfo];
+    CGRect keyboardRect = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    NSTimeInterval animationDuration;
+    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+    CGRect originRect = self.progressView.frame;
+    CGFloat y = (MIN(kFTScreenHeight, keyboardRect.origin.y) - originRect.size.height)/2;
+    [UIView animateWithDuration:animationDuration
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         [self.progressView setFrame:CGRectMake(originRect.origin.x, y, originRect.size.width, originRect.size.height)];
+                     }completion:^(BOOL finished) {
+                         
+                     }];
 }
 
 - (CGFloat)keyboardHeight

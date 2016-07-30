@@ -32,12 +32,9 @@
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     
-
     [self.tableView setBackgroundView:self.backgroudImage];
     
     [self showAnotherTheme:YES];
-    
-    
 }
 
 
@@ -94,6 +91,7 @@
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
+    [cell setBackgroundColor:[self.themeColor colorWithAlphaComponent:0.1]];
     [cell.textLabel setTextColor:self.themeColor];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -11,7 +11,11 @@
 		5A0F5A1B1D4CAABB00FD0145 /* light.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5A0F5A191D4CAABB00FD0145 /* light.jpeg */; };
 		5A0F5A1E1D4CBD0A00FD0145 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F5A1D1D4CBD0A00FD0145 /* SecondViewController.m */; };
 		5A0F5A231D4CC5BD00FD0145 /* maps_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0F5A221D4CC5BD00FD0145 /* maps_icon.png */; };
-		5A0F5A251D4CCD4000FD0145 /* ImageAsserts.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5A0F5A241D4CCD4000FD0145 /* ImageAsserts.bundle */; };
+		5AC92BE81D4D039200949121 /* FTIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC92BDD1D4D039200949121 /* FTIndicator.m */; };
+		5AC92BE91D4D039200949121 /* FTNotificationIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC92BE01D4D039200949121 /* FTNotificationIndicator.m */; };
+		5AC92BEA1D4D039200949121 /* FTProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC92BE31D4D039200949121 /* FTProgressIndicator.m */; };
+		5AC92BEB1D4D039200949121 /* ImageAsserts.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5AC92BE41D4D039200949121 /* ImageAsserts.bundle */; };
+		5AC92BEC1D4D039200949121 /* FTToastIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC92BE71D4D039200949121 /* FTToastIndicator.m */; };
 		5AF3E7B41D4C733B00AD5EC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF3E7B31D4C733B00AD5EC8 /* main.m */; };
 		5AF3E7B71D4C733B00AD5EC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF3E7B61D4C733B00AD5EC8 /* AppDelegate.m */; };
 		5AF3E7BA1D4C733B00AD5EC8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF3E7B91D4C733B00AD5EC8 /* ViewController.m */; };
@@ -19,11 +23,6 @@
 		5AF3E7BF1D4C733B00AD5EC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AF3E7BE1D4C733B00AD5EC8 /* Assets.xcassets */; };
 		5AF3E7C21D4C733B00AD5EC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AF3E7C01D4C733B00AD5EC8 /* LaunchScreen.storyboard */; };
 		5AF3E7CD1D4C733B00AD5EC8 /* DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF3E7CC1D4C733B00AD5EC8 /* DemoUITests.m */; };
-		5AF3E7EA1D4C745100AD5EC8 /* FTIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF3E7D91D4C745000AD5EC8 /* FTIndicator.m */; };
-		5AF3E7EB1D4C745100AD5EC8 /* FTNotificationIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF3E7DC1D4C745000AD5EC8 /* FTNotificationIndicator.m */; };
-		5AF3E7EC1D4C745100AD5EC8 /* FTProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF3E7DF1D4C745000AD5EC8 /* FTProgressIndicator.m */; };
-		5AF3E7F31D4C745100AD5EC8 /* FTToastIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF3E7E91D4C745100AD5EC8 /* FTToastIndicator.m */; };
-		5AF3E7F51D4C765700AD5EC8 /* city.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5AF3E7F41D4C765700AD5EC8 /* city.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +41,15 @@
 		5A0F5A1C1D4CBD0A00FD0145 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		5A0F5A1D1D4CBD0A00FD0145 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		5A0F5A221D4CC5BD00FD0145 /* maps_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maps_icon.png; sourceTree = "<group>"; };
-		5A0F5A241D4CCD4000FD0145 /* ImageAsserts.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ImageAsserts.bundle; sourceTree = "<group>"; };
+		5AC92BDC1D4D039200949121 /* FTIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTIndicator.h; sourceTree = "<group>"; };
+		5AC92BDD1D4D039200949121 /* FTIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTIndicator.m; sourceTree = "<group>"; };
+		5AC92BDF1D4D039200949121 /* FTNotificationIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTNotificationIndicator.h; sourceTree = "<group>"; };
+		5AC92BE01D4D039200949121 /* FTNotificationIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTNotificationIndicator.m; sourceTree = "<group>"; };
+		5AC92BE21D4D039200949121 /* FTProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTProgressIndicator.h; sourceTree = "<group>"; };
+		5AC92BE31D4D039200949121 /* FTProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTProgressIndicator.m; sourceTree = "<group>"; };
+		5AC92BE41D4D039200949121 /* ImageAsserts.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ImageAsserts.bundle; sourceTree = "<group>"; };
+		5AC92BE61D4D039200949121 /* FTToastIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTToastIndicator.h; sourceTree = "<group>"; };
+		5AC92BE71D4D039200949121 /* FTToastIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTToastIndicator.m; sourceTree = "<group>"; };
 		5AF3E7AF1D4C733B00AD5EC8 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF3E7B31D4C733B00AD5EC8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5AF3E7B51D4C733B00AD5EC8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,15 +63,6 @@
 		5AF3E7C81D4C733B00AD5EC8 /* DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF3E7CC1D4C733B00AD5EC8 /* DemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoUITests.m; sourceTree = "<group>"; };
 		5AF3E7CE1D4C733B00AD5EC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AF3E7D81D4C745000AD5EC8 /* FTIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTIndicator.h; sourceTree = "<group>"; };
-		5AF3E7D91D4C745000AD5EC8 /* FTIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTIndicator.m; sourceTree = "<group>"; };
-		5AF3E7DB1D4C745000AD5EC8 /* FTNotificationIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTNotificationIndicator.h; sourceTree = "<group>"; };
-		5AF3E7DC1D4C745000AD5EC8 /* FTNotificationIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTNotificationIndicator.m; sourceTree = "<group>"; };
-		5AF3E7DE1D4C745000AD5EC8 /* FTProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTProgressIndicator.h; sourceTree = "<group>"; };
-		5AF3E7DF1D4C745000AD5EC8 /* FTProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTProgressIndicator.m; sourceTree = "<group>"; };
-		5AF3E7E81D4C745100AD5EC8 /* FTToastIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTToastIndicator.h; sourceTree = "<group>"; };
-		5AF3E7E91D4C745100AD5EC8 /* FTToastIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTToastIndicator.m; sourceTree = "<group>"; };
-		5AF3E7F41D4C765700AD5EC8 /* city.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = city.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,11 +87,51 @@
 			isa = PBXGroup;
 			children = (
 				5A0F5A221D4CC5BD00FD0145 /* maps_icon.png */,
-				5AF3E7F41D4C765700AD5EC8 /* city.jpeg */,
 				5A0F5A181D4CAABB00FD0145 /* dark.jpeg */,
 				5A0F5A191D4CAABB00FD0145 /* light.jpeg */,
 			);
 			name = DemoImages;
+			sourceTree = "<group>";
+		};
+		5AC92BDB1D4D039200949121 /* FTIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				5AC92BDC1D4D039200949121 /* FTIndicator.h */,
+				5AC92BDD1D4D039200949121 /* FTIndicator.m */,
+				5AC92BDE1D4D039200949121 /* FTNotificationIndicator */,
+				5AC92BE11D4D039200949121 /* FTProgressIndicator */,
+				5AC92BE51D4D039200949121 /* FTToastIndicator */,
+			);
+			name = FTIndicator;
+			path = ../../FTIndicator;
+			sourceTree = "<group>";
+		};
+		5AC92BDE1D4D039200949121 /* FTNotificationIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				5AC92BDF1D4D039200949121 /* FTNotificationIndicator.h */,
+				5AC92BE01D4D039200949121 /* FTNotificationIndicator.m */,
+			);
+			path = FTNotificationIndicator;
+			sourceTree = "<group>";
+		};
+		5AC92BE11D4D039200949121 /* FTProgressIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				5AC92BE21D4D039200949121 /* FTProgressIndicator.h */,
+				5AC92BE31D4D039200949121 /* FTProgressIndicator.m */,
+				5AC92BE41D4D039200949121 /* ImageAsserts.bundle */,
+			);
+			path = FTProgressIndicator;
+			sourceTree = "<group>";
+		};
+		5AC92BE51D4D039200949121 /* FTToastIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				5AC92BE61D4D039200949121 /* FTToastIndicator.h */,
+				5AC92BE71D4D039200949121 /* FTToastIndicator.m */,
+			);
+			path = FTToastIndicator;
 			sourceTree = "<group>";
 		};
 		5AF3E7A61D4C733A00AD5EC8 = {
@@ -123,9 +161,9 @@
 				5AF3E7B91D4C733B00AD5EC8 /* ViewController.m */,
 				5A0F5A1C1D4CBD0A00FD0145 /* SecondViewController.h */,
 				5A0F5A1D1D4CBD0A00FD0145 /* SecondViewController.m */,
-				5AF3E7D71D4C745000AD5EC8 /* FTIndicator */,
-				5AF3E7BB1D4C733B00AD5EC8 /* Main.storyboard */,
+				5AC92BDB1D4D039200949121 /* FTIndicator */,
 				5A0F5A211D4CC5AC00FD0145 /* DemoImages */,
+				5AF3E7BB1D4C733B00AD5EC8 /* Main.storyboard */,
 				5AF3E7BE1D4C733B00AD5EC8 /* Assets.xcassets */,
 				5AF3E7C01D4C733B00AD5EC8 /* LaunchScreen.storyboard */,
 				5AF3E7C31D4C733B00AD5EC8 /* Info.plist */,
@@ -149,47 +187,6 @@
 				5AF3E7CE1D4C733B00AD5EC8 /* Info.plist */,
 			);
 			path = DemoUITests;
-			sourceTree = "<group>";
-		};
-		5AF3E7D71D4C745000AD5EC8 /* FTIndicator */ = {
-			isa = PBXGroup;
-			children = (
-				5AF3E7D81D4C745000AD5EC8 /* FTIndicator.h */,
-				5AF3E7D91D4C745000AD5EC8 /* FTIndicator.m */,
-				5AF3E7DA1D4C745000AD5EC8 /* FTNotificationIndicatorView */,
-				5AF3E7DD1D4C745000AD5EC8 /* FTProgressIndicatorView */,
-				5AF3E7E71D4C745100AD5EC8 /* FTToastIndicatorView */,
-			);
-			name = FTIndicator;
-			path = ../../FTIndicator;
-			sourceTree = "<group>";
-		};
-		5AF3E7DA1D4C745000AD5EC8 /* FTNotificationIndicatorView */ = {
-			isa = PBXGroup;
-			children = (
-				5AF3E7DB1D4C745000AD5EC8 /* FTNotificationIndicator.h */,
-				5AF3E7DC1D4C745000AD5EC8 /* FTNotificationIndicator.m */,
-			);
-			path = FTNotificationIndicatorView;
-			sourceTree = "<group>";
-		};
-		5AF3E7DD1D4C745000AD5EC8 /* FTProgressIndicatorView */ = {
-			isa = PBXGroup;
-			children = (
-				5AF3E7DE1D4C745000AD5EC8 /* FTProgressIndicator.h */,
-				5AF3E7DF1D4C745000AD5EC8 /* FTProgressIndicator.m */,
-				5A0F5A241D4CCD4000FD0145 /* ImageAsserts.bundle */,
-			);
-			path = FTProgressIndicatorView;
-			sourceTree = "<group>";
-		};
-		5AF3E7E71D4C745100AD5EC8 /* FTToastIndicatorView */ = {
-			isa = PBXGroup;
-			children = (
-				5AF3E7E81D4C745100AD5EC8 /* FTToastIndicator.h */,
-				5AF3E7E91D4C745100AD5EC8 /* FTToastIndicator.m */,
-			);
-			path = FTToastIndicatorView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,8 +272,7 @@
 				5AF3E7C21D4C733B00AD5EC8 /* LaunchScreen.storyboard in Resources */,
 				5AF3E7BF1D4C733B00AD5EC8 /* Assets.xcassets in Resources */,
 				5A0F5A1B1D4CAABB00FD0145 /* light.jpeg in Resources */,
-				5AF3E7F51D4C765700AD5EC8 /* city.jpeg in Resources */,
-				5A0F5A251D4CCD4000FD0145 /* ImageAsserts.bundle in Resources */,
+				5AC92BEB1D4D039200949121 /* ImageAsserts.bundle in Resources */,
 				5A0F5A1A1D4CAABB00FD0145 /* dark.jpeg in Resources */,
 				5A0F5A231D4CC5BD00FD0145 /* maps_icon.png in Resources */,
 				5AF3E7BD1D4C733B00AD5EC8 /* Main.storyboard in Resources */,
@@ -297,14 +293,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AF3E7EC1D4C745100AD5EC8 /* FTProgressIndicator.m in Sources */,
+				5AC92BE91D4D039200949121 /* FTNotificationIndicator.m in Sources */,
 				5AF3E7BA1D4C733B00AD5EC8 /* ViewController.m in Sources */,
-				5AF3E7EB1D4C745100AD5EC8 /* FTNotificationIndicator.m in Sources */,
+				5AC92BE81D4D039200949121 /* FTIndicator.m in Sources */,
 				5AF3E7B71D4C733B00AD5EC8 /* AppDelegate.m in Sources */,
 				5A0F5A1E1D4CBD0A00FD0145 /* SecondViewController.m in Sources */,
-				5AF3E7F31D4C745100AD5EC8 /* FTToastIndicator.m in Sources */,
 				5AF3E7B41D4C733B00AD5EC8 /* main.m in Sources */,
-				5AF3E7EA1D4C745100AD5EC8 /* FTIndicator.m in Sources */,
+				5AC92BEA1D4D039200949121 /* FTProgressIndicator.m in Sources */,
+				5AC92BEC1D4D039200949121 /* FTToastIndicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
