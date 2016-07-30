@@ -16,18 +16,18 @@ A light wight UI package contains local notification, progress HUD, toast, with 
 ## Portriat
 
 | Style	| Light	| Dark	|
-|:-------------|:-------------:|:-------------:|
-| Notification | <img src="/ScreenShots/Portriat/notification_L_P.jpg" width="240"/> | <img src="/ScreenShots/Portriat/notification_D_P.jpg" width="240"/> |
-| Progress | <img src="/ScreenShots/Portriat/progress_L_P.jpg" width="240"/> | <img src="/ScreenShots/Portriat/progress_D_P.jpg" width="240"/> |
-| Toast | <img src="/ScreenShots/Portriat/toast_L_P.jpg" width="240"/> | <img src="/ScreenShots/Portriat/toast_D_P.jpg" width="240"/> |
+|:-------------:|:-------------:|:-------------:|
+| Notification | <img src="/ScreenShots/Portriat/notification_L_P.jpg" width="300"/> | <img src="/ScreenShots/Portriat/notification_D_P.jpg" width="300"/> |
+| Progress | <img src="/ScreenShots/Portriat/progress_L_P.jpg" width="300"/> | <img src="/ScreenShots/Portriat/progress_D_P.jpg" width="300"/> |
+| Toast | <img src="/ScreenShots/Portriat/toast_L_P.jpg" width="300"/> | <img src="/ScreenShots/Portriat/toast_D_P.jpg" width="300"/> |
 
 ## Landscape
 
 | Style	| Light	| Dark	|
-|:-------------|:-------------:|:-------------:|
-| Notification | <img src="/ScreenShots/Landscape/notification_L_L.jpg" width="240"/> | <img src="/ScreenShots/Landscape/notification_D_L.jpg" width="240"/> |
-| Progress | <img src="/ScreenShots/Landscape/progress_L_L.jpg" width="240"/> | <img src="/ScreenShots/Landscape/progress_D_L.jpg" width="240"/> |
-| Toast | <img src="/ScreenShots/Landscape/toast_L_L.jpg" width="240"/> | <img src="/ScreenShots/Landscape/toast_D_L.jpg" width="240"/> |
+|:-------------:|:-------------:|:-------------:|
+| Notification | <img src="/ScreenShots/Landscape/notification_L_L.jpg" width="300"/> | <img src="/ScreenShots/Landscape/notification_D_L.jpg" width="300"/> |
+| Progress | <img src="/ScreenShots/Landscape/progress_L_L.jpg" width="300"/> | <img src="/ScreenShots/Landscape/progress_D_L.jpg" width="300"/> |
+| Toast | <img src="/ScreenShots/Landscape/toast_L_L.jpg" width="300"/> | <img src="/ScreenShots/Landscape/toast_D_L.jpg" width="300"/> |
 
 # 3 IN 1
 
@@ -88,12 +88,108 @@ pod "FTToastIndicator"
 
 # Useage
 
-## TO BE ADDED
+## Use `FTIndicator`
+
+* Notification
+
+```objective-c
+
+// show with image
+[FTIndicator showNotificationWithImage:[UIImage imageNamed:@"maps_icon"]
+                                                     title:@"Here is a notification title."
+                                                   message:@"Here is a notification message."]; 
+
+// show without image
+[FTIndicator showNotificationWithTitle:@"Here is a notification title."
+								message:@"Here is a notification message. Try to swipe it up or tap at 'Dismiss Notification' cell"]; 
+								
+// dismiss manually
+[FTIndicator dismissNotification];
+							
+```
+* Progress
+
+```objective-c
+
+// show progress
+[FTIndicator showProgressWithmessage:@"Here is a progress message."]; 
+
+// show success
+[FTIndicator showSuccessWithMessage:@"Here is a success message."]; 
+
+// show info
+[FTIndicator showInfoWithMessage:@"Here is a info message."]; 
+	
+// show error
+[FTIndicator showErrorWithMessage:@"Here is a error message."];
+
+// dismiss manually
+[FTIndicator dismissProgress];
+							
+```
+* Toast
+
+```objective-c
+
+// show with image
+[FTIndicator showToastMessage:@"Short Toast."];  
+								
+// dismiss manually
+[FTIndicator dismissToast];
+							
+```
 
 
-# TODO
+## Use `FTNotificationIndicator`, `FTProgressIndicator`, `FTToastIndicator` separately
 
-## TO BE ADDED
+* FTNotificationIndicator
+
+```objective-c
+
+// show with image
+[FTNotificationIndicator showNotificationWithImage:[UIImage imageNamed:@"maps_icon"]
+                                                     title:@"Here is a notification title."
+                                                   message:@"Here is a notification message."]; 
+
+// show without image
+[FTNotificationIndicator showNotificationWithTitle:@"Here is a notification title."
+								message:@"Here is a notification message. Try to swipe it up or tap at 'Dismiss Notification' cell"]; 
+								
+// dismiss manually
+[FTNotificationIndicator dismiss];
+							
+```
+* FTProgressIndicator
+
+```objective-c
+
+// show progress
+[FTProgressIndicator showProgressWithmessage:@"Here is a progress message."]; 
+
+// show success
+[FTProgressIndicator showSuccessWithMessage:@"Here is a success message."]; 
+
+// show info
+[FTProgressIndicator showInfoWithMessage:@"Here is a info message."]; 
+	
+// show error
+[FTProgressIndicator showErrorWithMessage:@"Here is a error message."];
+
+// dismiss manually
+[FTProgressIndicator dismiss];
+							
+```
+* FTToastIndicator
+
+```objective-c
+
+// show with image
+[FTToastIndicator showToastMessage:@"Short Toast."];  
+								
+// dismiss manually
+[FTToastIndicator dismiss];
+							
+```
 
 
 # License
