@@ -17,8 +17,11 @@
 
 @property (nonatomic, strong)FTNotificationIndicatorView *notificationView;
 @property (nonatomic, assign)UIBlurEffectStyle indicatorStyle;
+@property (nonatomic, strong)UIImage *notificationImage;
+@property (nonatomic, strong)NSString *notificationTitle;
 @property (nonatomic, strong)NSString *notificationMessage;
 @property (nonatomic, strong)NSTimer *dismissTimer;
+@property (nonatomic, assign)BOOL isCurrentlyOnScreen;
 
 @end
 
@@ -53,8 +56,25 @@
 {
     [[self sharedInstance] showNotificationWithImage:image title:title message:message];
 }
++(void)dismiss
+{
+    [[self sharedInstance] dismiss];
+}
+
 
 #pragma mark - instance methods
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(onChangeStatusBarOrientationNotification:)
+                                                     name:UIApplicationDidChangeStatusBarOrientationNotification
+                                                   object:nil];
+    }
+    return self;
+}
 
 -(FTNotificationIndicatorView *)notificationView
 {
@@ -68,39 +88,59 @@
 
 -(void)onPanGuestureRecognized:(UIPanGestureRecognizer *)sender
 {
-    CGPoint translation = [sender translationInView:[[UIApplication sharedApplication] keyWindow]];
-    switch (sender.state) {
-        case UIGestureRecognizerStateBegan: case UIGestureRecognizerStateChanged:
-            if (translation.y < 0) {
-                [self.notificationView setFrame:CGRectMake(0,translation.y,kFTScreenWidth,self.notificationView.frame.size.height)];
-            }
-            break;
-        case UIGestureRecognizerStateEnded:
-            [self stopDismissTimer];
-            [self dismissingNotificationtView];
-            break;
-        default:
-            break;
+    if (self.isCurrentlyOnScreen) {
+        CGPoint translation = [sender translationInView:[[UIApplication sharedApplication] keyWindow]];
+        switch (sender.state) {
+            case UIGestureRecognizerStateBegan: case UIGestureRecognizerStateChanged:
+                if (translation.y < 0) {
+                    [self.notificationView setFrame:CGRectMake(0,translation.y,kFTScreenWidth,self.notificationView.frame.size.height)];
+                }
+                break;
+            case UIGestureRecognizerStateEnded:
+                [self stopDismissTimer];
+                [self dismissingNotificationtView];
+                break;
+            default:
+                break;
+        }
     }
-
-    
 }
 
 -(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message
 {
+    self.notificationImage = image;
+    self.notificationTitle = title;
     self.notificationMessage = message;
+
+    [self adjustIndicatorFrame];
     
-    CGSize notificationSize = [self.notificationView getFrameForNotificationViewWithImage:image message:message];
+}
+-(void)dismiss
+{
+    [self stopDismissTimer];
+    [self dismissingNotificationtView];
+}
+
+
+-(void)adjustIndicatorFrame
+{
+    CGSize notificationSize = [self.notificationView getFrameForNotificationViewWithImage:self.notificationImage message:self.notificationMessage];
     
     [self.notificationView setFrame:CGRectMake(0,-(notificationSize.height),kFTScreenWidth,notificationSize.height)];
     
-    [self.notificationView showWithImage:image title:title message:message style:self.indicatorStyle];
+    [self.notificationView showWithImage:self.notificationImage title:self.notificationTitle message:self.notificationMessage style:self.indicatorStyle];
     
     [[[UIApplication sharedApplication] keyWindow] addSubview:self.notificationView];
     
     [self startShowingNotificationView];
-    
-    
+}
+
+
+-(void)onChangeStatusBarOrientationNotification:(NSNotification *)notification
+{
+    if (self.isCurrentlyOnScreen) {
+        [self adjustIndicatorFrame];
+    }
 }
 
 -(void)startDismissTimer
@@ -135,7 +175,10 @@
                          
                      } completion:^(BOOL finished) {
                          if (finished) {
-                             [self startDismissTimer];
+                             if (!self.isCurrentlyOnScreen) {
+                                 [self startDismissTimer];
+                             }
+                             self.isCurrentlyOnScreen = YES;
                          }
                      }];
 }
@@ -151,12 +194,11 @@
                          
                      } completion:^(BOOL finished) {
                          if(finished){
+                             self.isCurrentlyOnScreen = NO;
                              [self.notificationView removeFromSuperview];
                          }
                      }];
 }
-
-
 
 @end
 
@@ -254,9 +296,6 @@
     
     self.titleLabel.frame = CGRectMake(text_X, kFTNotificationStatusBarHeight, kFTScreenWidth - kFTNotificationMargin_X - text_X,  kFTNotificationTitleHeight);
     self.messageLabel.frame = CGRectMake(text_X, kFTNotificationStatusBarHeight+kFTNotificationTitleHeight, kFTScreenWidth - kFTNotificationMargin_X - text_X, messageSize.height);
-    
-    
-    NSLog(@"%@",NSStringFromCGRect(self.messageLabel.frame));
     
 }
 

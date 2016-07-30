@@ -21,6 +21,7 @@
 @property (nonatomic, strong)NSTimer *dismissTimer;
 @property (nonatomic, assign)FTProgressIndicatorMessageType  messageType;
 @property (nonatomic, assign)BOOL isDuringAnimation;
+@property (nonatomic, assign)BOOL isCurrentlyOnScreen;
 
 @end
 
@@ -62,8 +63,29 @@
 {
     [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeError message:message];
 }
++(void)dismiss
+{
+    [[self sharedInstance] dismiss];
+}
+
 
 #pragma mark - instance methods
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(onChangeStatusBarOrientationNotification:)
+                                                     name:UIApplicationDidChangeStatusBarOrientationNotification
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(onKeyboardWillChangeFrame:)
+                                                     name:UIKeyboardWillChangeFrameNotification
+                                                   object:nil];
+    }
+    return self;
+}
 
 -(FTProgressIndicatorView *)progressView
 {
@@ -78,45 +100,102 @@
 {
     self.messageType = type;
     self.progressMessage = message;
-    
-    self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
+    self.isCurrentlyOnScreen = NO;
 
-    CGSize progressSize = [self.progressView getFrameForProgressViewWithMessage:message];
-    
-    [self.progressView setFrame:CGRectMake((kFTScreenWidth - progressSize.width)/2, (kFTScreenHeight - progressSize.height)/2, progressSize.width, progressSize.height)];
-
-    [self.progressView showProgressWithType:type message:message style:self.indicatorStyle];
-
-    [[[UIApplication sharedApplication] keyWindow] addSubview:self.progressView];
-    
     if (self.isDuringAnimation) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kFTProgressDefaultAnimationDuration * 2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self startShowingProgressView];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kFTProgressDefaultAnimationDuration * 1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self adjustIndicatorFrame];
         });
     }else{
-        [self startShowingProgressView];
+        [self adjustIndicatorFrame];
     }
-    
+}
+-(void)dismiss
+{
+    [self stopDismissTimer];
+    [self dismissingProgressView];
 }
 
+-(void)adjustIndicatorFrame
+{
+    self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
+    
+    CGSize progressSize = [self.progressView getFrameForProgressViewWithMessage:self.progressMessage];
+    
+    [self.progressView setFrame:CGRectMake((kFTScreenWidth - progressSize.width)/2, (kFTScreenHeight - [self keyboardHeight] - progressSize.height)/2, progressSize.width, progressSize.height)];
+    
+    [self.progressView showProgressWithType:self.messageType message:self.progressMessage style:self.indicatorStyle];
+    
+    [[[UIApplication sharedApplication] keyWindow] addSubview:self.progressView];
+
+    [self startShowingProgressView];
+}
+
+-(void)onChangeStatusBarOrientationNotification:(NSNotification *)notification
+{
+    if (self.isCurrentlyOnScreen) {
+        [self adjustIndicatorFrame];
+    }
+}
+-(void)onKeyboardWillChangeFrame:(NSNotification *)notification
+{
+    if (self.isCurrentlyOnScreen) {
+        NSDictionary *userInfo = [notification userInfo];
+        CGRect keyboardRect = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        NSTimeInterval animationDuration;
+        [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+        CGRect originRect = self.progressView.frame;
+        CGFloat y = (MIN(kFTScreenHeight, keyboardRect.origin.y) - originRect.size.height)/2;
+        [UIView animateWithDuration:animationDuration
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             [self.progressView setFrame:CGRectMake(originRect.origin.x, y, originRect.size.width, originRect.size.height)];
+                         }completion:^(BOOL finished) {
+                             
+                         }];
+    }
+}
+
+- (CGFloat)keyboardHeight
+{
+    for (UIWindow *testWindow in [[UIApplication sharedApplication] windows]){
+        if ([[testWindow class] isEqual:[UIWindow class]] == NO){
+            for (UIView *possibleKeyboard in [testWindow subviews]){
+                if ([[possibleKeyboard description] hasPrefix:@"<UIPeripheralHostView"]){
+                    return possibleKeyboard.bounds.size.height;
+                }else if ([[possibleKeyboard description] hasPrefix:@"<UIInputSetContainerView"]){
+                    for (UIView *hostKeyboard in [possibleKeyboard subviews]){
+                        if ([[hostKeyboard description] hasPrefix:@"<UIInputSetHost"]){
+                            return hostKeyboard.frame.size.height;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return 0;
+}
 
 -(void)startDismissTimer
 {
     if (self.messageType != FTProgressIndicatorMessageTypeProgress) {
-        if (_dismissTimer) {
-            [_dismissTimer invalidate];
-            _dismissTimer = nil;
-        }
-        CGFloat timeInterval = self.progressMessage.length * 0.04 + 0.5;
+        [self stopDismissTimer];
         
+        CGFloat timeInterval = self.progressMessage.length * 0.04 + 0.5;
         _dismissTimer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
                                                          target:self
                                                        selector:@selector(dismissingProgressView)
                                                        userInfo:nil
                                                         repeats:NO];
     }
-
-
+}
+-(void)stopDismissTimer
+{
+    if (_dismissTimer) {
+        [_dismissTimer invalidate];
+        _dismissTimer = nil;
+    }
 }
 
 -(void)startShowingProgressView
@@ -135,7 +214,10 @@
                      } completion:^(BOOL finished) {
                          if (finished) {
                              self.isDuringAnimation = NO;
-                             [self startDismissTimer];
+                             if (!self.isCurrentlyOnScreen) {
+                                 [self startDismissTimer];
+                             }
+                             self.isCurrentlyOnScreen = YES;
                          }
                      }];
 }
@@ -153,6 +235,7 @@
                      } completion:^(BOOL finished) {
                          if(finished){
                              self.isDuringAnimation = NO;
+                             self.isCurrentlyOnScreen = NO;
                              [self.progressView removeFromSuperview];
                          }
                      }];
@@ -236,26 +319,28 @@
 -(UIImage *)getImageWithStyle:(UIBlurEffectStyle)style messageType:(FTProgressIndicatorMessageType )type
 {
     UIImage *image;
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"ImageAsserts" ofType:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
     switch (type) {
         case FTProgressIndicatorMessageTypeInfo:
             if (style == UIBlurEffectStyleDark) {
-                image = [UIImage imageNamed:@"ft_info"];
+                image = [UIImage imageNamed:@"ft_info" inBundle:bundle compatibleWithTraitCollection:nil];
             }else{
-                image = [UIImage imageNamed:@"ft_info_dark"];
+                image = [UIImage imageNamed:@"ft_info_dark" inBundle:bundle compatibleWithTraitCollection:nil];
             }
             break;
         case FTProgressIndicatorMessageTypeSuccess:
             if (style == UIBlurEffectStyleDark) {
-                image = [UIImage imageNamed:@"ft_success"];
+                image = [UIImage imageNamed:@"ft_success" inBundle:bundle compatibleWithTraitCollection:nil];
             }else{
-                image = [UIImage imageNamed:@"ft_success_dark"];
+                image = [UIImage imageNamed:@"ft_success_dark" inBundle:bundle compatibleWithTraitCollection:nil];
             }
             break;
         case FTProgressIndicatorMessageTypeError:
             if (style == UIBlurEffectStyleDark) {
-                image = [UIImage imageNamed:@"ft_failure"];
+                image = [UIImage imageNamed:@"ft_failure" inBundle:bundle compatibleWithTraitCollection:nil];
             }else{
-                image = [UIImage imageNamed:@"ft_failure_dark"];
+                image = [UIImage imageNamed:@"ft_failure_dark" inBundle:bundle compatibleWithTraitCollection:nil];
             }
             break;
         default:
@@ -316,7 +401,5 @@
     CGSize size = CGSizeMake(MIN(textSize.width + kFTProgressMargin_X*2 , kFTProgressMaxWidth), MIN(textSize.height + kFTProgressMargin_Y*2 + kFTProgressImageSize + kFTProgressImageToLabel,kFTProgressMaxWidth));
     return size;
 }
-
-
 
 @end

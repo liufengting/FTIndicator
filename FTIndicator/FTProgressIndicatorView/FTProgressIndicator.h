@@ -10,7 +10,7 @@
 
 #pragma mark - Defines
 
-#define kFTProgressMaxWidth                         (kFTScreenWidth*0.6)
+#define kFTProgressMaxWidth                         (240.f)
 #define kFTProgressMargin_X                         (10.f)
 #define kFTProgressMargin_Y                         (20.f)
 #define kFTProgressImageSize                        (30.f)
@@ -73,6 +73,10 @@ typedef NS_ENUM(NSUInteger, FTProgressIndicatorMessageType) {
  *  @param message NSString message
  */
 +(void)showErrorWithMessage:(NSString *)message;
+/**
+ *  dismiss
+ */
++(void)dismiss;
 /**
  *  setProgressIndicatorStyleToDefaultStyle
  */

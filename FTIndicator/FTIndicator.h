@@ -25,7 +25,6 @@
 *  setIndicatorStyleToDefaultStyle
 */
 +(void)setIndicatorStyleToDefaultStyle;
-
 /**
  *  setIndicatorStyle
  *
@@ -44,6 +43,11 @@
  *  @param toastMessage NSString toastMessage
  */
 +(void)showToastMessage:(NSString *)toastMessage;
+
+/**
+ *  dismissToast
+ */
++(void)dismissToast;
 
 /**
  *  FTProgressIndicator
@@ -76,6 +80,10 @@
  *  @param message NSString message
  */
 +(void)showErrorWithMessage:(NSString *)message;
+/**
+ *  dismissProgress
+ */
++(void)dismissProgress;
 
 /**
  *  FTNotificationIndicator
@@ -96,5 +104,9 @@
  *  @param message message
  */
 +(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message;
+/**
+ *  dismissNotification
+ */
++(void)dismissNotification;
 
 @end

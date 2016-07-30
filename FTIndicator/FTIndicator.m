@@ -27,6 +27,7 @@
 }
 
 
+
 #pragma mark - FTToastIndicator
 /**
  *  FTToastIndicator
@@ -35,6 +36,12 @@
 {
     [FTToastIndicator showToastMessage:toastMessage];
 }
+
++(void)dismissToast
+{
+    [FTToastIndicator dismiss];
+}
+
 
 #pragma mark - FTProgressIndicator
 /**
@@ -59,6 +66,10 @@
 {
     [FTProgressIndicator showErrorWithMessage:message];
 }
++(void)dismissProgress
+{
+    [FTProgressIndicator dismiss];
+}
 
 #pragma mark - FTNotificationIndicator
 /**
@@ -73,6 +84,9 @@
 {
     [FTNotificationIndicator showNotificationWithImage:image title:title message:message];
 }
-
++(void)dismissNotification
+{
+    [FTNotificationIndicator dismiss];
+}
 
 @end
