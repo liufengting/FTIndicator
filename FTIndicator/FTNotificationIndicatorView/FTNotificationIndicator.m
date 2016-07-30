@@ -111,6 +111,7 @@
     self.notificationImage = image;
     self.notificationTitle = title;
     self.notificationMessage = message;
+    self.isCurrentlyOnScreen = NO;
 
     [self adjustIndicatorFrame];
     

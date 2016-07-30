@@ -11,12 +11,23 @@
 
 A light wight UI package contains local notification, progress HUD, toast, with blur effect, elegant API and themes Support. Inspried by Apple's process indicator and notifications.
 
+# ScreenShots
+
+## Portriat
+
 | Style	| Light	| Dark	|
 |:-------------|:-------------:|:-------------:|
-| notification | <img src="/ScreenShots/notification_light.jpg" width="320"/> | <img src="/ScreenShots/notification_dark.jpg" width="320"/> |
-| progress | <img src="/ScreenShots/progress_light.jpg" width="320"/> | <img src="/ScreenShots/progress_dark.jpg" width="320"/> |
-| toast | <img src="/ScreenShots/toast_light.jpg" width="320"/> | <img src="/ScreenShots/toast_dark.jpg" width="320"/> |
+| Notification | <img src="/ScreenShots/Portriat/notification_L_P.jpg" width="240"/> | <img src="/ScreenShots/Portriat/notification_D_P.jpg" width="240"/> |
+| Progress | <img src="/ScreenShots/Portriat/progress_L_P.jpg" width="240"/> | <img src="/ScreenShots/Portriat/progress_D_P.jpg" width="240"/> |
+| Toast | <img src="/ScreenShots/Portriat/toast_L_P.jpg" width="240"/> | <img src="/ScreenShots/Portriat/toast_D_P.jpg" width="240"/> |
 
+## Landscape
+
+| Style	| Light	| Dark	|
+|:-------------|:-------------:|:-------------:|
+| Notification | <img src="/ScreenShots/Landscape/notification_L_L.jpg" width="240"/> | <img src="/ScreenShots/Landscape/notification_D_L.jpg" width="240"/> |
+| Progress | <img src="/ScreenShots/Landscape/progress_L_L.jpg" width="240"/> | <img src="/ScreenShots/Landscape/progress_D_L.jpg" width="240"/> |
+| Toast | <img src="/ScreenShots/Landscape/toast_L_L.jpg" width="240"/> | <img src="/ScreenShots/Landscape/toast_D_L.jpg" width="240"/> |
 
 # 3 IN 1
 
