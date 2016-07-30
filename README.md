@@ -63,7 +63,7 @@ A light wight UI package contains local notification, progress HUD, toast, with 
 * FTIndicator, 3 in 1 
 
 ```ruby
-pod "FTIndicator"
+pod 'FTIndicator'
 ```
 
 ### Use separately
@@ -71,19 +71,19 @@ pod "FTIndicator"
 * FTNotificationIndicator
 
 ```ruby
-pod "FTNotificationIndicator"
+pod 'FTNotificationIndicator'
 ```
 
 * FTProgressIndicator
 
 ```ruby
-pod "FTProgressIndicator"
+pod 'FTProgressIndicator'
 ```
 
 * FTToastIndicator
 
 ```ruby
-pod "FTToastIndicator"
+pod 'FTToastIndicator'
 ```
 
 # Useage
