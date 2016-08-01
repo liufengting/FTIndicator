@@ -5,6 +5,8 @@
 [![Version](https://img.shields.io/cocoapods/v/FTIndicator.svg?style=flat)](http://cocoapods.org/pods/FTIndicator)
 [![Platform](https://img.shields.io/cocoapods/p/FTIndicator.svg?style=flat)](http://cocoapods.org/pods/FTIndicator)
 [![CocoaPods](https://img.shields.io/cocoapods/dt/FTIndicator.svg?maxAge=2592000)](http://cocoapods.org/pods/FTIndicator)
+[![CocoaPods](https://img.shields.io/cocoapods/at/FTIndicator.svg?maxAge=2592000)](http://cocoapods.org/pods/FTIndicator)
+[![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/FTIndicator.svg?maxAge=2592000)](http://cocoapods.org/pods/FTIndicator)
 [![CI Status](http://img.shields.io/travis/liufengting/FTIndicator.svg?style=flat)](https://travis-ci.org/liufengting/FTIndicator)
 [![GitHub stars](https://img.shields.io/github/stars/liufengting/FTIndicator.svg)](https://github.com/liufengting/FTIndicator/stargazers)
 
