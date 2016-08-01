@@ -193,12 +193,15 @@ pod 'FTToastIndicator'
 							
 ```
 
+# ChangeLog
+
+![ChangeLog](https://github.com/liufengting/FTIndicator/blob/master/ChangeLog.md)
 
 # License
 
-`FTIndicator` is available under the MIT license. See the LICENSE file for more info. 
-`FTNotificationIndicator` is available under the MIT license. See the LICENSE file for more info. 
-`FTProgressIndicator` is available under the MIT license. See the LICENSE file for more info. 
-`FTToastIndicator` is available under the MIT license. See the LICENSE file for more info. 
+* `FTIndicator` is available under the MIT license. See the LICENSE file for more info. 
+* `FTNotificationIndicator` is available under the MIT license. See the LICENSE file for more info. 
+* `FTProgressIndicator` is available under the MIT license. See the LICENSE file for more info. 
+* `FTToastIndicator` is available under the MIT license. See the LICENSE file for more info. 
 
 
