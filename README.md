@@ -195,7 +195,7 @@ pod 'FTToastIndicator'
 
 # ChangeLog
 
-![ChangeLog](https://github.com/liufengting/FTIndicator/blob/master/ChangeLog.md)
+[ChangeLog](https://github.com/liufengting/FTIndicator/blob/master/ChangeLog.md)
 
 # License
 
