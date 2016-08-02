@@ -8,6 +8,19 @@
 
 #import "FTToastIndicator.h"
 
+#pragma mark - Defines
+
+#define kFTToastMaxWidth                        (kFTScreenWidth*0.7)
+#define kFTToastMaxHeight                       (100.f)
+#define kFTToastMargin_X                        (20.f)
+#define kFTToastMargin_Y                        (10.f)
+#define kFTToastToBottom                        (20.f)
+#define kFTToastCornerRadius                    (8.f)
+#define kFTToastDefaultAnimationDuration        (0.2f)
+#define kFTToastDefaultFont                     [UIFont systemFontOfSize:15]
+#define kFTToastDefaultTextColor                [UIColor blackColor]
+#define kFTToastDefaultTextColor_ForDarkStyle   [UIColor whiteColor]
+
 #define kFTScreenWidth    [UIScreen mainScreen].bounds.size.width
 #define kFTScreenHeight   [UIScreen mainScreen].bounds.size.height
 

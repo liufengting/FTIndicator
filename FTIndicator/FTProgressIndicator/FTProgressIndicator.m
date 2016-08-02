@@ -8,6 +8,19 @@
 
 #import "FTProgressIndicator.h"
 
+#pragma mark - Defines
+
+#define kFTProgressMaxWidth                         (240.f)
+#define kFTProgressMargin_X                         (10.f)
+#define kFTProgressMargin_Y                         (20.f)
+#define kFTProgressImageSize                        (30.f)
+#define kFTProgressImageToLabel                     (15.f)
+#define kFTProgressCornerRadius                     (10.f)
+#define kFTProgressDefaultAnimationDuration         (0.2f)
+#define kFTProgressDefaultFont                      [UIFont systemFontOfSize:15]
+#define kFTProgressDefaultTextColor                 [UIColor blackColor]
+#define kFTProgressDefaultTextColor_ForDarkStyle    [UIColor whiteColor]
+
 #define kFTScreenWidth    [UIScreen mainScreen].bounds.size.width
 #define kFTScreenHeight   [UIScreen mainScreen].bounds.size.height
 

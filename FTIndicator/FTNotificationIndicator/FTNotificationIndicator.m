@@ -8,6 +8,20 @@
 
 #import "FTNotificationIndicator.h"
 
+#pragma mark - Defines
+
+#define kFTNotificationMaxHeight                        (200.f)
+#define kFTNotificationTitleHeight                      (24.f)
+#define kFTNotificationMargin_X                         (10.f)
+#define kFTNotificationMargin_Y                         (10.f)
+#define kFTNotificationImageSize                        (30.f)
+#define kFTNotificationStatusBarHeight                  ([[UIApplication sharedApplication] statusBarFrame].size.height)
+#define kFTNotificationDefaultAnimationDuration         (0.2f)
+#define kFTNotificationDefaultTitleFont                 [UIFont boldSystemFontOfSize:15]
+#define kFTNotificationDefaultMessageFont               [UIFont systemFontOfSize:13]
+#define kFTNotificationDefaultTextColor                 [UIColor blackColor]
+#define kFTNotificationDefaultTextColor_ForDarkStyle    [UIColor whiteColor]
+
 #define kFTScreenWidth    [UIScreen mainScreen].bounds.size.width
 #define kFTScreenHeight   [UIScreen mainScreen].bounds.size.height
 
@@ -139,9 +153,11 @@
 
 -(void)onChangeStatusBarOrientationNotification:(NSNotification *)notification
 {
-    if (self.isCurrentlyOnScreen) {
-        [self adjustIndicatorFrame];
-    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (self.isCurrentlyOnScreen) {
+            [self adjustIndicatorFrame];
+        }
+    });
 }
 
 -(void)startDismissTimer
@@ -291,10 +307,10 @@
     
     CGSize messageSize = [self getFrameForNotificationMessageLabelWithImage:self.iconImageView.image message:message];
     
-    
     CGFloat text_X = image ? kFTNotificationMargin_X*2 + kFTNotificationImageSize : kFTNotificationMargin_X;
     
-    
+    _iconImageView.frame = CGRectMake(kFTNotificationMargin_X, kFTNotificationStatusBarHeight + kFTNotificationMargin_Y, kFTNotificationImageSize, kFTNotificationImageSize);
+
     self.titleLabel.frame = CGRectMake(text_X, kFTNotificationStatusBarHeight, kFTScreenWidth - kFTNotificationMargin_X - text_X,  kFTNotificationTitleHeight);
     self.messageLabel.frame = CGRectMake(text_X, kFTNotificationStatusBarHeight+kFTNotificationTitleHeight, kFTScreenWidth - kFTNotificationMargin_X - text_X, messageSize.height);
     
