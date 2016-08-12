@@ -80,10 +80,19 @@
     [FTNotificationIndicator showNotificationWithTitle:title message:message];
 }
 
++(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler{
+    [FTNotificationIndicator showNotificationWithTitle:title message:message tapHandler:tapHandler];
+}
+
 +(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message
 {
     [FTNotificationIndicator showNotificationWithImage:image title:title message:message];
 }
+
++(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler{
+    [FTNotificationIndicator showNotificationWithImage:image title:title message:message tapHandler:tapHandler];
+}
+
 +(void)dismissNotification
 {
     [FTNotificationIndicator dismiss];
