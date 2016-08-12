@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "FTToastIndicator"
-  s.version      = "1.0.9"
+  s.version      = "1.1.0"
   s.summary      = "A lightwight toast, with blur effect, elegant API and themes Support."
   s.description  = <<-DESC
           A lightwight toast, with blur effect, elegant API and themes Support. Inspried by Android toasts.

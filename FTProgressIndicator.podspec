@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "FTProgressIndicator"
-  s.version      = "1.0.9"
+  s.version      = "1.1.0"
   s.summary      = "A lightwight progress HUD, with blur effect, elegant API and themes Support."
   s.description  = <<-DESC
           A lightwight progress HUD, with blur effect, elegant API and themes Support. Inspried by Apple's process indicator.
