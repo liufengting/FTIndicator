@@ -36,6 +36,7 @@
 @property (nonatomic, strong)NSString *notificationMessage;
 @property (nonatomic, strong)NSTimer *dismissTimer;
 @property (nonatomic, assign)BOOL isCurrentlyOnScreen;
+@property (nonatomic, copy, nullable) FTNotificationTapHandler tapHandler;
 
 @end
 
@@ -58,18 +59,31 @@
     [self sharedInstance].indicatorStyle = UIBlurEffectStyleLight;
 
 }
+
 +(void)setNotificationIndicatorStyle:(UIBlurEffectStyle)style
 {
     [self sharedInstance].indicatorStyle = style;
 }
+
 +(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message
 {
-    [[self sharedInstance] showNotificationWithImage:nil title:title message:message];
+    [self showNotificationWithTitle:title message:message tapHandler:nil];
 }
+
++(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler
+{
+    [[self sharedInstance] showNotificationWithImage:nil title:title message:message tapHandler:tapHandler];
+}
+
 +(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message
 {
-    [[self sharedInstance] showNotificationWithImage:image title:title message:message];
+    [self showNotificationWithImage:image title:title message:message tapHandler:nil];
 }
+
++(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler{
+    [[self sharedInstance] showNotificationWithImage:image title:title message:message tapHandler:tapHandler];
+}
+
 +(void)dismiss
 {
     [[self sharedInstance] dismiss];
@@ -95,7 +109,9 @@
     if (!_notificationView) {
         _notificationView = [[FTNotificationIndicatorView alloc] initWithFrame:CGRectZero];
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanGuestureRecognized:)];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapGestureRecognized:)];
         [_notificationView addGestureRecognizer:pan];
+        [_notificationView addGestureRecognizer:tap];
     }
     return _notificationView;
 }
@@ -120,12 +136,29 @@
     }
 }
 
--(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message
+-(void)onTapGestureRecognized:(UITapGestureRecognizer*)sender{
+    if(self.isCurrentlyOnScreen){
+        switch (sender.state) {
+            case UIGestureRecognizerStateEnded:
+                [self stopDismissTimer];
+                [self dismissingNotificationtView];
+                if(self.tapHandler){
+                    self.tapHandler();
+                }
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+-(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler
 {
     self.notificationImage = image;
     self.notificationTitle = title;
     self.notificationMessage = message;
     self.isCurrentlyOnScreen = NO;
+    self.tapHandler = tapHandler;
 
     [self adjustIndicatorFrame];
     
