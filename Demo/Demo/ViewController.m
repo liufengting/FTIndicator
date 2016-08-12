@@ -113,9 +113,14 @@
                     break;
                 case 2:
                     [FTIndicator showNotificationWithTitle:@"Here is a notification title."
-                                                   message:@"Here is a notification message. Try to tap and see tap handling" tapHandler:^{
-                                                       UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Tap Handling" message:@"This happen when you tap notification" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                                                       [alertView show];
+                                                   message:@"Here is a notification message. Try to tap and see tap handling"
+                                                tapHandler:^{
+                               UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Tap Handling"
+                                                                                   message:@"This happen when you tap notification"
+                                                                                  delegate:nil
+                                                                         cancelButtonTitle:@"OK"
+                                                                         otherButtonTitles:nil];
+                               [alertView show];
                                                    }];
                     break;
                 case 3:
