@@ -80,8 +80,9 @@
     [FTNotificationIndicator showNotificationWithTitle:title message:message];
 }
 
-+(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler{
-    [FTNotificationIndicator showNotificationWithTitle:title message:message tapHandler:tapHandler];
++(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion
+{
+    [FTNotificationIndicator showNotificationWithTitle:title message:message tapHandler:tapHandler completion:completion];
 }
 
 +(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message
@@ -89,8 +90,9 @@
     [FTNotificationIndicator showNotificationWithImage:image title:title message:message];
 }
 
-+(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler{
-    [FTNotificationIndicator showNotificationWithImage:image title:title message:message tapHandler:tapHandler];
++(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion
+{
+    [FTNotificationIndicator showNotificationWithImage:image title:title message:message tapHandler:tapHandler completion:completion];
 }
 
 +(void)dismissNotification

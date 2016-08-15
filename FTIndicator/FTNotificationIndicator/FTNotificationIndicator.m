@@ -37,6 +37,7 @@
 @property (nonatomic, strong)NSTimer *dismissTimer;
 @property (nonatomic, assign)BOOL isCurrentlyOnScreen;
 @property (nonatomic, copy, nullable) FTNotificationTapHandler tapHandler;
+@property (nonatomic, copy, nullable) FTNotificationCompletion completion;
 
 @end
 
@@ -67,20 +68,21 @@
 
 +(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message
 {
-    [self showNotificationWithTitle:title message:message tapHandler:nil];
+    [self showNotificationWithTitle:title message:message tapHandler:nil completion:nil];
 }
 
-+(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler
++(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion
 {
     [[self sharedInstance] showNotificationWithImage:nil title:title message:message tapHandler:tapHandler];
 }
 
 +(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message
 {
-    [self showNotificationWithImage:image title:title message:message tapHandler:nil];
+    [self showNotificationWithImage:image title:title message:message tapHandler:nil completion:nil];
 }
 
-+(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler{
++(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion
+{
     [[self sharedInstance] showNotificationWithImage:image title:title message:message tapHandler:tapHandler];
 }
 
@@ -88,7 +90,6 @@
 {
     [[self sharedInstance] dismiss];
 }
-
 
 #pragma mark - instance methods
 
@@ -127,8 +128,7 @@
                 }
                 break;
             case UIGestureRecognizerStateEnded:
-                [self stopDismissTimer];
-                [self dismissingNotificationtView];
+                [self dismiss];
                 break;
             default:
                 break;
@@ -140,8 +140,7 @@
     if(self.isCurrentlyOnScreen){
         switch (sender.state) {
             case UIGestureRecognizerStateEnded:
-                [self stopDismissTimer];
-                [self dismissingNotificationtView];
+                [self dismissOnTapped:YES];
                 if(self.tapHandler){
                     self.tapHandler();
                 }
@@ -163,12 +162,16 @@
     [self adjustIndicatorFrame];
     
 }
--(void)dismiss
-{
-    [self stopDismissTimer];
-    [self dismissingNotificationtView];
+
+-(void)dismiss{
+    [self dismissOnTapped:NO];
 }
 
+-(void)dismissOnTapped:(BOOL)tapped
+{
+    [self stopDismissTimer];
+    [self dismissingNotificationtViewByTap:tapped];
+}
 
 -(void)adjustIndicatorFrame
 {
@@ -182,7 +185,6 @@
     
     [self startShowingNotificationView];
 }
-
 
 -(void)onChangeStatusBarOrientationNotification:(NSNotification *)notification
 {
@@ -204,6 +206,7 @@
                                                    userInfo:nil
                                                     repeats:NO];
 }
+
 -(void)stopDismissTimer
 {
     if (_dismissTimer) {
@@ -233,7 +236,11 @@
                      }];
 }
 
--(void)dismissingNotificationtView
+-(void)dismissingNotificationtView{
+    [self dismissingNotificationtViewByTap:NO];
+}
+
+-(void)dismissingNotificationtViewByTap:(BOOL)tap
 {
     [UIView animateWithDuration:kFTNotificationDefaultAnimationDuration
                           delay:0
@@ -246,6 +253,9 @@
                          if(finished){
                              self.isCurrentlyOnScreen = NO;
                              [self.notificationView removeFromSuperview];
+                             if(self.completion && !tap){
+                                 self.completion();
+                             }
                          }
                      }];
 }
@@ -310,6 +320,7 @@
     }
     return _messageLabel;
 }
+
 -(UIColor *)getTextColorWithStyle:(UIBlurEffectStyle)style
 {
     switch (style) {
@@ -346,7 +357,6 @@
 
     self.titleLabel.frame = CGRectMake(text_X, kFTNotificationStatusBarHeight, kFTScreenWidth - kFTNotificationMargin_X - text_X,  kFTNotificationTitleHeight);
     self.messageLabel.frame = CGRectMake(text_X, kFTNotificationStatusBarHeight+kFTNotificationTitleHeight, kFTScreenWidth - kFTNotificationMargin_X - text_X, messageSize.height);
-    
 }
 
 #pragma mark - getFrameForNotificationMessageLabelWithImage
