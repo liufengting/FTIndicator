@@ -103,7 +103,7 @@
  *  @param message message
  *  @param tapHandler tapHandler
  */
-+(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion;
++(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler;
 /**
  *  showNotificationWithImage
  *
@@ -120,7 +120,7 @@
  *  @param message message
  *  @param tapHandler tapHandler
  */
-+(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion;
++(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler;
 /**
  *  dismissNotification
  */
