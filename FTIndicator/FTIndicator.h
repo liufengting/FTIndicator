@@ -97,7 +97,15 @@
  */
 +(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message;
 /**
- *  showNotificationWithTitle
+ *  showNotificationWithTitle message tapHandler
+ *
+ *  @param title      title
+ *  @param message    message
+ *  @param tapHandler tapHandler
+ */
++(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler;
+/**
+ *  showNotificationWithTitle message tapHandler completion
  *
  *  @param title   title
  *  @param message message
@@ -105,7 +113,7 @@
  */
 +(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion;
 /**
- *  showNotificationWithImage
+ *  showNotificationWithImage title message
  *
  *  @param image   image
  *  @param title   title
@@ -113,7 +121,16 @@
  */
 +(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message;
 /**
- *  showNotificationWithImage
+ *  showNotificationWithImage title message tapHandler
+ *
+ *  @param image      image
+ *  @param title      title
+ *  @param message    message
+ *  @param tapHandler tapHandler
+ */
++(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler;
+/**
+ *  showNotificationWithImage title message tapHandler completion
  *
  *  @param image   image
  *  @param title   title
