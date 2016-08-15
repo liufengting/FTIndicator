@@ -11,11 +11,11 @@
 [![GitHub stars](https://img.shields.io/github/stars/liufengting/FTIndicator.svg)](https://github.com/liufengting/FTIndicator/stargazers)
 
 
-A light wight UI package contains local notification, progress HUD, toast, with blur effect, elegant API and themes Support for iOS. Inspried by Apple's process indicator and notifications.
+A light wight UI package contains local notification, progress HUD, toast, with blur effect, elegant API and themes Support for iOS. Inspired by Apple's process indicator, notifications and Android's toast.
 
 # ScreenShots
 
-## Portriat
+## Portrait
 
 | Style	| Light	| Dark	|
 |:-------------:|:-------------:|:-------------:|
@@ -56,7 +56,7 @@ A light wight UI package contains local notification, progress HUD, toast, with 
 * import 'FTIndicator.h'
 * Enjoy！ 
 
-## Cocoapods
+## CocoaPods
 
 `FTIndicator` is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
@@ -88,7 +88,7 @@ pod 'FTProgressIndicator'
 pod 'FTToastIndicator'
 ```
 
-# Useage
+# Usage
 
 ## Use `FTIndicator`
 
