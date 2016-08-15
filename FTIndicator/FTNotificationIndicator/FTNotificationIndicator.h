@@ -10,7 +10,6 @@
 
 #pragma mark - FTNotificationIndicator
 typedef void (^FTNotificationTapHandler)(void);
-typedef void (^FTNotificationCompletion)(void);
 
 /**
  *  FTNotificationIndicator
@@ -39,9 +38,8 @@ typedef void (^FTNotificationCompletion)(void);
  *  @param title   title
  *  @param message message
  *  @param FTTapNotificationHandler tapHandler
- *  @param FTNotificationCompletion completion
  */
-+(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion;
++(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler;
 /**
  *  showNotificationWithImage
  *
@@ -57,9 +55,8 @@ typedef void (^FTNotificationCompletion)(void);
  *  @param title   title
  *  @param message message
  *  @param FTTapNotificationHandler tapHandler
- *  @param FTNotificationCompletion completion
  */
-+(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion;
++(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler;
 /**
  *  dismiss
  */
