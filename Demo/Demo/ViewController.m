@@ -115,12 +115,12 @@
                     [FTIndicator showNotificationWithTitle:@"Here is a notification title."
                                                    message:@"Here is a notification message. Try to tap and see tap handling"
                                                 tapHandler:^{
-                                                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Tap Handling"
-                                                                                                        message:@"This happen when you tap notification"
-                                                                                                       delegate:nil
-                                                                                              cancelButtonTitle:@"OK"
-                                                                                              otherButtonTitles:nil];
-                               [alertView show];
+                                            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Tap Handling"
+                                                                                                message:@"This happen when you tap notification"
+                                                                                               delegate:nil
+                                                                                      cancelButtonTitle:@"OK"
+                                                                                      otherButtonTitles:nil];
+                                            [alertView show];
                                                    } completion:^{
                                                        [FTIndicator showInfoWithMessage:@"Notification dismissed"];
                                                    }];

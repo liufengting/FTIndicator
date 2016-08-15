@@ -68,12 +68,17 @@
 
 +(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message
 {
-    [self showNotificationWithTitle:title message:message tapHandler:nil completion:nil];
+    [self showNotificationWithImage:nil title:title message:message tapHandler:nil completion:nil];
+}
+
++(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler
+{
+    [self showNotificationWithImage:nil title:title message:message tapHandler:tapHandler completion:nil];
 }
 
 +(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion
 {
-    [[self sharedInstance] showNotificationWithImage:nil title:title message:message tapHandler:tapHandler];
+    [self showNotificationWithImage:nil title:title message:message tapHandler:tapHandler completion:completion];
 }
 
 +(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message
@@ -81,9 +86,14 @@
     [self showNotificationWithImage:image title:title message:message tapHandler:nil completion:nil];
 }
 
++(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler
+{
+    [self showNotificationWithImage:image title:title message:message tapHandler:tapHandler completion:nil];
+}
+
 +(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion
 {
-    [[self sharedInstance] showNotificationWithImage:image title:title message:message tapHandler:tapHandler];
+    [[self sharedInstance] showNotificationWithImage:image title:title message:message tapHandler:tapHandler completion:completion];
 }
 
 +(void)dismiss
@@ -151,13 +161,14 @@
     }
 }
 
--(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler
+-(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion
 {
     self.notificationImage = image;
     self.notificationTitle = title;
     self.notificationMessage = message;
     self.isCurrentlyOnScreen = NO;
     self.tapHandler = tapHandler;
+    self.completion = completion;
 
     [self adjustIndicatorFrame];
     
