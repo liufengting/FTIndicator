@@ -54,7 +54,6 @@ A light wight UI package contains `local notification`, `progress HUD`, `toast`,
 * clone this repo.
 * Simply drop the '/FTIndicator' folder into your project.
 * import 'FTIndicator.h'
-* Enjoy！ 
 
 ## CocoaPods
 
