@@ -11,7 +11,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/liufengting/FTIndicator.svg)](https://github.com/liufengting/FTIndicator/stargazers)
 
 
-A light wight UI package contains `local notification`, `progress HUD`, `toast`, with `blur effect`, `elegant API` and `themes Support` for iOS. Inspired by Apple's process indicator, notifications and Android's toast.
+A light wight UI package contains `local notification`, `progress HUD`, `toast`, with `blur effect`, `elegant API` and `themes Support` for iOS. Inspired by Apple's process HUD, notifications and Android's toast.
 
 # ScreenShots
 
@@ -33,11 +33,11 @@ A light wight UI package contains `local notification`, `progress HUD`, `toast`,
 
 # 3 IN 1
 
- If you want use all three of the indicators, use `FTIndicator` .
- 
- Also, `FTNotificationIndicator`, `FTProgressIndicator` and `FTToastIndicator` are able to work separately. Use them all your will.
+ * If you want use all three of the indicators, use `FTIndicator` .
+ * Also, `FTNotificationIndicator`, `FTProgressIndicator` and `FTToastIndicator` are able to work separately. Use them all your will.
 
- ---
+
+---
  
 * FTIndicator
 	* FTNotificationIndicator
@@ -59,7 +59,7 @@ A light wight UI package contains `local notification`, `progress HUD`, `toast`,
 
 `FTIndicator` is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
-### Use all three of them 
+### Use FTIndicator, all three of them 
 
 * FTIndicator, 3 in 1 
 
@@ -91,105 +91,145 @@ pod 'FTToastIndicator'
 
 ## Use `FTIndicator`
 
-* Notification
+### Notification
+
+* show with image
 
 ```objective-c
-
-// show with image
 [FTIndicator showNotificationWithImage:[UIImage imageNamed:@"maps_icon"]
 								   title:@"Here is a notification title."
                                message:@"Here is a notification message."]; 
+```
 
-// show without image
+* show without image
+
+```objective-c
 [FTIndicator showNotificationWithTitle:@"Here is a notification title."
 								message:@"Here is a notification message."]; 
-								
-// dismiss manually
+```
+
+* dismiss manually
+
+```objective-c
 [FTIndicator dismissNotification];
-							
 ```
-* Progress
+
+### Progress
+
+* show progress
 
 ```objective-c
-
-// show progress
 [FTIndicator showProgressWithmessage:@"Here is a progress message."]; 
-
-// show success
-[FTIndicator showSuccessWithMessage:@"Here is a success message."]; 
-
-// show info
-[FTIndicator showInfoWithMessage:@"Here is a info message."]; 
-	
-// show error
-[FTIndicator showErrorWithMessage:@"Here is a error message."];
-
-// dismiss manually
-[FTIndicator dismissProgress];
-							
 ```
-* Toast
+
+* show success
 
 ```objective-c
+[FTIndicator showSuccessWithMessage:@"Here is a success message."]; 
+```
 
-// show with image
+* show info
+
+```objective-c
+[FTIndicator showInfoWithMessage:@"Here is a info message."]; 
+```
+	
+* show error
+
+```objective-c
+[FTIndicator showErrorWithMessage:@"Here is a error message."];
+```
+
+* dismiss manually
+
+```objective-c
+[FTIndicator dismissProgress];
+```
+
+### Toast
+
+* show with image
+
+```objective-c
 [FTIndicator showToastMessage:@"Short Toast."];  
+```
 								
-// dismiss manually
+* dismiss manually
+
+```objective-c
 [FTIndicator dismissToast];
-							
 ```
 
 
 ## Use `FTNotificationIndicator`, `FTProgressIndicator`, `FTToastIndicator` separately
 
-* FTNotificationIndicator
+### FTNotificationIndicator
+
+* show with image
 
 ```objective-c
-
-// show with image
 [FTNotificationIndicator showNotificationWithImage:[UIImage imageNamed:@"maps_icon"]
                                              title:@"Here is a notification title."
                                            message:@"Here is a notification message."]; 
+```
 
-// show without image
+* show without image
+
+```objective-c
 [FTNotificationIndicator showNotificationWithTitle:@"Here is a notification title."
 										     message:@"Here is a notification message."]; 
+```
 								
-// dismiss manually
+* dismiss manually
+
+```objective-c
 [FTNotificationIndicator dismiss];
-							
 ```
-* FTProgressIndicator
+
+### FTProgressIndicator
+
+* show progress
 
 ```objective-c
-
-// show progress
 [FTProgressIndicator showProgressWithmessage:@"Here is a progress message."]; 
-
-// show success
-[FTProgressIndicator showSuccessWithMessage:@"Here is a success message."]; 
-
-// show info
-[FTProgressIndicator showInfoWithMessage:@"Here is a info message."]; 
-	
-// show error
-[FTProgressIndicator showErrorWithMessage:@"Here is a error message."];
-
-// dismiss manually
-[FTProgressIndicator dismiss];
-							
 ```
-* FTToastIndicator
+
+* show success
 
 ```objective-c
+[FTProgressIndicator showSuccessWithMessage:@"Here is a success message."]; 
+```
 
-// show with image
-[FTToastIndicator showToastMessage:@"Short Toast."];  
-								
-// dismiss manually
-[FTToastIndicator dismiss];
+* show info
+
+```objective-c
+[FTProgressIndicator showInfoWithMessage:@"Here is a info message."]; 
+```
+	
+* show error
+
+```objective-c
+[FTProgressIndicator showErrorWithMessage:@"Here is a error message."];
+```
+
+* dismiss manually
+
+```objective-c
+[FTProgressIndicator dismiss];
+```
 							
+### FTToastIndicator
+
+* show with image
+
+```objective-c
+[FTToastIndicator showToastMessage:@"Short Toast."];  
+```
+								
+* dismiss manually
+
+```objective-c
+[FTToastIndicator dismiss];
 ```
 
 # ChangeLog
