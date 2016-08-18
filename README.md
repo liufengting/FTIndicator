@@ -4,7 +4,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/liufengting/FTIndicator/master/LICENSE)
 [![Version](https://img.shields.io/cocoapods/v/FTIndicator.svg?style=flat)](http://cocoapods.org/pods/FTIndicator)
 [![Platform](https://img.shields.io/cocoapods/p/FTIndicator.svg?style=flat)](http://cocoapods.org/pods/FTIndicator)
-[![CocoaPods](https://img.shields.io/cocoapods/dt/FTIndicator.svg?maxAge=2592000)](http://cocoapods.org/pods/FTIndicator)
+[![Download](https://img.shields.io/cocoapods/dt/FTIndicator.svg?maxAge=2592000)](http://cocoapods.org/pods/FTIndicator)
 [![CocoaPods](https://img.shields.io/cocoapods/at/FTIndicator.svg?maxAge=2592000)](http://cocoapods.org/pods/FTIndicator)
 [![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/FTIndicator.svg?maxAge=2592000)](http://cocoapods.org/pods/FTIndicator)
 [![CI Status](http://img.shields.io/travis/liufengting/FTIndicator.svg?style=flat)](https://travis-ci.org/liufengting/FTIndicator)
