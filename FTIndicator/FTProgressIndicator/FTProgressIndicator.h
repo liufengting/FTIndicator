@@ -2,7 +2,7 @@
 //  FTProgressIndicator.h
 //  FTIndicatorDemo
 //
-//  Created by liufengting on 16/7/26.
+//  Created by liufengting https://github.com/liufengting on 16/7/26.
 //  Copyright © 2016年 liufengting. All rights reserved.
 //
 
