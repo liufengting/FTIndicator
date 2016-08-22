@@ -2,8 +2,8 @@
 //  FTProgressIndicator.m
 //  FTIndicatorDemo
 //
-//  Created by liufengting https://github.com/liufengting on 16/7/26.
-//  Copyright © 2016年 liufengting. All rights reserved.
+//  Created by liufengting on 16/7/26.
+//  Copyright © 2016年 liufengting ( https://github.com/liufengting ). All rights reserved.
 //
 
 #import "FTProgressIndicator.h"
@@ -11,7 +11,7 @@
 #pragma mark - Defines
 
 #define kFTProgressMaxWidth                         (240.f)
-#define kFTProgressMargin_X                         (10.f)
+#define kFTProgressMargin_X                         (20.f)
 #define kFTProgressMargin_Y                         (20.f)
 #define kFTProgressImageSize                        (30.f)
 #define kFTProgressImageToLabel                     (15.f)
@@ -191,10 +191,9 @@
 
 -(void)startDismissTimer
 {
+    [self stopDismissTimer];
     if (self.messageType != FTProgressIndicatorMessageTypeProgress) {
-        [self stopDismissTimer];
-        
-        CGFloat timeInterval = self.progressMessage.length * 0.04 + 0.5;
+        CGFloat timeInterval = MAX(self.progressMessage.length * 0.04 + 0.5, 2.0);
         _dismissTimer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
                                                          target:self
                                                        selector:@selector(dismissingProgressView)
@@ -376,6 +375,7 @@
     }
     
     self.messageLabel.text = message;
+    self.messageLabel.hidden = !message.length;
     self.messageLabel.textColor = [self getTextColorWithStyle:style];
     self.activatyView.color = [self getTextColorWithStyle:style];
     self.iconImageView.image = [self getImageWithStyle:style messageType:type];
@@ -397,11 +397,16 @@
 
 -(CGSize )getFrameForProgressMessageLabelWithMessage:(NSString *)progressMessage
 {
-    CGRect textSize = [progressMessage boundingRectWithSize:CGSizeMake(kFTProgressMaxWidth - kFTProgressMargin_X*2, MAXFLOAT)
-                                                    options:(NSStringDrawingUsesFontLeading | NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin)
-                                                 attributes:@{NSFontAttributeName : kFTProgressDefaultFont}
-                                                    context:nil];
-    CGSize size = CGSizeMake(textSize.size.width, MIN(textSize.size.height ,kFTProgressMaxWidth - kFTProgressMargin_Y*2 - kFTProgressImageToLabel - kFTProgressImageSize));
+    CGSize size = CGSizeZero;
+    if (progressMessage.length) {
+        CGRect textSize = [progressMessage boundingRectWithSize:CGSizeMake(kFTProgressMaxWidth - kFTProgressMargin_X*2, MAXFLOAT)
+                                                        options:(NSStringDrawingUsesFontLeading | NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin)
+                                                     attributes:@{NSFontAttributeName : kFTProgressDefaultFont}
+                                                        context:nil];
+        size = CGSizeMake(MAX(textSize.size.width, kFTProgressImageSize), MIN(textSize.size.height ,kFTProgressMaxWidth - kFTProgressMargin_Y*2 - kFTProgressImageToLabel - kFTProgressImageSize));
+    }else{
+        size = CGSizeMake(kFTProgressImageSize, 0);
+    }
     return size;
 }
 
@@ -410,7 +415,12 @@
 -(CGSize )getFrameForProgressViewWithMessage:(NSString *)progressMessage
 {
     CGSize textSize = [self getFrameForProgressMessageLabelWithMessage:progressMessage];
-    CGSize size = CGSizeMake(MIN(textSize.width + kFTProgressMargin_X*2 , kFTProgressMaxWidth), MIN(textSize.height + kFTProgressMargin_Y*2 + kFTProgressImageSize + kFTProgressImageToLabel,kFTProgressMaxWidth));
+    CGSize size = CGSizeZero;
+    if (progressMessage.length) {
+        size = CGSizeMake(MIN(textSize.width + kFTProgressMargin_X*2 , kFTProgressMaxWidth), MIN(textSize.height + kFTProgressMargin_Y*2 + kFTProgressImageSize + kFTProgressImageToLabel,kFTProgressMaxWidth));
+    }else{
+        size = CGSizeMake(MIN(textSize.width + kFTProgressMargin_X*2 , kFTProgressMaxWidth), kFTProgressMargin_Y*2 + kFTProgressImageSize);
+    }
     return size;
 }
 

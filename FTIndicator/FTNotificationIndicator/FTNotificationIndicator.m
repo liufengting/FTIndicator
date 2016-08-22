@@ -2,8 +2,8 @@
 //  FTNotificationIndicator.m
 //  FTIndicatorDemo
 //
-//  Created by liufengting https://github.com/liufengting on 16/7/26.
-//  Copyright © 2016年 liufengting. All rights reserved.
+//  Created by liufengting on 16/7/26.
+//  Copyright © 2016年 liufengting ( https://github.com/liufengting ). All rights reserved.
 //
 
 #import "FTNotificationIndicator.h"
@@ -209,7 +209,7 @@
 -(void)startDismissTimer
 {
     [self stopDismissTimer];
-    CGFloat timeInterval = self.notificationMessage.length * 0.04 + 0.5;
+    CGFloat timeInterval = MAX(self.notificationMessage.length * 0.04 + 0.5, 2.0);
     
     _dismissTimer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
                                                      target:self
@@ -388,7 +388,7 @@
 -(CGSize )getFrameForNotificationViewWithImage:(UIImage *)image message:(NSString *)notificationMessage
 {
     CGSize textSize = [self getFrameForNotificationMessageLabelWithImage:image message:notificationMessage];
-    CGSize size = CGSizeMake(kFTScreenWidth, MIN(textSize.height + kFTNotificationMargin_Y + kFTNotificationTitleHeight + kFTNotificationStatusBarHeight,kFTNotificationMaxHeight));
+    CGSize size = CGSizeMake(kFTScreenWidth, MAX(MIN(textSize.height + kFTNotificationMargin_Y + kFTNotificationTitleHeight + kFTNotificationStatusBarHeight,kFTNotificationMaxHeight), kFTNotificationStatusBarHeight + kFTNotificationMargin_Y*2 + kFTNotificationImageSize));
     return size;
 }
 

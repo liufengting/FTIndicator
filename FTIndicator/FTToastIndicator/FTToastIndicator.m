@@ -2,8 +2,8 @@
 //  FTToastIndicator.m
 //  FTIndicatorDemo
 //
-//  Created by liufengting https://github.com/liufengting on 16/7/26.
-//  Copyright © 2016年 liufengting. All rights reserved.
+//  Created by liufengting on 16/7/26.
+//  Copyright © 2016年 liufengting ( https://github.com/liufengting ). All rights reserved.
 //
 
 #import "FTToastIndicator.h"
@@ -184,7 +184,7 @@
 {
     [self stopDismissTimer];
     
-    CGFloat timeInterval = self.toastMessage.length * 0.04 + 0.5;
+    CGFloat timeInterval = MAX(self.toastMessage.length * 0.04 + 0.5, 2.0);
     _dismissTimer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
                                                      target:self
                                                    selector:@selector(dismissingToastView)
@@ -318,7 +318,7 @@
                                                  options:(NSStringDrawingUsesFontLeading | NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin)
                                               attributes:@{NSFontAttributeName : kFTToastDefaultFont}
                                                  context:nil];
-    CGSize size = CGSizeMake(textSize.size.width, MIN(textSize.size.height ,kFTToastMaxHeight - kFTToastMargin_Y*2));
+    CGSize size = CGSizeMake(MAX(textSize.size.width, kFTToastMargin_Y*2), MIN(textSize.size.height ,kFTToastMaxHeight - kFTToastMargin_Y*2));
     return size;
 }
 
