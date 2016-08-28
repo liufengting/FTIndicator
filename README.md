@@ -72,19 +72,49 @@ pod 'FTIndicator'
 * FTNotificationIndicator
 
 ```ruby
+
 pod 'FTNotificationIndicator'
+
+```
+
+```ruby
+
+# or use as a subPod
+
+pod 'FTIndicator/FTNotificationIndicator'
+
 ```
 
 * FTProgressIndicator
 
 ```ruby
+
 pod 'FTProgressIndicator'
+
+```
+
+```ruby
+
+# or use as a subPod
+
+pod 'FTIndicator/FTProgressIndicator'
+
 ```
 
 * FTToastIndicator
 
 ```ruby
+
 pod 'FTToastIndicator'
+
+```
+
+```ruby
+
+# or use as a subPod
+
+pod 'FTIndicator/FTToastIndicator'
+
 ```
 
 # Usage
@@ -92,6 +122,13 @@ pod 'FTToastIndicator'
 ## Use `FTIndicator`
 
 ### Notification
+
+* show without image
+
+```objective-c
+[FTIndicator showNotificationWithTitle:@"Here is a notification title."
+								message:@"Here is a notification message."]; 
+```
 
 * show with image
 
@@ -101,12 +138,19 @@ pod 'FTToastIndicator'
                                message:@"Here is a notification message."]; 
 ```
 
-* show without image
+* show with image, with tap handler and completion handler
 
 ```objective-c
-[FTIndicator showNotificationWithTitle:@"Here is a notification title."
-								message:@"Here is a notification message."]; 
+[FTIndicator showNotificationWithImage:[UIImage imageNamed:@"maps_icon"]
+                                 title:@"Here is a notification title."
+                               message:@"Here is a notification message. Try to tap and see tap handling or do nothing to see completion"
+                            tapHandler:^{
+							// handle user tap
+                            } completion:^{
+							// handle completion
+                            }];
 ```
+
 
 * dismiss manually
 
@@ -119,25 +163,65 @@ pod 'FTToastIndicator'
 * show progress
 
 ```objective-c
-[FTIndicator showProgressWithmessage:@"Here is a progress message."]; 
+
+[FTIndicator showProgressWithmessage:@"Here is a progress message."];  
+
+```
+
+```objective-c
+
+// or disable user interactions
+
+[FTIndicator showProgressWithmessage:@"Here is a progress message." userInteractionEnable:NO]; 
+
 ```
 
 * show success
 
 ```objective-c
+
 [FTIndicator showSuccessWithMessage:@"Here is a success message."]; 
+
+```
+
+```objective-c
+
+// or disable user interactions
+
+[FTIndicator showSuccessWithMessage:@"Here is a success message." userInteractionEnable:NO]; 
+
 ```
 
 * show info
 
 ```objective-c
+
 [FTIndicator showInfoWithMessage:@"Here is a info message."]; 
+
+```
+
+```objective-c
+
+// or disable user interactions
+
+[FTIndicator showInfoWithMessage:@"Here is a info message." userInteractionEnable:NO]; 
+
 ```
 	
 * show error
 
 ```objective-c
+
 [FTIndicator showErrorWithMessage:@"Here is a error message."];
+
+```
+
+```objective-c
+
+// or disable user interactions
+
+[FTIndicator showErrorWithMessage:@"Here is a error message." userInteractionEnable:NO];
+
 ```
 
 * dismiss manually
@@ -194,10 +278,20 @@ pod 'FTToastIndicator'
 [FTProgressIndicator showProgressWithmessage:@"Here is a progress message."]; 
 ```
 
+```objective-c
+// or disable user interactions
+[FTProgressIndicator showProgressWithmessage:@"Here is a progress message." userInteractionEnable:NO]; 
+```
+
 * show success
 
 ```objective-c
 [FTProgressIndicator showSuccessWithMessage:@"Here is a success message."]; 
+```
+
+```objective-c
+// or disable user interactions
+[FTProgressIndicator showSuccessWithMessage:@"Here is a success message." userInteractionEnable:NO]; 
 ```
 
 * show info
@@ -205,11 +299,21 @@ pod 'FTToastIndicator'
 ```objective-c
 [FTProgressIndicator showInfoWithMessage:@"Here is a info message."]; 
 ```
+
+```objective-c
+// or disable user interactions
+[FTProgressIndicator showInfoWithMessage:@"Here is a info message." userInteractionEnable:NO]; 
+```
 	
 * show error
 
 ```objective-c
 [FTProgressIndicator showErrorWithMessage:@"Here is a error message."];
+```
+
+```objective-c
+// or disable user interactions
+[FTProgressIndicator showErrorWithMessage:@"Here is a error message." userInteractionEnable:NO];
 ```
 
 * dismiss manually

@@ -112,7 +112,8 @@
                                                    message:@"Here is a notification message. Try to swipe it up or tap at 'Dismiss Notification' cell"];
                     break;
                 case 2:
-                    [FTIndicator showNotificationWithTitle:@"Here is a notification title."
+                    [FTIndicator showNotificationWithImage:[UIImage imageNamed:@"maps_icon"]
+                                                     title:@"Here is a notification title."
                                                    message:@"Here is a notification message. Try to tap and see tap handling or do nothing to see completion"
                                                 tapHandler:^{
                                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Tap Handling"
