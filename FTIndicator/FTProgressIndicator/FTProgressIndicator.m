@@ -20,6 +20,7 @@
 #define kFTProgressDefaultFont                      [UIFont systemFontOfSize:15]
 #define kFTProgressDefaultTextColor                 [UIColor blackColor]
 #define kFTProgressDefaultTextColor_ForDarkStyle    [UIColor whiteColor]
+#define kFTProgressDefaultBackgroundColor           [UIColor clearColor]
 
 #define kFTScreenWidth    [UIScreen mainScreen].bounds.size.width
 #define kFTScreenHeight   [UIScreen mainScreen].bounds.size.height
@@ -35,6 +36,7 @@
 @property (nonatomic, assign)FTProgressIndicatorMessageType  messageType;
 @property (nonatomic, assign)BOOL isDuringAnimation;
 @property (nonatomic, assign)BOOL isCurrentlyOnScreen;
+@property (nonatomic, assign)BOOL userInteractionEnable;
 
 @end
 
@@ -62,19 +64,35 @@
 }
 +(void)showProgressWithmessage:(NSString *)message
 {
-    [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeProgress message:message];
+    [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeProgress message:message userInteractionEnable:YES];
+}
++(void)showProgressWithmessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable
+{
+    [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeProgress message:message userInteractionEnable:userInteractionEnable];
 }
 +(void)showInfoWithMessage:(NSString *)message
 {
-    [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeInfo message:message];
+    [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeInfo message:message userInteractionEnable:YES];
+}
++(void)showInfoWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable
+{
+    [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeInfo message:message userInteractionEnable:userInteractionEnable];
 }
 +(void)showSuccessWithMessage:(NSString *)message
 {
-    [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeSuccess message:message];
+    [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeSuccess message:message userInteractionEnable:YES];
+}
++(void)showSuccessWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable
+{
+    [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeSuccess message:message userInteractionEnable:userInteractionEnable];
 }
 +(void)showErrorWithMessage:(NSString *)message
 {
-    [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeError message:message];
+    [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeError message:message userInteractionEnable:YES];
+}
++(void)showErrorWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable
+{
+    [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeError message:message userInteractionEnable:userInteractionEnable];
 }
 +(void)dismiss
 {
@@ -107,12 +125,17 @@
     }
     return _progressView;
 }
+-(void)setUserInteractionEnable:(BOOL)userInteractionEnable
+{
+    self.progressView.userInteractionEnable = userInteractionEnable;
+    _userInteractionEnable = userInteractionEnable;
+}
 
-
--(void)showProgressWithType:(FTProgressIndicatorMessageType )type message:(NSString *)message
+-(void)showProgressWithType:(FTProgressIndicatorMessageType )type message:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable
 {
     self.messageType = type;
     self.progressMessage = message;
+    self.userInteractionEnable = userInteractionEnable;
     self.isCurrentlyOnScreen = NO;
 
     if (self.isDuringAnimation) {
@@ -137,7 +160,7 @@
     
     [self.progressView setFrame:CGRectMake((kFTScreenWidth - progressSize.width)/2, (kFTScreenHeight - [self keyboardHeight] - progressSize.height)/2, progressSize.width, progressSize.height)];
     
-    [self.progressView showProgressWithType:self.messageType message:self.progressMessage style:self.indicatorStyle];
+    [self.progressView showProgressWithType:self.messageType message:self.progressMessage style:self.indicatorStyle userInteractionEnable:self.userInteractionEnable];
     
     [[[UIApplication sharedApplication] keyWindow] addSubview:self.progressView];
 
@@ -161,7 +184,7 @@
     CGFloat y = (MIN(kFTScreenHeight, keyboardRect.origin.y) - originRect.size.height)/2;
     [UIView animateWithDuration:animationDuration
                           delay:0
-                        options:UIViewAnimationOptionCurveEaseIn
+                        options:(UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionAllowUserInteraction)
                      animations:^{
                          [self.progressView setFrame:CGRectMake(originRect.origin.x, y, originRect.size.width, originRect.size.height)];
                      }completion:^(BOOL finished) {
@@ -217,7 +240,7 @@
                           delay:0
          usingSpringWithDamping:0.6
           initialSpringVelocity:0.5
-                        options:UIViewAnimationOptionCurveEaseIn
+                        options:(UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionAllowUserInteraction)
                      animations:^{
                          
                          self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
@@ -238,7 +261,7 @@
     self.isDuringAnimation = YES;
     [UIView animateWithDuration:kFTProgressDefaultAnimationDuration
                           delay:0
-                        options:UIViewAnimationOptionCurveEaseIn
+                        options:(UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionAllowUserInteraction)
                      animations:^{
                          
                          self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
@@ -248,6 +271,9 @@
                              self.isDuringAnimation = NO;
                              self.isCurrentlyOnScreen = NO;
                              [self.progressView removeFromSuperview];
+                             if (!self.userInteractionEnable) {
+                                 self.userInteractionEnable = YES;
+                             }
                          }
                      }];
 }
@@ -264,6 +290,7 @@
 @property (strong, nonatomic) UIImageView *iconImageView;
 @property (strong, nonatomic) UIActivityIndicatorView *activatyView;
 @property (strong, nonatomic) UILabel *messageLabel;
+@property (strong, nonatomic) UIView *backgroundView;
 
 @end
 
@@ -315,6 +342,27 @@
     }
     return _activatyView;
 }
+-(UIView *)backgroundView
+{
+    if (!_backgroundView) {
+        _backgroundView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        _backgroundView.backgroundColor = kFTProgressDefaultBackgroundColor;
+    }
+    return _backgroundView;
+}
+
+-(void)setUserInteractionEnable:(BOOL)userInteractionEnable
+{
+    self.userInteractionEnabled = userInteractionEnable;
+    self.backgroundView.frame = [UIScreen mainScreen].bounds;
+    if (userInteractionEnable) {
+        [self.backgroundView removeFromSuperview];
+    }else{
+        [[[UIApplication sharedApplication] keyWindow] addSubview:self.backgroundView];
+    }
+    self.backgroundView.hidden = userInteractionEnable;
+}
+
 
 -(UIColor *)getTextColorWithStyle:(UIBlurEffectStyle)style
 {
@@ -330,7 +378,7 @@
 -(UIImage *)getImageWithStyle:(UIBlurEffectStyle)style messageType:(FTProgressIndicatorMessageType )type
 {
     UIImage *image;
-    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"ImageAsserts" ofType:@"bundle"];
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"FTProgressIndicator" ofType:@"bundle"];
     NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
     switch (type) {
         case FTProgressIndicatorMessageTypeInfo:
@@ -362,7 +410,7 @@
 
 #pragma mark - main methods
 
--(void)showProgressWithType:(FTProgressIndicatorMessageType )type message:(NSString *)message style:(UIBlurEffectStyle)style
+-(void)showProgressWithType:(FTProgressIndicatorMessageType )type message:(NSString *)message style:(UIBlurEffectStyle)style userInteractionEnable:(BOOL)userInteractionEnable
 {
     self.effect = [UIBlurEffect effectWithStyle:style];
     
@@ -373,7 +421,7 @@
         self.iconImageView.hidden = NO;
         [self.activatyView stopAnimating];
     }
-    
+    self.userInteractionEnable = userInteractionEnable;
     self.messageLabel.text = message;
     self.messageLabel.hidden = !message.length;
     self.messageLabel.textColor = [self getTextColorWithStyle:style];

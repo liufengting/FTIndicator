@@ -14,7 +14,7 @@
 		5AC92BE81D4D039200949121 /* FTIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC92BDD1D4D039200949121 /* FTIndicator.m */; };
 		5AC92BE91D4D039200949121 /* FTNotificationIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC92BE01D4D039200949121 /* FTNotificationIndicator.m */; };
 		5AC92BEA1D4D039200949121 /* FTProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC92BE31D4D039200949121 /* FTProgressIndicator.m */; };
-		5AC92BEB1D4D039200949121 /* ImageAsserts.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5AC92BE41D4D039200949121 /* ImageAsserts.bundle */; };
+		5AC92BEB1D4D039200949121 /* FTProgressIndicator.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5AC92BE41D4D039200949121 /* FTProgressIndicator.bundle */; };
 		5AC92BEC1D4D039200949121 /* FTToastIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC92BE71D4D039200949121 /* FTToastIndicator.m */; };
 		5AF3E7B41D4C733B00AD5EC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF3E7B31D4C733B00AD5EC8 /* main.m */; };
 		5AF3E7B71D4C733B00AD5EC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF3E7B61D4C733B00AD5EC8 /* AppDelegate.m */; };
@@ -47,7 +47,7 @@
 		5AC92BE01D4D039200949121 /* FTNotificationIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTNotificationIndicator.m; sourceTree = "<group>"; };
 		5AC92BE21D4D039200949121 /* FTProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTProgressIndicator.h; sourceTree = "<group>"; };
 		5AC92BE31D4D039200949121 /* FTProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTProgressIndicator.m; sourceTree = "<group>"; };
-		5AC92BE41D4D039200949121 /* ImageAsserts.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ImageAsserts.bundle; sourceTree = "<group>"; };
+		5AC92BE41D4D039200949121 /* FTProgressIndicator.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FTProgressIndicator.bundle; sourceTree = "<group>"; };
 		5AC92BE61D4D039200949121 /* FTToastIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTToastIndicator.h; sourceTree = "<group>"; };
 		5AC92BE71D4D039200949121 /* FTToastIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTToastIndicator.m; sourceTree = "<group>"; };
 		5AF3E7AF1D4C733B00AD5EC8 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,7 +120,7 @@
 			children = (
 				5AC92BE21D4D039200949121 /* FTProgressIndicator.h */,
 				5AC92BE31D4D039200949121 /* FTProgressIndicator.m */,
-				5AC92BE41D4D039200949121 /* ImageAsserts.bundle */,
+				5AC92BE41D4D039200949121 /* FTProgressIndicator.bundle */,
 			);
 			path = FTProgressIndicator;
 			sourceTree = "<group>";
@@ -272,7 +272,7 @@
 				5AF3E7C21D4C733B00AD5EC8 /* LaunchScreen.storyboard in Resources */,
 				5AF3E7BF1D4C733B00AD5EC8 /* Assets.xcassets in Resources */,
 				5A0F5A1B1D4CAABB00FD0145 /* light.jpeg in Resources */,
-				5AC92BEB1D4D039200949121 /* ImageAsserts.bundle in Resources */,
+				5AC92BEB1D4D039200949121 /* FTProgressIndicator.bundle in Resources */,
 				5A0F5A1A1D4CAABB00FD0145 /* dark.jpeg in Resources */,
 				5A0F5A231D4CC5BD00FD0145 /* maps_icon.png in Resources */,
 				5AF3E7BD1D4C733B00AD5EC8 /* Main.storyboard in Resources */,

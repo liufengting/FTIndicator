@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "FTIndicator"
-  s.version      = "1.1.2"
+  s.version      = "1.1.3"
   s.summary      = "A lightwight UI package contains local notification, progress HUD, toast, with blur effect, elegant API and themes Support."
   s.description  = <<-DESC
           A lightwight UI package contains local notification, progress HUD, toast, with blur effect, elegant API and themes Support. Inspried by Apple's process indicator and notifications.
@@ -15,5 +15,19 @@ Pod::Spec.new do |s|
   s.source_files  = "FTIndicator", "FTIndicator/**/*.{h,m}"
   s.resources    = "FTIndicator/**/*.{bundle}"
   s.requires_arc = true
+  
+  s.subspec 'FTNotificationIndicator' do |bs|
+    bs.source_files  = "FTNotificationIndicator", "FTIndicator/FTNotificationIndicator/*.{h,m}"
+  end
+
+  s.subspec 'FTProgressIndicator' do |bs|
+    bs.source_files  = "FTProgressIndicator", "FTIndicator/FTProgressIndicator/*.{h,m}"
+    bs.resources    = "FTIndicator/FTProgressIndicator/*.{bundle}"
+  end
+
+  s.subspec 'FTNotificationIndicator' do |bs|
+    bs.source_files  = "FTToastIndicator", "FTIndicator/FTToastIndicator/**/*.{h,m}"
+  end
+
 
 end

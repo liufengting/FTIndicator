@@ -49,22 +49,35 @@
  */
 +(void)showProgressWithmessage:(NSString *)message
 {
-    [FTProgressIndicator showProgressWithmessage:message];
+    [FTProgressIndicator showProgressWithmessage:message userInteractionEnable:YES];
 }
-
++(void)showProgressWithmessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable
+{
+    [FTProgressIndicator showProgressWithmessage:message userInteractionEnable:userInteractionEnable];
+}
 +(void)showInfoWithMessage:(NSString *)message
 {
-    [FTProgressIndicator showInfoWithMessage:message];
+    [FTProgressIndicator showInfoWithMessage:message userInteractionEnable:YES];
 }
-
++(void)showInfoWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable
+{
+    [FTProgressIndicator showInfoWithMessage:message userInteractionEnable:userInteractionEnable];
+}
 +(void)showSuccessWithMessage:(NSString *)message
 {
-    [FTProgressIndicator showSuccessWithMessage:message];
+    [FTProgressIndicator showSuccessWithMessage:message userInteractionEnable:YES];
 }
-
++(void)showSuccessWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable
+{
+    [FTProgressIndicator showSuccessWithMessage:message userInteractionEnable:userInteractionEnable];
+}
 +(void)showErrorWithMessage:(NSString *)message
 {
-    [FTProgressIndicator showErrorWithMessage:message];
+    [FTProgressIndicator showErrorWithMessage:message userInteractionEnable:YES];
+}
++(void)showErrorWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable
+{
+    [FTProgressIndicator showErrorWithMessage:message userInteractionEnable:userInteractionEnable];
 }
 +(void)dismissProgress
 {

@@ -56,9 +56,17 @@
 /**
  *  showProgressWithmessage
  *
- *  @param message NSString message
+ *  @param message message
  */
 +(void)showProgressWithmessage:(NSString *)message;
+
+/**
+ *  showProgressWithmessage userInteractionEnable
+ *
+ *  @param message               message
+ *  @param userInteractionEnable userInteractionEnable
+ */
++(void)showProgressWithmessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
 
 /**
  *  showInfoWithMessage
@@ -68,6 +76,14 @@
 +(void)showInfoWithMessage:(NSString *)message;
 
 /**
+ *  showInfoWithMessage userInteractionEnable
+ *
+ *  @param message               message
+ *  @param userInteractionEnable userInteractionEnable
+ */
++(void)showInfoWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
+
+/**
  *  showSuccessWithMessage
  *
  *  @param message NSString message
@@ -75,11 +91,28 @@
 +(void)showSuccessWithMessage:(NSString *)message;
 
 /**
+ *  showSuccessWithMessage userInteractionEnable
+ *
+ *  @param message               message
+ *  @param userInteractionEnable userInteractionEnable
+ */
++(void)showSuccessWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
+
+/**
  *  showErrorWithMessage
  *
  *  @param message NSString message
  */
 +(void)showErrorWithMessage:(NSString *)message;
+
+/**
+ *  showErrorWithMessage userInteractionEnable
+ *
+ *  @param message               message
+ *  @param userInteractionEnable userInteractionEnable
+ */
++(void)showErrorWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
+
 /**
  *  dismissProgress
  */

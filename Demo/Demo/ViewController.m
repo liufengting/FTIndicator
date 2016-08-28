@@ -141,7 +141,7 @@
                     [FTIndicator showSuccessWithMessage:@"Here is a progress title. This means nothing at all."];
                     break;
                 case 2:
-                    [FTIndicator showInfoWithMessage:@"Here is a progress title. This means nothing at all."];
+                    [FTIndicator showInfoWithMessage:@"When this is shown, userInteraction not enabled." userInteractionEnable:NO];
                     break;
                 case 3:
                     [FTIndicator showErrorWithMessage:@"Here is a progress title. This means nothing at all."];

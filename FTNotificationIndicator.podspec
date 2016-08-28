@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "FTNotificationIndicator"
-  s.version      = "1.1.2"
+  s.version      = "1.1.3"
   s.summary      = "A lightwight local notification UI, with blur effect, elegant API and themes Support."
   s.description  = <<-DESC
           A lightwight local notification, with blur effect, elegant API and themes Support. Inspried by Apple's  notifications.
