@@ -336,9 +336,9 @@ pod 'FTIndicator/FTToastIndicator'
 [FTToastIndicator dismiss];
 ```
 
-# ChangeLog
+# CHANGELOG
 
-[ChangeLog](https://github.com/liufengting/FTIndicator/blob/master/ChangeLog.md)
+[CHANGELOG](https://github.com/liufengting/FTIndicator/blob/master/CHANGELOG.md)
 
 # License
 
