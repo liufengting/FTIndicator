@@ -1,3 +1,5 @@
+![FTIndicator](https://raw.githubusercontent.com/liufengting/FTResourceRepo/master/Resource/FTIndicator/FTIndicator.jpg)
+
 # FTIndicator
 
 [![Twitter](https://img.shields.io/badge/twitter-@liufengting-blue.svg?style=flat)](http://twitter.com/liufengting) 
