@@ -8,5 +8,6 @@
 |1.1.1|2016-08-15|Add notification completion handler thanks to Yuli Chandra|
 |1.1.2|2016-08-15|fix bugs when no text|
 |1.1.3|2016-08-28|progress hud add user interaction disable|
+|1.1.4|2016-09-08|fix a bug where load image from bundle not working|
 
 

@@ -1,6 +1,6 @@
 //
 //  FTProgressIndicator.m
-//  FTIndicatorDemo
+//  FTIndicator
 //
 //  Created by liufengting on 16/7/26.
 //  Copyright © 2016年 liufengting ( https://github.com/liufengting ). All rights reserved.
@@ -378,7 +378,7 @@
 -(UIImage *)getImageWithStyle:(UIBlurEffectStyle)style messageType:(FTProgressIndicatorMessageType )type
 {
     UIImage *image;
-    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"FTProgressIndicator" ofType:@"bundle"];
+    NSString *bundlePath = [[NSBundle bundleForClass:[FTProgressIndicator class]] pathForResource:@"FTProgressIndicator" ofType:@"bundle"];
     NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
     switch (type) {
         case FTProgressIndicatorMessageTypeInfo:

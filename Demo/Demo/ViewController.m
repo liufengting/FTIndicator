@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  FTIndicatorDemo
+//  FTIndicator
 //
 //  Created by liufengting on 16/7/21.
 //  Copyright © 2016年 liufengting ( https://github.com/liufengting ). All rights reserved.
