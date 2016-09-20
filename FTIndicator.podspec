@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
     bs.resources    = "FTIndicator/FTProgressIndicator/*.{bundle}"
   end
 
-  s.subspec 'FTNotificationIndicator' do |bs|
+  s.subspec 'FTToastIndicator' do |bs|
     bs.source_files  = "FTToastIndicator", "FTIndicator/FTToastIndicator/**/*.{h,m}"
   end
 
