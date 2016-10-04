@@ -230,8 +230,8 @@
 {
     [UIView animateWithDuration:kFTNotificationDefaultAnimationDuration
                           delay:0
-         usingSpringWithDamping:0.6
-          initialSpringVelocity:0.8
+         usingSpringWithDamping:0.5
+          initialSpringVelocity:0.1
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          

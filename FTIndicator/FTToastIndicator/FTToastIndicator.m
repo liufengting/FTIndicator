@@ -206,8 +206,8 @@
     self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
     [UIView animateWithDuration:kFTToastDefaultAnimationDuration
                           delay:0
-         usingSpringWithDamping:0.6
-          initialSpringVelocity:0.5
+         usingSpringWithDamping:0.5
+          initialSpringVelocity:0.1
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          

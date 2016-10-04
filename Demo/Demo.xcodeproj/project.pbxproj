@@ -238,6 +238,7 @@
 				TargetAttributes = {
 					5AF3E7AE1D4C733B00AD5EC8 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = E83AC9WR2F;
 					};
 					5AF3E7C71D4C733B00AD5EC8 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -430,10 +431,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E83AC9WR2F;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.Demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.ChatMessageDemoProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -442,10 +444,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E83AC9WR2F;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.Demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.ChatMessageDemoProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
