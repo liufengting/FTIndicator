@@ -38,17 +38,17 @@ A light wight UI package contains local notification, progress HUD, toast, with 
 
 | Style	| Light	| Dark	|
 |:-------------:|:-------------:|:-------------:|
-| Notification | <img src="/ScreenShots/Portriat/notification_L_P.jpg" width="300"/> | <img src="/ScreenShots/Portriat/notification_D_P.jpg" width="300"/> |
-| Progress | <img src="/ScreenShots/Portriat/progress_L_P.jpg" width="300"/> | <img src="/ScreenShots/Portriat/progress_D_P.jpg" width="300"/> |
-| Toast | <img src="/ScreenShots/Portriat/toast_L_P.jpg" width="300"/> | <img src="/ScreenShots/Portriat/toast_D_P.jpg" width="300"/> |
+| Notification | <img src="https://raw.githubusercontent.com/liufengting/FTResourceRepo/master/Resource/FTIndicator/ScreenShots/Portriat/notification_L_P.jpg" width="300"/> | <img src="https://raw.githubusercontent.com/liufengting/FTResourceRepo/master/Resource/FTIndicator/ScreenShots/Portriat/notification_D_P.jpg" width="300"/> |
+| Progress | <img src="https://raw.githubusercontent.com/liufengting/FTResourceRepo/master/Resource/FTIndicator/ScreenShots/Portriat/progress_L_P.jpg" width="300"/> | <img src="https://raw.githubusercontent.com/liufengting/FTResourceRepo/master/Resource/FTIndicator/ScreenShots/Portriat/progress_D_P.jpg" width="300"/> |
+| Toast | <img src="https://raw.githubusercontent.com/liufengting/FTResourceRepo/master/Resource/FTIndicator/ScreenShots/Portriat/toast_L_P.jpg" width="300"/> | <img src="https://raw.githubusercontent.com/liufengting/FTResourceRepo/master/Resource/FTIndicator/ScreenShots/Portriat/toast_D_P.jpg" width="300"/> |
 
 ## Landscape
 
 | Style	| Light	| Dark	|
 |:-------------:|:-------------:|:-------------:|
-| Notification | <img src="/ScreenShots/Landscape/notification_L_L.jpg" width="300"/> | <img src="/ScreenShots/Landscape/notification_D_L.jpg" width="300"/> |
-| Progress | <img src="/ScreenShots/Landscape/progress_L_L.jpg" width="300"/> | <img src="/ScreenShots/Landscape/progress_D_L.jpg" width="300"/> |
-| Toast | <img src="/ScreenShots/Landscape/toast_L_L.jpg" width="300"/> | <img src="/ScreenShots/Landscape/toast_D_L.jpg" width="300"/> |
+| Notification | <img src="https://raw.githubusercontent.com/liufengting/FTResourceRepo/master/Resource/FTIndicator/ScreenShots/Landscape/notification_L_L.jpg" width="300"/> | <img src="https://raw.githubusercontent.com/liufengting/FTResourceRepo/master/Resource/FTIndicator/ScreenShots/Landscape/notification_D_L.jpg" width="300"/> |
+| Progress | <img src="https://raw.githubusercontent.com/liufengting/FTResourceRepo/master/Resource/FTIndicator/ScreenShots/Landscape/progress_L_L.jpg" width="300"/> | <img src="https://raw.githubusercontent.com/liufengting/FTResourceRepo/master/Resource/FTIndicator/ScreenShots/Landscape/progress_D_L.jpg" width="300"/> |
+| Toast | <img src="https://raw.githubusercontent.com/liufengting/FTResourceRepo/master/Resource/FTIndicator/ScreenShots/Landscape/toast_L_L.jpg" width="300"/> | <img src="https://raw.githubusercontent.com/liufengting/FTResourceRepo/master/Resource/FTIndicator/ScreenShots/Landscape/toast_D_L.jpg" width="300"/> |
 
 
  
