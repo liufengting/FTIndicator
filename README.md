@@ -15,6 +15,23 @@
 
 A light wight UI package contains local notification, progress HUD, toast, with `blur effect`, `elegant API` and `themes Support` for iOS. Inspired by Apple's process HUD, notifications and Android's toast.
 
+
+# 3 IN 1
+
+ * If you want use all three of the indicators, use `FTIndicator` .
+ * Also, `FTNotificationIndicator`, `FTProgressIndicator` and `FTToastIndicator` are able to work separately. Use them all your will.
+
+---
+
+> `FTIndicator`
+>> `FTNotificationIndicator`
+>> `FTProgressIndicator`
+>> `FTToastIndicator`
+
+---
+
+
+
 # ScreenShots
 
 ## Portrait
@@ -33,20 +50,7 @@ A light wight UI package contains local notification, progress HUD, toast, with 
 | Progress | <img src="/ScreenShots/Landscape/progress_L_L.jpg" width="300"/> | <img src="/ScreenShots/Landscape/progress_D_L.jpg" width="300"/> |
 | Toast | <img src="/ScreenShots/Landscape/toast_L_L.jpg" width="300"/> | <img src="/ScreenShots/Landscape/toast_D_L.jpg" width="300"/> |
 
-# 3 IN 1
 
- * If you want use all three of the indicators, use `FTIndicator` .
- * Also, `FTNotificationIndicator`, `FTProgressIndicator` and `FTToastIndicator` are able to work separately. Use them all your will.
-
-
----
- 
-* FTIndicator
-	* FTNotificationIndicator
-	* FTProgressIndicator
-	* FTToastIndicator
-
----
  
 
 # Installation
