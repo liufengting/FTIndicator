@@ -267,14 +267,12 @@
                          self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
                          
                      } completion:^(BOOL finished) {
-                         if(finished){
-                             self.isDuringAnimation = NO;
-                             self.isCurrentlyOnScreen = NO;
-                             [self.progressView removeFromSuperview];
-                             if (!self.userInteractionEnable) {
-                                 self.userInteractionEnable = YES;
-                             }
+                         self.isDuringAnimation = NO;
+                         self.isCurrentlyOnScreen = NO;
+                         if (!self.userInteractionEnable) {
+                             self.userInteractionEnable = YES;
                          }
+                         [self.progressView removeFromSuperview];
                      }];
 }
 

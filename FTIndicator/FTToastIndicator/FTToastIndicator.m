@@ -235,11 +235,9 @@
                          self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
                          
                      } completion:^(BOOL finished) {
-                         if(finished){
-                             self.isDuringAnimation = NO;
-                             self.isCurrentlyOnScreen = NO;
-                             [self.toastView removeFromSuperview];
-                         }
+                         self.isDuringAnimation = NO;
+                         self.isCurrentlyOnScreen = NO;
+                         [self.toastView removeFromSuperview];
                      }];
 }
 

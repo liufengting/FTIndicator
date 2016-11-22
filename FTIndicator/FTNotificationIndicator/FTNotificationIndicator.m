@@ -261,12 +261,10 @@
                          [self.notificationView setFrame:CGRectMake(0,-(self.notificationView.frame.size.height),kFTScreenWidth,(self.notificationView.frame.size.height))];
                          
                      } completion:^(BOOL finished) {
-                         if(finished){
-                             self.isCurrentlyOnScreen = NO;
-                             [self.notificationView removeFromSuperview];
-                             if(self.completion && !tap){
-                                 self.completion();
-                             }
+                         self.isCurrentlyOnScreen = NO;
+                         [self.notificationView removeFromSuperview];
+                         if(self.completion && !tap){
+                             self.completion();
                          }
                      }];
 }

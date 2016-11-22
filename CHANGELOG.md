@@ -10,5 +10,7 @@
 |1.1.3|2016-08-28|progress hud add user interaction disable|
 |1.1.4|2016-09-08|fix a bug where load image from bundle not working|
 |1.1.5|2016-09-20|fix: podspec doest not correctly link to "FTToastIndicator"|
+|1.1.6|2016-11-22|fix a bug of not dismissing when user back to homescreen，remove subpods|
+
 
 
