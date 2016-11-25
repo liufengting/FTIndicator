@@ -65,6 +65,16 @@ A light wight UI package contains local notification, progress HUD, toast, with 
 
 `FTIndicator` is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
+⚠️ Notice：
+`FTNotificationIndicator`, `FTProgressIndicator` and `FTToastIndicator` podfile stopped updating after v1.1.5. If you wanna use them separately, you should use them like this in your Podfile as a subPod:
+
+```ruby
+    pod 'FTIndicator/FTNotificationIndicator'
+    pod 'FTIndicator/FTProgressIndicator'
+    pod 'FTIndicator/FTToastIndicator'
+```
+
+
 ### Use FTIndicator, all three of them 
 
 * FTIndicator, 3 in 1 
@@ -77,15 +87,11 @@ pod 'FTIndicator'
 
 * FTNotificationIndicator
 
-```ruby
-
-pod 'FTNotificationIndicator'
-
-```
+~~pod 'FTNotificationIndicator~~ is not available anymore, use this:
 
 ```ruby
 
-# or use as a subPod
+# use as a subPod
 
 pod 'FTIndicator/FTNotificationIndicator'
 
@@ -93,15 +99,12 @@ pod 'FTIndicator/FTNotificationIndicator'
 
 * FTProgressIndicator
 
-```ruby
+~~pod "FTProgressIndicator"~~ is not available anymore, use this:
 
-pod 'FTProgressIndicator'
-
-```
 
 ```ruby
 
-# or use as a subPod
+# use as a subPod
 
 pod 'FTIndicator/FTProgressIndicator'
 
@@ -109,15 +112,11 @@ pod 'FTIndicator/FTProgressIndicator'
 
 * FTToastIndicator
 
-```ruby
-
-pod 'FTToastIndicator'
-
-```
+~~pod 'FTToastIndicator'~~ is not available anymore, use this:
 
 ```ruby
 
-# or use as a subPod
+# use as a subPod
 
 pod 'FTIndicator/FTToastIndicator'
 
@@ -348,9 +347,7 @@ pod 'FTIndicator/FTToastIndicator'
 
 # License
 
-* `FTIndicator` is available under the MIT license. See the LICENSE file for more info. 
-* `FTNotificationIndicator` is available under the MIT license. See the LICENSE file for more info. 
-* `FTProgressIndicator` is available under the MIT license. See the LICENSE file for more info. 
-* `FTToastIndicator` is available under the MIT license. See the LICENSE file for more info. 
+`FTIndicator` is available under the MIT license. See the LICENSE file for more info. 
+
 
 
