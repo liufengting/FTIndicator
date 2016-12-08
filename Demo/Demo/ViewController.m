@@ -63,7 +63,7 @@
     
     [FTIndicator setIndicatorStyle:isLight ? UIBlurEffectStyleLight : UIBlurEffectStyleDark];
     
-    [FTIndicator showInfoWithMessage:isLight ? @"Daylight Version on." : @"Night Version on."];
+//    [FTIndicator showInfoWithMessage:isLight ? @"Daylight Version on." : @"Night Version on."];
 }
 
 
@@ -142,7 +142,7 @@
                     [FTIndicator showSuccessWithMessage:@"Here is a progress title. This means nothing at all."];
                     break;
                 case 2:
-                    [FTIndicator showInfoWithMessage:@"When this is shown, userInteraction not enabled." userInteractionEnable:NO];
+                    [FTIndicator showInfoWithMessage:@"When this is showing, userInteraction not enabled." userInteractionEnable:NO];
                     break;
                 case 3:
                     [FTIndicator showErrorWithMessage:@"Here is a progress title. This means nothing at all."];
