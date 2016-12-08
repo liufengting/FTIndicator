@@ -28,7 +28,7 @@
             NSLog(@"print out %ld",i);
         }
         
-        sleep(3);
+//        sleep(3);
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [FTProgressIndicator dismiss];

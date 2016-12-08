@@ -300,7 +300,7 @@
     if (self) {
         self.clipsToBounds = YES;
         self.layer.cornerRadius = kFTProgressCornerRadius;
-        self.effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+        self.effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     }
     return self;
 }

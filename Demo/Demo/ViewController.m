@@ -63,7 +63,7 @@
     
     [FTIndicator setIndicatorStyle:isLight ? UIBlurEffectStyleLight : UIBlurEffectStyleDark];
     
-//    [FTIndicator showInfoWithMessage:isLight ? @"Daylight Version on." : @"Night Version on."];
+    [FTIndicator showInfoWithMessage:isLight ? @"Daylight Version on." : @"Night Version on."];
 }
 
 
