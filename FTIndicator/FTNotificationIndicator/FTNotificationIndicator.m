@@ -36,6 +36,7 @@
 @property (nonatomic, strong)NSString *notificationMessage;
 @property (nonatomic, strong)NSTimer *dismissTimer;
 @property (nonatomic, assign)BOOL isCurrentlyOnScreen;
+@property (nonatomic, assign)BOOL shouldAutoDismiss;
 @property (nonatomic, copy, nullable) FTNotificationTapHandler tapHandler;
 @property (nonatomic, copy, nullable) FTNotificationCompletion completion;
 
@@ -93,8 +94,16 @@
 
 +(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion
 {
-    [[self sharedInstance] showNotificationWithImage:image title:title message:message tapHandler:tapHandler completion:completion];
+    [[self sharedInstance] showNotificationWithImage:image title:title message:message autoDismiss:YES tapHandler:tapHandler completion:completion];
 }
+
+
++(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message autoDismiss:(BOOL)autoDismiss tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion
+{
+    [[self sharedInstance] showNotificationWithImage:image title:title message:message autoDismiss:autoDismiss tapHandler:tapHandler completion:completion];
+}
+
+
 
 +(void)dismiss
 {
@@ -161,12 +170,13 @@
     }
 }
 
--(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion
+-(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message autoDismiss:(BOOL)autoDismiss tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion
 {
     self.notificationImage = image;
     self.notificationTitle = title;
     self.notificationMessage = message;
     self.isCurrentlyOnScreen = NO;
+    self.shouldAutoDismiss = autoDismiss;
     self.tapHandler = tapHandler;
     self.completion = completion;
 
@@ -209,8 +219,10 @@
 -(void)startDismissTimer
 {
     [self stopDismissTimer];
+    if (!self.shouldAutoDismiss) {
+        return;
+    }
     CGFloat timeInterval = MAX(self.notificationMessage.length * 0.04 + 0.5, 2.0);
-    
     _dismissTimer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
                                                      target:self
                                                    selector:@selector(dismissingNotificationtView)

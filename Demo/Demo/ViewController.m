@@ -127,6 +127,22 @@
                                                    }];
                     break;
                 case 3:
+                    [FTIndicator showNotificationWithImage:[UIImage imageNamed:@"maps_icon"]
+                                                     title:@"Here is a notification title. Special."
+                                                   message:@"Here is a notification message. Only if user tap or swipe, will I dismiss."
+                                               autoDismiss:NO
+                                                tapHandler:^{
+                                                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Tap Handling"
+                                                                                                        message:@"This happen when you tap notification"
+                                                                                                       delegate:nil
+                                                                                              cancelButtonTitle:@"OK"
+                                                                                              otherButtonTitles:nil];
+                                                    [alertView show];
+                                                } completion:^{
+                                                    [FTIndicator showInfoWithMessage:@"Notification dismissed"];
+                                                }];
+                    break;
+                case 4:
                     [FTIndicator dismissNotification];
                     break;
                 default:

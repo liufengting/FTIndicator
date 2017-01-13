@@ -77,6 +77,21 @@ typedef void (^FTNotificationCompletion)(void);
  *  @param FTNotificationCompletion completion
  */
 +(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion;
+
+
+/**
+ showNotificationWithImage title message autoDismiss tapHandler completion
+ 
+ !!!!!!!!!  Only this method suports not dismiss automatically, user has to tap or swipe to dismiss.
+
+ @param image image
+ @param title title
+ @param message message
+ @param autoDismiss autoDismiss
+ @param tapHandler tapHandler
+ @param completion completion
+ */
++(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message autoDismiss:(BOOL)autoDismiss tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion;
 /**
  *  dismiss
  */

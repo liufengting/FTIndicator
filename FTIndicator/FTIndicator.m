@@ -118,6 +118,10 @@
     [FTNotificationIndicator showNotificationWithImage:image title:title message:message tapHandler:tapHandler completion:completion];
 }
 
++(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message autoDismiss:(BOOL)autoDismiss tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion
+{
+    [FTNotificationIndicator showNotificationWithImage:image title:title message:message autoDismiss:autoDismiss tapHandler:tapHandler completion:completion];
+}
 +(void)dismissNotification
 {
     [FTNotificationIndicator dismiss];
