@@ -240,22 +240,21 @@
 
 -(void)startShowingNotificationView
 {
+    [self stopDismissTimer];
     [UIView animateWithDuration:kFTNotificationDefaultAnimationDuration
                           delay:0
          usingSpringWithDamping:0.5
-          initialSpringVelocity:0.1
+          initialSpringVelocity:0
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          
                          [self.notificationView setFrame:CGRectMake(0,0,kFTScreenWidth,self.notificationView.frame.size.height)];
                          
                      } completion:^(BOOL finished) {
-                         if (finished) {
-                             if (!self.isCurrentlyOnScreen) {
-                                 [self startDismissTimer];
-                             }
-                             self.isCurrentlyOnScreen = YES;
+                         if (!self.isCurrentlyOnScreen) {
+                             [self startDismissTimer];
                          }
+                         self.isCurrentlyOnScreen = YES;
                      }];
 }
 
@@ -265,6 +264,7 @@
 
 -(void)dismissingNotificationtViewByTap:(BOOL)tap
 {
+    [self stopDismissTimer];
     [UIView animateWithDuration:kFTNotificationDefaultAnimationDuration
                           delay:0
                         options:UIViewAnimationOptionCurveEaseIn

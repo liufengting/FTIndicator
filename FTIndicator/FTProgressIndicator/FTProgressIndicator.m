@@ -234,30 +234,30 @@
 
 -(void)startShowingProgressView
 {
+    [self stopDismissTimer];
     self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
     self.isDuringAnimation = YES;
     [UIView animateWithDuration:kFTProgressDefaultAnimationDuration
                           delay:0
          usingSpringWithDamping:0.5
-          initialSpringVelocity:0.1
+          initialSpringVelocity:0
                         options:(UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionAllowUserInteraction)
                      animations:^{
                          
                          self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
                          
                      } completion:^(BOOL finished) {
-                         if (finished) {
-                             self.isDuringAnimation = NO;
-                             if (!self.isCurrentlyOnScreen) {
-                                 [self startDismissTimer];
-                             }
-                             self.isCurrentlyOnScreen = YES;
+                         self.isDuringAnimation = NO;
+                         if (!self.isCurrentlyOnScreen) {
+                             [self startDismissTimer];
                          }
+                         self.isCurrentlyOnScreen = YES;
                      }];
 }
 
 -(void)dismissingProgressView
 {
+    [self stopDismissTimer];
     self.isDuringAnimation = YES;
     [UIView animateWithDuration:kFTProgressDefaultAnimationDuration
                           delay:0
@@ -335,7 +335,8 @@
     if (!_activatyView) {
         _activatyView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         _activatyView.color = kFTProgressDefaultTextColor;
-        [_activatyView setHidesWhenStopped:YES];
+        _activatyView.contentMode = UIViewContentModeCenter;
+        _activatyView.hidesWhenStopped = YES;
         [self.contentView addSubview:_activatyView];
     }
     return _activatyView;
@@ -433,7 +434,7 @@
     CGRect rect = CGRectMake((viewSize.width - messageSize.width)/2, kFTProgressMargin_Y + kFTProgressImageSize + kFTProgressImageToLabel, messageSize.width, messageSize.height);
     
     self.iconImageView.frame = CGRectMake((viewSize.width - kFTProgressImageSize)/2, kFTProgressMargin_Y, kFTProgressImageSize,  kFTProgressImageSize);
-    self.activatyView.frame = CGRectMake((viewSize.width - kFTProgressImageSize)/2, kFTProgressMargin_Y, kFTProgressImageSize,  kFTProgressImageSize);
+    self.activatyView.center = CGPointMake(viewSize.width/2, self.messageLabel.text == nil ? viewSize.height/2 : kFTProgressMargin_Y + self.activatyView.frame.size.height/2);
 
     self.messageLabel.frame = rect;
     
@@ -465,7 +466,7 @@
     if (progressMessage.length) {
         size = CGSizeMake(MIN(textSize.width + kFTProgressMargin_X*2 , kFTProgressMaxWidth), MIN(textSize.height + kFTProgressMargin_Y*2 + kFTProgressImageSize + kFTProgressImageToLabel,kFTProgressMaxWidth));
     }else{
-        size = CGSizeMake(MIN(textSize.width + kFTProgressMargin_X*2 , kFTProgressMaxWidth), kFTProgressMargin_Y*2 + kFTProgressImageSize);
+        size = CGSizeMake(MIN(kFTProgressImageSize + kFTProgressMargin_X*2 , kFTProgressMaxWidth), kFTProgressMargin_Y*2 + kFTProgressImageSize);
     }
     return size;
 }

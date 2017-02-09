@@ -152,7 +152,7 @@
         case 1:
             switch (indexPath.row) {
                 case 0:
-                    [FTIndicator showProgressWithmessage:@"Here is a progress title. This means nothing at all."];
+                    [FTIndicator showProgressWithmessage:nil userInteractionEnable:YES];
                     break;
                 case 1:
                     [FTIndicator showSuccessWithMessage:@"Here is a progress title. This means nothing at all."];

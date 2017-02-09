@@ -101,7 +101,7 @@
 {
     self.toastMessage = toastMessage;
     self.isCurrentlyOnScreen = NO;
-
+    
     if (self.isDuringAnimation) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kFTToastDefaultAnimationDuration * 2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self adjustIndicatorFrame];
@@ -121,7 +121,7 @@
 {
     self.toastView.alpha = 1;
     self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
-
+    
     CGSize toastSize = [self.toastView getFrameForToastViewWithMessage:self.toastMessage];
     
     [self.toastView setFrame:CGRectMake((kFTScreenWidth - toastSize.width)/2, kFTScreenHeight - [self keyboardHeight] - kFTToastToBottom - toastSize.height, toastSize.width, toastSize.height)];
@@ -202,30 +202,30 @@
 
 -(void)startShowingToastView
 {
+    [self stopDismissTimer];
     self.isDuringAnimation = YES;
     self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
     [UIView animateWithDuration:kFTToastDefaultAnimationDuration
                           delay:0
          usingSpringWithDamping:0.5
-          initialSpringVelocity:0.1
+          initialSpringVelocity:0
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          
                          self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
                          
                      } completion:^(BOOL finished) {
-                         if (finished) {
-                             self.isDuringAnimation = NO;
-                             if (!self.isCurrentlyOnScreen) {
-                                 [self startDismissTimer];
-                             }
-                             self.isCurrentlyOnScreen = YES;
+                         self.isDuringAnimation = NO;
+                         if (!self.isCurrentlyOnScreen) {
+                             [self startDismissTimer];
                          }
+                         self.isCurrentlyOnScreen = YES;
                      }];
 }
 
 -(void)dismissingToastView
 {
+    [self stopDismissTimer];
     self.isDuringAnimation = YES;
     [UIView animateWithDuration:kFTToastDefaultAnimationDuration
                           delay:0
@@ -301,7 +301,7 @@
     self.message = toastMessage;
     self.messageLabel.textColor = [self getTextColorWithStyle:style];
     self.messageLabel.text = toastMessage;
-
+    
     CGSize labelSize = [self getFrameForToastLabelWithMessage:toastMessage];
     CGSize viewSize = [self getFrameForToastViewWithMessage:toastMessage];
     CGRect rect = CGRectMake((viewSize.width - labelSize.width)/2, (viewSize.height - labelSize.height)/2, labelSize.width, labelSize.height);

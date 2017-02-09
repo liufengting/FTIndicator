@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [FTProgressIndicator showProgressWithmessage:@"Something is happening..."];
+    [FTProgressIndicator showProgressWithmessage:nil];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
