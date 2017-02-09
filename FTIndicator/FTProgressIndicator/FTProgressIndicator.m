@@ -235,7 +235,7 @@
 -(void)startShowingProgressView
 {
     [self stopDismissTimer];
-    self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
+    self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.2, 0.2);
     self.isDuringAnimation = YES;
     [UIView animateWithDuration:kFTProgressDefaultAnimationDuration
                           delay:0
@@ -264,7 +264,7 @@
                         options:(UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionAllowUserInteraction)
                      animations:^{
                          
-                         self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
+                         self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.2, 0.2);
                          
                      } completion:^(BOOL finished) {
                          self.isDuringAnimation = NO;

@@ -129,7 +129,7 @@
     
     [[[UIApplication sharedApplication] keyWindow] addSubview:self.toastView];
     
-    self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
+    self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.2, 0.2);
     
     [self startShowingToastView];
 }
@@ -204,7 +204,7 @@
 {
     [self stopDismissTimer];
     self.isDuringAnimation = YES;
-    self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
+    self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.2, 0.2);
     [UIView animateWithDuration:kFTToastDefaultAnimationDuration
                           delay:0
          usingSpringWithDamping:0.5
@@ -232,7 +232,7 @@
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          
-                         self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
+                         self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.2, 0.2);
                          
                      } completion:^(BOOL finished) {
                          self.isDuringAnimation = NO;

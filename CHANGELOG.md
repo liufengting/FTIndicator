@@ -12,6 +12,7 @@
 |1.1.5|2016-09-20|fix: podspec doest not correctly link to "FTToastIndicator"|
 |1.1.6|2016-11-22|fix a bug of not dismissing when user back to homescreen，remove subpods|
 |1.1.7|2017-01-13|add NotificationIndicator only manually dismiss support|
+|1.1.8|2017-02-09|fix: Spinner disappearance stutters|
 
 
 
