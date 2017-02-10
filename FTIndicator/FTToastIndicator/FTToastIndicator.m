@@ -102,6 +102,8 @@
     self.toastMessage = toastMessage;
     self.isCurrentlyOnScreen = NO;
     
+    [self stopDismissTimer];
+    
     if (self.isDuringAnimation) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kFTToastDefaultAnimationDuration * 2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self adjustIndicatorFrame];
@@ -202,7 +204,6 @@
 
 -(void)startShowingToastView
 {
-    [self stopDismissTimer];
     self.isDuringAnimation = YES;
     self.toastView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.2, 0.2);
     [UIView animateWithDuration:kFTToastDefaultAnimationDuration
@@ -225,7 +226,6 @@
 
 -(void)dismissingToastView
 {
-    [self stopDismissTimer];
     self.isDuringAnimation = YES;
     [UIView animateWithDuration:kFTToastDefaultAnimationDuration
                           delay:0

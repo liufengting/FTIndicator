@@ -161,7 +161,10 @@
                     [FTIndicator showInfoWithMessage:@"When this is showing, userInteraction not enabled." userInteractionEnable:NO];
                     break;
                 case 3:
-                    [FTIndicator showErrorWithMessage:@"Here is a progress title. This means nothing at all."];
+//                    [FTIndicator showErrorWithMessage:@"Here is a progress title. This means nothing at all."];
+                    [FTIndicator showErrorWithMessage:@"Here is a error message, with custom image support."
+                                                image:[UIImage imageNamed:@"maps_icon"]
+                                userInteractionEnable:YES];
                     break;
                 case 4:
                     [FTIndicator dismissProgress];

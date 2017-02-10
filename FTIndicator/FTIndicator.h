@@ -84,6 +84,15 @@
 +(void)showInfoWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
 
 /**
+ showInfoWithMessage image userInteractionEnable
+ 
+ @param message message
+ @param image image
+ @param userInteractionEnable userInteractionEnable
+ */
++(void)showInfoWithMessage:(NSString *)message image:(UIImage *)image userInteractionEnable:(BOOL)userInteractionEnable;
+
+/**
  *  showSuccessWithMessage
  *
  *  @param message NSString message
@@ -99,6 +108,15 @@
 +(void)showSuccessWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
 
 /**
+ showSuccessWithMessage image userInteractionEnable
+ 
+ @param message message
+ @param image image
+ @param userInteractionEnable userInteractionEnable
+ */
++(void)showSuccessWithMessage:(NSString *)message image:(UIImage *)image userInteractionEnable:(BOOL)userInteractionEnable;
+
+/**
  *  showErrorWithMessage
  *
  *  @param message NSString message
@@ -112,6 +130,15 @@
  *  @param userInteractionEnable userInteractionEnable
  */
 +(void)showErrorWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
+
+/**
+ showErrorWithMessage image userInteractionEnable
+ 
+ @param message message
+ @param image image
+ @param userInteractionEnable userInteractionEnable
+ */
++(void)showErrorWithMessage:(NSString *)message image:(UIImage *)image userInteractionEnable:(BOOL)userInteractionEnable;
 
 /**
  *  dismissProgress

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #pragma mark - FTNotificationIndicator
+
 typedef void (^FTNotificationTapHandler)(void);
 typedef void (^FTNotificationCompletion)(void);
 

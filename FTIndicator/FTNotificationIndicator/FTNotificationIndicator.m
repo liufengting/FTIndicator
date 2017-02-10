@@ -180,6 +180,8 @@
     self.tapHandler = tapHandler;
     self.completion = completion;
 
+    [self stopDismissTimer];
+
     [self adjustIndicatorFrame];
     
 }
@@ -240,7 +242,6 @@
 
 -(void)startShowingNotificationView
 {
-    [self stopDismissTimer];
     [UIView animateWithDuration:kFTNotificationDefaultAnimationDuration
                           delay:0
          usingSpringWithDamping:0.5
@@ -264,7 +265,6 @@
 
 -(void)dismissingNotificationtViewByTap:(BOOL)tap
 {
-    [self stopDismissTimer];
     [UIView animateWithDuration:kFTNotificationDefaultAnimationDuration
                           delay:0
                         options:UIViewAnimationOptionCurveEaseIn
