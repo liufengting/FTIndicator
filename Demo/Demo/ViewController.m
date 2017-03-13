@@ -44,7 +44,7 @@
 }
 
 
--(void)showAnotherTheme:(BOOL)isLight
+- (void)showAnotherTheme:(BOOL)isLight
 {
     self.themeColor = isLight ? [UIColor blackColor] : [UIColor whiteColor];
     
@@ -68,7 +68,7 @@
 
 
 
--(UIImageView *)backgroudImage
+- (UIImageView *)backgroudImage
 {
     if (!_backgroudImage) {
         _backgroudImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"light.jpeg"]];
@@ -76,7 +76,7 @@
     }
     return _backgroudImage;
 }
--(UIColor *)themeColor
+- (UIColor *)themeColor
 {
     if (!_themeColor) {
         _themeColor = [UIColor blackColor];
@@ -94,7 +94,7 @@
     [cell setBackgroundColor:[self.themeColor colorWithAlphaComponent:0.1]];
     [cell.textLabel setTextColor:self.themeColor];
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     

@@ -16,23 +16,23 @@
 /**
  *  setIndicatorStyleToDefaultStyle
  */
-+(void)setToastIndicatorStyleToDefaultStyle;
++ (void)setToastIndicatorStyleToDefaultStyle;
 /**
  *  setIndicatorStyle
  *
  *  @param style UIBlurEffectStyle style
  */
-+(void)setToastIndicatorStyle:(UIBlurEffectStyle)style;
++ (void)setToastIndicatorStyle:(UIBlurEffectStyle)style;
 /**
  *  showToastMessage
  *
  *  @param toastMessage NSString toastMessage
  */
-+(void)showToastMessage:(NSString *)toastMessage;
++ (void)showToastMessage:(NSString *)toastMessage;
 /**
  *  dismiss
  */
-+(void)dismiss;
++ (void)dismiss;
 
 @end
 
@@ -47,7 +47,7 @@
  *  @param toastMessage toastMessage
  *  @param style        style
  */
--(void)showToastMessage:(NSString *)toastMessage withStyle:(UIBlurEffectStyle)style;
+- (void)showToastMessage:(NSString *)toastMessage withStyle:(UIBlurEffectStyle)style;
 /**
  *  getFrameForToastViewWithMessage
  *
@@ -55,6 +55,6 @@
  *
  *  @return CGSize
  */
--(CGSize )getFrameForToastViewWithMessage:(NSString *)toastMessage;
+- (CGSize )getFrameForToastViewWithMessage:(NSString *)toastMessage;
 
 @end

@@ -66,6 +66,9 @@ A light wight UI package contains local notification, progress HUD, toast, with 
 `FTIndicator` is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ⚠️ Notice：
+
+major fix in 1.2.0: progress HUD doesn't show when app starts
+
 `FTNotificationIndicator`, `FTProgressIndicator` and `FTToastIndicator` podfile stopped updating after v1.1.5. If you wanna use them separately, you should use them like this in your Podfile as a subPod:
 
 ```ruby

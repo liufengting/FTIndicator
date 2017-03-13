@@ -24,13 +24,13 @@
 /**
 *  setIndicatorStyleToDefaultStyle
 */
-+(void)setIndicatorStyleToDefaultStyle;
++ (void)setIndicatorStyleToDefaultStyle;
 /**
  *  setIndicatorStyle
  *
  *  @param style UIBlurEffectStyle style
  */
-+(void)setIndicatorStyle:(UIBlurEffectStyle)style;
++ (void)setIndicatorStyle:(UIBlurEffectStyle)style;
 
 /**
  *  FTToastIndicator
@@ -42,12 +42,12 @@
  *
  *  @param toastMessage NSString toastMessage
  */
-+(void)showToastMessage:(NSString *)toastMessage;
++ (void)showToastMessage:(NSString *)toastMessage;
 
 /**
  *  dismissToast
  */
-+(void)dismissToast;
++ (void)dismissToast;
 
 /**
  *  FTProgressIndicator
@@ -58,7 +58,7 @@
  *
  *  @param message message
  */
-+(void)showProgressWithmessage:(NSString *)message;
++ (void)showProgressWithmessage:(NSString *)message;
 
 /**
  *  showProgressWithmessage userInteractionEnable
@@ -66,14 +66,14 @@
  *  @param message               message
  *  @param userInteractionEnable userInteractionEnable
  */
-+(void)showProgressWithmessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
++ (void)showProgressWithmessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
 
 /**
  *  showInfoWithMessage
  *
  *  @param message NSString message
  */
-+(void)showInfoWithMessage:(NSString *)message;
++ (void)showInfoWithMessage:(NSString *)message;
 
 /**
  *  showInfoWithMessage userInteractionEnable
@@ -81,7 +81,7 @@
  *  @param message               message
  *  @param userInteractionEnable userInteractionEnable
  */
-+(void)showInfoWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
++ (void)showInfoWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
 
 /**
  showInfoWithMessage image userInteractionEnable
@@ -90,14 +90,14 @@
  @param image image
  @param userInteractionEnable userInteractionEnable
  */
-+(void)showInfoWithMessage:(NSString *)message image:(UIImage *)image userInteractionEnable:(BOOL)userInteractionEnable;
++ (void)showInfoWithMessage:(NSString *)message image:(UIImage *)image userInteractionEnable:(BOOL)userInteractionEnable;
 
 /**
  *  showSuccessWithMessage
  *
  *  @param message NSString message
  */
-+(void)showSuccessWithMessage:(NSString *)message;
++ (void)showSuccessWithMessage:(NSString *)message;
 
 /**
  *  showSuccessWithMessage userInteractionEnable
@@ -105,7 +105,7 @@
  *  @param message               message
  *  @param userInteractionEnable userInteractionEnable
  */
-+(void)showSuccessWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
++ (void)showSuccessWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
 
 /**
  showSuccessWithMessage image userInteractionEnable
@@ -114,14 +114,14 @@
  @param image image
  @param userInteractionEnable userInteractionEnable
  */
-+(void)showSuccessWithMessage:(NSString *)message image:(UIImage *)image userInteractionEnable:(BOOL)userInteractionEnable;
++ (void)showSuccessWithMessage:(NSString *)message image:(UIImage *)image userInteractionEnable:(BOOL)userInteractionEnable;
 
 /**
  *  showErrorWithMessage
  *
  *  @param message NSString message
  */
-+(void)showErrorWithMessage:(NSString *)message;
++ (void)showErrorWithMessage:(NSString *)message;
 
 /**
  *  showErrorWithMessage userInteractionEnable
@@ -129,7 +129,7 @@
  *  @param message               message
  *  @param userInteractionEnable userInteractionEnable
  */
-+(void)showErrorWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
++ (void)showErrorWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
 
 /**
  showErrorWithMessage image userInteractionEnable
@@ -138,12 +138,12 @@
  @param image image
  @param userInteractionEnable userInteractionEnable
  */
-+(void)showErrorWithMessage:(NSString *)message image:(UIImage *)image userInteractionEnable:(BOOL)userInteractionEnable;
++ (void)showErrorWithMessage:(NSString *)message image:(UIImage *)image userInteractionEnable:(BOOL)userInteractionEnable;
 
 /**
  *  dismissProgress
  */
-+(void)dismissProgress;
++ (void)dismissProgress;
 
 /**
  *  FTNotificationIndicator
@@ -155,7 +155,7 @@
  *  @param title   title
  *  @param message message
  */
-+(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message;
++ (void)showNotificationWithTitle:(NSString *)title message:(NSString *)message;
 /**
  *  showNotificationWithTitle message tapHandler
  *
@@ -163,7 +163,7 @@
  *  @param message    message
  *  @param tapHandler tapHandler
  */
-+(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler;
++ (void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler;
 /**
  *  showNotificationWithTitle message tapHandler completion
  *
@@ -171,7 +171,7 @@
  *  @param message message
  *  @param tapHandler tapHandler
  */
-+(void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion;
++ (void)showNotificationWithTitle:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion;
 /**
  *  showNotificationWithImage title message
  *
@@ -179,7 +179,7 @@
  *  @param title   title
  *  @param message message
  */
-+(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message;
++ (void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message;
 /**
  *  showNotificationWithImage title message tapHandler
  *
@@ -188,7 +188,7 @@
  *  @param message    message
  *  @param tapHandler tapHandler
  */
-+(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler;
++ (void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler;
 /**
  *  showNotificationWithImage title message tapHandler completion
  *
@@ -197,7 +197,7 @@
  *  @param message message
  *  @param tapHandler tapHandler
  */
-+(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion;
++ (void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion;
 /**
  showNotificationWithImage title message autoDismiss tapHandler completion
  
@@ -210,10 +210,10 @@
  @param tapHandler tapHandler
  @param completion completion
  */
-+(void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message autoDismiss:(BOOL)autoDismiss tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion;
++ (void)showNotificationWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message autoDismiss:(BOOL)autoDismiss tapHandler:(FTNotificationTapHandler)tapHandler completion:(FTNotificationCompletion)completion;
 /**
  *  dismissNotification
  */
-+(void)dismissNotification;
++ (void)dismissNotification;
 
 @end
