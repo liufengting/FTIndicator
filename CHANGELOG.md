@@ -15,5 +15,6 @@
 |1.1.8|2017-02-09|fix: Spinner disappearance stutters|
 |1.1.9|2017-03-14|Sorry I forget what it is about.|
 |1.2.0|2017-03-14|major fix: progress HUD doesn't show when app starts|
+|1.2.1|2017-07-11|fix weak issue|
 
 
