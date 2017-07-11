@@ -28,7 +28,7 @@
 
 @interface FTToastIndicator ()
 
-@property (nonatomic, weak)UIWindow *backgroundWindow;
+@property (nonatomic, strong)UIWindow *backgroundWindow;
 @property (nonatomic, strong)FTToastIndicatorView *toastView;
 @property (nonatomic, assign)UIBlurEffectStyle indicatorStyle;
 @property (nonatomic, strong)NSString *toastMessage;

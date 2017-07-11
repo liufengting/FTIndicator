@@ -29,7 +29,7 @@
 
 @interface FTProgressIndicator ()
 
-@property (nonatomic, weak)UIWindow *backgroundWindow;
+@property (nonatomic, strong)UIWindow *backgroundWindow;
 @property (nonatomic, strong)FTProgressIndicatorView *progressView;
 @property (nonatomic, assign)UIBlurEffectStyle indicatorStyle;
 @property (nonatomic, strong)NSString *progressMessage;

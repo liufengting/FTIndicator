@@ -29,7 +29,7 @@
 
 @interface FTNotificationIndicator ()
 
-@property (nonatomic, weak)UIWindow *backgroundWindow;
+@property (nonatomic, strong)UIWindow *backgroundWindow;
 @property (nonatomic, strong)FTNotificationIndicatorView *notificationView;
 @property (nonatomic, assign)UIBlurEffectStyle indicatorStyle;
 @property (nonatomic, strong)UIImage *notificationImage;
