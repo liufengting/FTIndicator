@@ -9,64 +9,57 @@
 #import <UIKit/UIKit.h>
 
 #pragma mark - FTProgressIndicatorMessageType
+
 /**
- *  FTProgressIndicatorMessageType
+ FTProgressIndicatorMessageType
+
+ - FTProgressIndicatorMessageTypeInfo: FTProgressIndicatorMessageTypeInfo
+ - FTProgressIndicatorMessageTypeSuccess: FTProgressIndicatorMessageTypeSuccess
+ - FTProgressIndicatorMessageTypeError: FTProgressIndicatorMessageTypeError
+ - FTProgressIndicatorMessageTypeProgress: FTProgressIndicatorMessageTypeProgress
  */
 typedef NS_ENUM(NSUInteger, FTProgressIndicatorMessageType) {
-    /**
-     *  Info
-     */
     FTProgressIndicatorMessageTypeInfo,
-    /**
-     *  Success
-     */
     FTProgressIndicatorMessageTypeSuccess,
-    /**
-     *  Error
-     */
     FTProgressIndicatorMessageTypeError,
-    /**
-     *  Progress
-     */
     FTProgressIndicatorMessageTypeProgress
 };
 
 #pragma mark - FTProgressIndicator
 /**
- *  FTProgressIndicator
+ FTProgressIndicator
  */
 @interface FTProgressIndicator : NSObject
 
 /**
- *  showProgressWithmessage
- *
- *  @param message message
+ showProgressWithmessage
+
+ @param message message
  */
 + (void)showProgressWithmessage:(NSString *)message;
 
 /**
- *  showProgressWithmessage userInteractionEnable
- *
- *  @param message               message
- *  @param userInteractionEnable userInteractionEnable
+ showProgressWithmessage userInteractionEnable
+
+ @param message message
+ @param userInteractionEnable userInteractionEnable
  */
 + (void)showProgressWithmessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
 
 /**
- *  showInfoWithMessage
- *
- *  @param message NSString message
+ showInfoWithMessage
+
+ @param message message
  */
 + (void)showInfoWithMessage:(NSString *)message;
 
 /**
- *  showInfoWithMessage userInteractionEnable
- *
- *  @param message               message
- *  @param userInteractionEnable userInteractionEnable
+ showInfoWithMessage userInteractionEnable
+
+ @param message message
+ @param userInteractionEnable userInteractionEnable
  */
 + (void)showInfoWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
-
 
 /**
  showInfoWithMessage image userInteractionEnable
@@ -77,19 +70,18 @@ typedef NS_ENUM(NSUInteger, FTProgressIndicatorMessageType) {
  */
 + (void)showInfoWithMessage:(NSString *)message image:(UIImage *)image userInteractionEnable:(BOOL)userInteractionEnable;
 
-
 /**
- *  showSuccessWithMessage
- *
- *  @param message NSString message
+ showSuccessWithMessage
+
+ @param message message
  */
 + (void)showSuccessWithMessage:(NSString *)message;
 
 /**
- *  showSuccessWithMessage userInteractionEnable
- *
- *  @param message               message
- *  @param userInteractionEnable userInteractionEnable
+ showSuccessWithMessage userInteractionEnable
+
+ @param message message
+ @param userInteractionEnable userInteractionEnable
  */
 + (void)showSuccessWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
 
@@ -103,17 +95,17 @@ typedef NS_ENUM(NSUInteger, FTProgressIndicatorMessageType) {
 + (void)showSuccessWithMessage:(NSString *)message image:(UIImage *)image userInteractionEnable:(BOOL)userInteractionEnable;
 
 /**
- *  showErrorWithMessage
- *
- *  @param message NSString message
+ showErrorWithMessage
+
+ @param message message
  */
 + (void)showErrorWithMessage:(NSString *)message;
 
 /**
- *  showErrorWithMessage userInteractionEnable
- *
- *  @param message               message
- *  @param userInteractionEnable userInteractionEnable
+ showErrorWithMessage userInteractionEnable
+
+ @param message message
+ @param userInteractionEnable userInteractionEnable
  */
 + (void)showErrorWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
 
@@ -127,19 +119,19 @@ typedef NS_ENUM(NSUInteger, FTProgressIndicatorMessageType) {
 + (void)showErrorWithMessage:(NSString *)message image:(UIImage *)image userInteractionEnable:(BOOL)userInteractionEnable;
 
 /**
- *  dismiss
+ dismiss
  */
 + (void)dismiss;
 
 /**
- *  setProgressIndicatorStyleToDefaultStyle
+ setProgressIndicatorStyleToDefaultStyle
  */
 + (void)setProgressIndicatorStyleToDefaultStyle;
 
 /**
- *  setProgressIndicatorStyle
- *
- *  @param style UIBlurEffectStyle style
+ setProgressIndicatorStyle
+
+ @param style style
  */
 + (void)setProgressIndicatorStyle:(UIBlurEffectStyle)style;
 
@@ -148,31 +140,31 @@ typedef NS_ENUM(NSUInteger, FTProgressIndicatorMessageType) {
 #pragma mark - FTProgressIndicatorView
 
 /**
- *  FTProgressIndicatorView
+ FTProgressIndicatorView
  */
 @interface FTProgressIndicatorView : UIVisualEffectView
 
 /**
- *  userInteractionEnable, if allows user touches at view
+ userInteractionEnable, if allows user touches at view
  */
 @property (assign, nonatomic) BOOL userInteractionEnable;
 
 /**
- *  showProgressWithType
- *
- *  @param type                   type
- *  @param message                message
- *  @param image                  custom image
- *  @param style                  style
- *  @param userInteractionEnable userInteractionEnable
+ showProgressWithType
+
+ @param type type
+ @param message message
+ @param image custom image
+ @param style style
+ @param userInteractionEnable userInteractionEnable
  */
 - (void)showProgressWithType:(FTProgressIndicatorMessageType )type message:(NSString *)message image:(UIImage *)image style:(UIBlurEffectStyle)style userInteractionEnable:(BOOL)userInteractionEnable;
+
 /**
- *  getFrameForProgressViewWithMessage
- *
- *  @param progressMessage progressMessage
- *
- *  @return CGSize
+ getFrameForProgressViewWithMessage
+
+ @param progressMessage progressMessage
+ @return CGSize
  */
 - (CGSize )getFrameForProgressViewWithMessage:(NSString *)progressMessage;
 

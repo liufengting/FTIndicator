@@ -10,50 +10,51 @@
 
 #pragma mark - FTToastIndicator
 /**
- *  FTToastIndicator
+ FTToastIndicator
  */
 @interface FTToastIndicator : NSObject
 /**
- *  setIndicatorStyleToDefaultStyle
+ setIndicatorStyleToDefaultStyle
  */
 + (void)setToastIndicatorStyleToDefaultStyle;
 /**
- *  setIndicatorStyle
- *
- *  @param style UIBlurEffectStyle style
+ setIndicatorStyle
+
+ @param style style
  */
 + (void)setToastIndicatorStyle:(UIBlurEffectStyle)style;
 /**
- *  showToastMessage
- *
- *  @param toastMessage NSString toastMessage
+ showToastMessage
+
+ @param toastMessage toastMessage
  */
 + (void)showToastMessage:(NSString *)toastMessage;
+
 /**
- *  dismiss
+ dismiss
  */
 + (void)dismiss;
 
 @end
 
 #pragma mark - FTToastIndicatorView
+
 /**
- *  FTToastIndicatorView
+ FTToastIndicatorView
  */
 @interface FTToastIndicatorView : UIVisualEffectView
 /**
- *  showToastMessage
- *
- *  @param toastMessage toastMessage
- *  @param style        style
+ showToastMessage
+
+ @param toastMessage toastMessage
+ @param style style
  */
 - (void)showToastMessage:(NSString *)toastMessage withStyle:(UIBlurEffectStyle)style;
 /**
- *  getFrameForToastViewWithMessage
- *
- *  @param toastMessage toastMessage
- *
- *  @return CGSize
+ getFrameForToastViewWithMessage
+
+ @param toastMessage toastMessage
+ @return CGSize
  */
 - (CGSize )getFrameForToastViewWithMessage:(NSString *)toastMessage;
 
