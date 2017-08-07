@@ -54,19 +54,19 @@
  */
 #pragma mark - FTProgressIndicator
 /**
- *  showProgressWithmessage
+ *  showProgressWithMessage
  *
  *  @param message message
  */
-+ (void)showProgressWithmessage:(NSString *)message;
++ (void)showProgressWithMessage:(NSString *)message;
 
 /**
- *  showProgressWithmessage userInteractionEnable
+ *  showProgressWithMessage userInteractionEnable
  *
  *  @param message               message
  *  @param userInteractionEnable userInteractionEnable
  */
-+ (void)showProgressWithmessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
++ (void)showProgressWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable;
 
 /**
  *  showInfoWithMessage

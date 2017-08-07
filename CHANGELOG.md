@@ -16,5 +16,6 @@
 |1.1.9|2017-03-14|Sorry I forget what it is about.|
 |1.2.0|2017-03-14|major fix: progress HUD doesn't show when app starts|
 |1.2.1|2017-07-11|fix weak issue|
+|1.2.2|2017-08-07|fix syntax error, may cause syntax errors for your projects|
 
 

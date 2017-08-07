@@ -64,11 +64,11 @@
 {
     [self sharedInstance].indicatorStyle = style;
 }
-+ (void)showProgressWithmessage:(NSString *)message
++ (void)showProgressWithMessage:(NSString *)message
 {
-    [self showProgressWithmessage:message userInteractionEnable:YES];
+    [self showProgressWithMessage:message userInteractionEnable:YES];
 }
-+ (void)showProgressWithmessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable
++ (void)showProgressWithMessage:(NSString *)message userInteractionEnable:(BOOL)userInteractionEnable
 {
     [[self sharedInstance] showProgressWithType:FTProgressIndicatorMessageTypeProgress message:message image:nil userInteractionEnable:userInteractionEnable];
 }
