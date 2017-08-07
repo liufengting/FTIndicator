@@ -65,6 +65,12 @@ A light wight UI package contains local notification, progress HUD, toast, with 
 
 `FTIndicator` is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
+
+⚠️ Notice：
+
+Syntax error fix in 1.2.2: Syntax error fixed. May cause error to your projects, update it carefully.
+
+
 ⚠️ Notice：
 
 major fix in 1.2.0: progress HUD doesn't show when app starts
@@ -172,7 +178,7 @@ pod 'FTIndicator/FTToastIndicator'
 
 ```objective-c
 
-[FTIndicator showProgressWithmessage:@"Here is a progress message."];  
+[FTIndicator showProgressWithMessage:@"Here is a progress message."];  
 
 ```
 
@@ -180,7 +186,7 @@ pod 'FTIndicator/FTToastIndicator'
 
 // or disable user interactions
 
-[FTIndicator showProgressWithmessage:@"Here is a progress message." userInteractionEnable:NO]; 
+[FTIndicator showProgressWithMessage:@"Here is a progress message." userInteractionEnable:NO]; 
 
 ```
 
