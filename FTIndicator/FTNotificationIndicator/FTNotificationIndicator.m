@@ -60,7 +60,6 @@
 + (void)setNotificationIndicatorStyleToDefaultStyle
 {
     [self sharedInstance].indicatorStyle = UIBlurEffectStyleLight;
-
 }
 
 + (void)setNotificationIndicatorStyle:(UIBlurEffectStyle)style
