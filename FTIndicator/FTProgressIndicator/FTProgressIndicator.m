@@ -267,6 +267,7 @@
     self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
     self.isDuringAnimation = YES;
 	self.isCurrentlyOnScreen = YES;
+	[self startDismissTimer];
     [UIView animateWithDuration:kFTProgressDefaultAnimationDuration
                           delay:0
          usingSpringWithDamping:0.5
@@ -278,9 +279,6 @@
                          
                      } completion:^(BOOL finished) {
                          self.isDuringAnimation = NO;
-                         if (!self.isCurrentlyOnScreen) {
-                             [self startDismissTimer];
-                         }
                      }];
 }
 
