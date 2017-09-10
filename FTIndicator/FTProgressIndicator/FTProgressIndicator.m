@@ -113,7 +113,6 @@
     [[self sharedInstance] dismiss];
 }
 
-
 #pragma mark - instance methods
 
 - (instancetype)init
@@ -125,8 +124,8 @@
                                                      name:UIApplicationDidChangeStatusBarOrientationNotification
                                                    object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(onKeyboardWillChangeFrame:)
-                                                     name:UIKeyboardWillChangeFrameNotification
+                                                 selector:@selector(onKeyboardDidChangeFrame:)
+                                                     name:UIKeyboardDidChangeFrameNotification
                                                    object:nil];
     }
     return self;
@@ -203,7 +202,7 @@
         [self adjustIndicatorFrame];
     }
 }
-- (void)onKeyboardWillChangeFrame:(NSNotification *)notification
+- (void)onKeyboardDidChangeFrame:(NSNotification *)notification
 {
     
     NSDictionary *userInfo = [notification userInfo];
@@ -211,12 +210,12 @@
     NSTimeInterval animationDuration;
     [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
     CGRect originRect = self.progressView.frame;
-    CGFloat y = (MIN(kFTScreenHeight, keyboardRect.origin.y) - originRect.size.height)/2;
+    originRect.origin.y  = ((MIN(kFTScreenHeight, keyboardRect.origin.y)) - originRect.size.height)/2;
     [UIView animateWithDuration:animationDuration
                           delay:0
                         options:(UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionAllowUserInteraction)
                      animations:^{
-                         [self.progressView setFrame:CGRectMake(originRect.origin.x, y, originRect.size.width, originRect.size.height)];
+                         [self.progressView setFrame:originRect];
                      }completion:^(BOOL finished) {
                          
                      }];

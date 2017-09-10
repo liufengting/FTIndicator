@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "FTProgressIndicator"
-  s.version      = "1.2.4"
+  s.version      = "1.2.5"
   s.summary      = "A lightwight UI package contains local notification, progress HUD, toast, with blur effect, elegant API and themes Support."
   s.description  = <<-DESC
           A lightwight UI package contains local notification, progress HUD, toast, with blur effect, elegant API and themes Support. Inspried by Apple's process indicator and notifications.

@@ -17,5 +17,8 @@
 |1.2.0|2017-03-14|major fix: progress HUD doesn't show when app starts|
 |1.2.1|2017-07-11|fix weak issue|
 |1.2.2|2017-08-07|fix syntax error, may cause syntax errors for your projects|
+|1.2.3|2017-09-07|bqlin: fix progressView can not didmiss bug，fix issuce #8|
+|1.2.4|2017-09-08|bqlin - fix issues #8.|
+|1.2.5|2017-09-10|fix keyboard animation|
 
 

@@ -34,8 +34,8 @@
             [FTProgressIndicator dismiss];
         });
     });
-    
 }
+
 - (IBAction)addButtonTapped:(UIBarButtonItem *)sender
 {
     
