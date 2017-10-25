@@ -239,6 +239,7 @@
 
 - (void)dismissingToastView
 {
+    [self.toastView.layer removeAllAnimations];
     self.isDuringAnimation = YES;
     [UIView animateWithDuration:kFTToastDefaultAnimationDuration
                           delay:0

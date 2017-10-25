@@ -283,6 +283,7 @@
 
 - (void)dismissingProgressView
 {
+    [self.progressView.layer removeAllAnimations];
     self.isDuringAnimation = YES;
     [UIView animateWithDuration:kFTProgressDefaultAnimationDuration
                           delay:0

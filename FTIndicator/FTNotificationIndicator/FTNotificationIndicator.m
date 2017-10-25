@@ -273,6 +273,7 @@
 
 - (void)dismissingNotificationtViewByTap:(BOOL)tap
 {
+    [self.notificationView.layer removeAllAnimations];
     [UIView animateWithDuration:kFTNotificationDefaultAnimationDuration
                           delay:0
                         options:UIViewAnimationOptionCurveEaseIn
