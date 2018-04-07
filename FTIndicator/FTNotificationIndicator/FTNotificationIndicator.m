@@ -21,6 +21,7 @@
 #define kFTNotificationDefaultMessageFont               [UIFont systemFontOfSize:13]
 #define kFTNotificationDefaultTextColor                 [UIColor blackColor]
 #define kFTNotificationDefaultTextColor_ForDarkStyle    [UIColor whiteColor]
+#define kFTNotificationDefaultDismissTime				(2.0f)
 
 #define kFTScreenWidth    [UIScreen mainScreen].bounds.size.width
 #define kFTScreenHeight   [UIScreen mainScreen].bounds.size.height
@@ -40,6 +41,7 @@
 @property (nonatomic, assign)BOOL shouldAutoDismiss;
 @property (nonatomic, copy, nullable) FTNotificationTapHandler tapHandler;
 @property (nonatomic, copy, nullable) FTNotificationCompletion completion;
+@property (nonatomic, assign)NSTimeInterval dismissTime;
 
 @end
 
@@ -108,6 +110,18 @@
     [[self sharedInstance] dismiss];
 }
 
+#pragma mark - Timer
+
++ (void)setDefaultDismissTime:(NSTimeInterval)time
+{
+	[[self sharedInstance] setDismissTime: time];
+}
+
++ (NSTimeInterval)defaultDismissTime
+{
+	return [[self sharedInstance] dismissTime];
+}
+
 #pragma mark - instance methods
 
 - (instancetype)init
@@ -118,6 +132,7 @@
                                                  selector:@selector(onChangeStatusBarOrientationNotification:)
                                                      name:UIApplicationDidChangeStatusBarOrientationNotification
                                                    object:nil];
+		self.dismissTime = kFTNotificationDefaultDismissTime;
     }
     return self;
 }
@@ -232,7 +247,7 @@
     if (!self.shouldAutoDismiss) {
         return;
     }
-    CGFloat timeInterval = MAX(self.notificationMessage.length * 0.04 + 0.5, 2.0);
+    CGFloat timeInterval = MAX(self.notificationMessage.length * 0.04 + 0.5, _dismissTime);
     _dismissTimer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
                                                      target:self
                                                    selector:@selector(dismissingNotificationtView)

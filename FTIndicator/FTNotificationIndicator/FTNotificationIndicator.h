@@ -100,6 +100,22 @@ typedef void (^FTNotificationCompletion)(void);
  */
 + (void)dismiss;
 
+
+/**
+ Default delay until dismiss notification
+
+ @param time Delay in seconds
+ */
++ (void)setDefaultDismissTime:(NSTimeInterval)time;
+
+
+/**
+ Default delay until dismiss notification
+
+ @return Delay in seconds
+ */
++ (NSTimeInterval)defaultDismissTime;
+
 @end
 
 #pragma mark - FTNotificationIndicatorView
