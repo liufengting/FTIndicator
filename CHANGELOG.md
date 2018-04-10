@@ -21,5 +21,6 @@
 |1.2.4|2017-09-08|bqlin - fix issues #8.|
 |1.2.5|2017-09-10|fix keyboard animation|
 |1.2.6|2017-10-25|fix not dismiss issue|
+|1.2.7|2018-04-10|RealBonus: FTNotification: default dismiss time|
 
 
