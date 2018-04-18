@@ -41,7 +41,7 @@
     
     // do any test you want
     
-    [FTProgressIndicator showProgressWithMessage:@"Uploading..." userInteractionEnable:NO];
+    [FTProgressIndicator showProgressWithMessage:@"Uploading..." userInteractionEnable:YES];
     
     [self.view endEditing:YES];
 

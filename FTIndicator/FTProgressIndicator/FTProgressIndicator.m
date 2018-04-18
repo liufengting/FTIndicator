@@ -29,16 +29,16 @@
 
 @interface FTProgressIndicator ()
 
-@property (nonatomic, strong)UIWindow *backgroundWindow;
-@property (nonatomic, strong)FTProgressIndicatorView *progressView;
-@property (nonatomic, assign)UIBlurEffectStyle indicatorStyle;
-@property (nonatomic, strong)NSString *progressMessage;
-@property (nonatomic, strong)UIImage *customImage;
-@property (nonatomic, strong)NSTimer *dismissTimer;
-@property (nonatomic, assign)FTProgressIndicatorMessageType  messageType;
-@property (nonatomic, assign)BOOL isDuringAnimation;
-@property (nonatomic, assign)BOOL isCurrentlyOnScreen;
-@property (nonatomic, assign)BOOL userInteractionEnable;
+@property (nonatomic, strong) UIWindow *backgroundWindow;
+@property (nonatomic, strong) FTProgressIndicatorView *progressView;
+@property (nonatomic, assign) UIBlurEffectStyle indicatorStyle;
+@property (nonatomic, strong) NSString *progressMessage;
+@property (nonatomic, strong) UIImage *customImage;
+@property (nonatomic, strong) NSTimer *dismissTimer;
+@property (nonatomic, assign) FTProgressIndicatorMessageType  messageType;
+@property (nonatomic, assign) BOOL isDuringAnimation;
+@property (nonatomic, assign) BOOL isCurrentlyOnScreen;
+@property (nonatomic, assign) BOOL userInteractionEnable;
 
 @end
 
@@ -125,7 +125,7 @@
                                                    object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(onKeyboardDidChangeFrame:)
-                                                     name:UIKeyboardDidChangeFrameNotification
+                                                     name:UIKeyboardWillChangeFrameNotification
                                                    object:nil];
     }
     return self;
@@ -227,11 +227,11 @@
         if ([[testWindow class] isEqual:[UIWindow class]] == NO){
             for (UIView *possibleKeyboard in [testWindow subviews]){
                 if ([[possibleKeyboard description] hasPrefix:@"<UIPeripheralHostView"]){
-                    return possibleKeyboard.bounds.size.height;
+                    return kFTScreenHeight - possibleKeyboard.frame.origin.y;
                 }else if ([[possibleKeyboard description] hasPrefix:@"<UIInputSetContainerView"]){
                     for (UIView *hostKeyboard in [possibleKeyboard subviews]){
                         if ([[hostKeyboard description] hasPrefix:@"<UIInputSetHost"]){
-                            return hostKeyboard.frame.size.height;
+                            return kFTScreenHeight - hostKeyboard.frame.origin.y;
                         }
                     }
                 }

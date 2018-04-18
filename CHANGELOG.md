@@ -22,5 +22,6 @@
 |1.2.5|2017-09-10|fix keyboard animation|
 |1.2.6|2017-10-25|fix not dismiss issue|
 |1.2.7|2018-04-10|RealBonus: FTNotification: default dismiss time|
+|1.2.8|2018-04-18|fix: keyboard height issue|
 
 
