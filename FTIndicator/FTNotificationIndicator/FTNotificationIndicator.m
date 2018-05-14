@@ -265,15 +265,24 @@
 
 - (void)startShowingNotificationView
 {
+//    [UIView animateWithDuration:kFTNotificationDefaultAnimationDuration
+//                          delay:0
+//         usingSpringWithDamping:0.5
+//          initialSpringVelocity:0
+//                        options:UIViewAnimationOptionCurveEaseIn
+//                     animations:^{
+//                         [self.notificationView setFrame:CGRectMake(0,0,kFTScreenWidth,self.notificationView.frame.size.height)];
+//                     } completion:^(BOOL finished) {
+//                         if (!self.isCurrentlyOnScreen) {
+//                             [self startDismissTimer];
+//                         }
+//                         self.isCurrentlyOnScreen = YES;
+//                     }];
     [UIView animateWithDuration:kFTNotificationDefaultAnimationDuration
                           delay:0
-         usingSpringWithDamping:0.5
-          initialSpringVelocity:0
-                        options:UIViewAnimationOptionCurveEaseIn
+                        options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         
                          [self.notificationView setFrame:CGRectMake(0,0,kFTScreenWidth,self.notificationView.frame.size.height)];
-                         
                      } completion:^(BOOL finished) {
                          if (!self.isCurrentlyOnScreen) {
                              [self startDismissTimer];
@@ -291,11 +300,9 @@
     [self.notificationView.layer removeAllAnimations];
     [UIView animateWithDuration:kFTNotificationDefaultAnimationDuration
                           delay:0
-                        options:UIViewAnimationOptionCurveEaseIn
+                        options:(UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionAllowUserInteraction)
                      animations:^{
-                         
                          [self.notificationView setFrame:CGRectMake(0,- (self.notificationView.frame.size.height),kFTScreenWidth,(self.notificationView.frame.size.height))];
-                         
                      } completion:^(BOOL finished) {
                          self.isCurrentlyOnScreen = NO;
                          [self.notificationView removeFromSuperview];
